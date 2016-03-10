@@ -4,10 +4,16 @@ get_header();
 
 <!-- main content -->
 
-<main id="main-content">
+<main id="main-content" class="container">
 
-  <!-- main posts loop -->
-  <section id="posts">
+  <div class="row">
+
+    <div class="col col-6">
+
+    </div>
+
+    <!-- main posts loop -->
+    <section id="posts" class="col col-18">
 
 <?php
 if( have_posts() ) {
@@ -15,13 +21,21 @@ if( have_posts() ) {
     the_post();
 ?>
 
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+        <header class="post-header">
 
-      <?php the_content(); ?>
+          <a href="<?php the_permalink() ?>"><h4 class="post-date"><?php the_time('M., Y'); ?></h4></a>
 
-    </article>
+          <a href="<?php the_permalink() ?>"><h2 class="post-title"><?php the_title(); ?></h2></a>
+
+        </header>
+
+        <div class="copy">
+          <?php the_content(); ?>
+        </div>
+
+      </article>
 
 <?php
   }
@@ -31,10 +45,11 @@ if( have_posts() ) {
 <?php
 } ?>
 
-  <!-- end posts -->
-  </section>
+    <?php get_template_part('partials/pagination'); ?>
 
-  <?php get_template_part('partials/pagination'); ?>
+    <!-- end posts -->
+    </section>
+
 
 <!-- end main-content -->
 
