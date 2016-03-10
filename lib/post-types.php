@@ -19,7 +19,7 @@ function post_type_exposiciones() {
 
 	$labels = array(
 		'name'                  => _x( 'Exposiciones', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Exposicion', 'Post Type Singular Name', 'text_domain' ),
+		'singular_name'         => _x( 'Exposición', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'             => __( 'Exposiciones', 'text_domain' ),
 		'name_admin_bar'        => __( 'Exposiciones', 'text_domain' ),
 		'archives'              => __( 'Exposiciones Archives', 'text_domain' ),
@@ -45,7 +45,7 @@ function post_type_exposiciones() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Exposicion', 'text_domain' ),
+		'label'                 => __( 'Exposición', 'text_domain' ),
 		'description'           => __( 'Exposiciones', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
@@ -181,7 +181,7 @@ function post_type_publicaciones() {
 
 	$labels = array(
 		'name'                  => _x( 'Publicaciones', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Publicacion', 'Post Type Singular Name', 'text_domain' ),
+		'singular_name'         => _x( 'Publicación', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'             => __( 'Publicaciones', 'text_domain' ),
 		'name_admin_bar'        => __( 'Publicaciones', 'text_domain' ),
 		'archives'              => __( 'Item Archives', 'text_domain' ),
@@ -207,7 +207,7 @@ function post_type_publicaciones() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Publicacion', 'text_domain' ),
+		'label'                 => __( 'Publicación', 'text_domain' ),
 		'description'           => __( 'Publicaciones', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
