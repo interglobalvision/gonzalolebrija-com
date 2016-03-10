@@ -156,7 +156,7 @@ function post_type_journal() {
 		'label'                 => __( 'Journal', 'text_domain' ),
 		'description'           => __( 'Journal', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', ),
+		'supports'              => array( 'title', 'thumbnail', ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
