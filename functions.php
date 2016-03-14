@@ -140,6 +140,17 @@ function is_single_type($type, $post) {
   }
 }
 
+// echo submenu of page children
+function echo_page_children_submenu($children) {
+  if ($children) {
+    echo '<ul class="submenu">';
+    foreach($children as $child) {
+      echo '<li><a href="' . get_the_permalink($child->ID) . '">' . $child->post_title . '</a></li>';
+    }
+    echo '</ul>';
+  }
+}
+
 // print var in <pre> tags
 function pr($var) {
   echo '<pre>';
