@@ -22,11 +22,10 @@ if( have_posts() ) {
 ?>
 
       <article <?php post_class('col col-6'); ?> id="post-<?php the_ID(); ?>">
-
-        <?php the_post_thumbnail('journal-index'); ?>
-
-        <div class="journal-title"><?php the_title(); ?></div>
-
+        <a href="<?php the_permalink() ?>">
+          <?php the_post_thumbnail('journal-index'); ?>
+          <div class="journal-title"><?php the_title(); ?></div>
+        </a>
       </article>
 
 <?php
