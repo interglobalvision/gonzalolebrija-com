@@ -48,6 +48,13 @@ function igv_cmb_metaboxes() {
   ) );
 
   $exposiciones_meta->add_field( array(
+    'name'       => __( 'Location', 'cmb2' ),
+/*     'desc'       => __( '...', 'cmb2' ), */
+    'id'         => $prefix . 'location',
+    'type'       => 'text',
+  ) );
+
+  $exposiciones_meta->add_field( array(
     'name'       => __( 'Start date', 'cmb2' ),
     'desc'       => __( 'start of the exhibition', 'cmb2' ),
     'id'         => $prefix . 'start_date',
