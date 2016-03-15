@@ -49,7 +49,7 @@ function post_type_exposiciones() {
 		'description'           => __( 'Exposiciones', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => array( 'tipo_de_exposicion' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -67,6 +67,47 @@ function post_type_exposiciones() {
 
 }
 add_action( 'init', 'post_type_exposiciones', 0 );
+
+// Custom taxonomy for Exhibition type
+
+// Register Custom Taxonomy
+function tipo_de_exposicion() {
+
+	$labels = array(
+		'name'                       => 'Tipos de exposicions',
+		'singular_name'              => 'Tipo de exposicion',
+		'menu_name'                  => 'Tipo de exposicion',
+		'all_items'                  => 'All Items',
+		'parent_item'                => 'Parent Item',
+		'parent_item_colon'          => 'Parent Item:',
+		'new_item_name'              => 'New Item Name',
+		'add_new_item'               => 'Add New Item',
+		'edit_item'                  => 'Edit Item',
+		'update_item'                => 'Update Item',
+		'view_item'                  => 'View Item',
+		'separate_items_with_commas' => 'Separate items with commas',
+		'add_or_remove_items'        => 'Add or remove items',
+		'choose_from_most_used'      => 'Choose from the most used',
+		'popular_items'              => 'Popular Items',
+		'search_items'               => 'Search Items',
+		'not_found'                  => 'Not Found',
+		'no_terms'                   => 'No items',
+		'items_list'                 => 'Items list',
+		'items_list_navigation'      => 'Items list navigation',
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'tipo_de_exposicion', array( 'exposiciones' ), $args );
+
+}
+add_action( 'init', 'tipo_de_exposicion', 0 );
 
 // Register Custom Post Type
 function post_type_obra() {
