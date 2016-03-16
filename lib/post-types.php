@@ -74,9 +74,9 @@ add_action( 'init', 'post_type_exposiciones', 0 );
 function tipo_de_exposicion() {
 
 	$labels = array(
-		'name'                       => 'Tipos de exposicions',
-		'singular_name'              => 'Tipo de exposicion',
-		'menu_name'                  => 'Tipo de exposicion',
+		'name'                       => 'Tipos de exposiciones',
+		'singular_name'              => 'Tipo de exposición',
+		'menu_name'                  => 'Tipo de exposición',
 		'all_items'                  => 'All Items',
 		'parent_item'                => 'Parent Item',
 		'parent_item_colon'          => 'Parent Item:',
