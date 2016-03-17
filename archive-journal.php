@@ -41,6 +41,7 @@ if( have_posts() ) {
     <!-- end posts -->
     </section>
 
+  </div>
 
 <!-- end main-content -->
 
