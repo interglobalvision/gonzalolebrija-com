@@ -51,6 +51,18 @@ register_nav_menus( array(
 ) );
 */
 
+add_action( 'init', 'init_moment_php', 9999 );
+function init_moment_php() {
+  if( ! class_exists( 'Moment' ) )
+    require_once 'lib/moment-php/src/Moment.php';
+    require_once 'lib/moment-php/src/MomentException.php';
+    require_once 'lib/moment-php/src/MomentFromVo.php';
+    require_once 'lib/moment-php/src/MomentHelper.php';
+    require_once 'lib/moment-php/src/MomentLocale.php';
+    require_once 'lib/moment-php/src/MomentPeriodVo.php';
+    require_once 'lib/moment-php/src/FormatsInterface.php';
+}
+
 get_template_part( 'lib/gallery' );
 get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
