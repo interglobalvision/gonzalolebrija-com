@@ -1,4 +1,12 @@
-    <footer id="footer">
+    <footer id="footer" class="container">
+      <div class="row">
+        <div class="col col-12">
+          ©<?php echo date('Y'); ?> Gonzalo Lebrija.
+        </div>
+        <div class="col col-12 u-align-right">
+          <?php echo __('[:es]Todos los derechos reservados.[:en]All rights reserved.'); ?>
+        </div>
+      </div>
     </footer>
 
   </section>
