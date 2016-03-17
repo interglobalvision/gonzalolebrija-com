@@ -12,7 +12,13 @@ get_header();
 
       <?php
         if (have_posts()) {
-          echo $wp_query->post_count . ' ' . __('[:es]Resultados[:en]Results');
+          if ($wp_query->post_count === 1) {
+              echo $wp_query->post_count . ' ' . __('[:es]Resultado[:en]Result');
+          } else {
+            echo $wp_query->post_count . ' ' . __('[:es]Resultados[:en]Results');
+          }
+        } else {
+          echo __('[:es]Sin resultados[:en]No results');
         }
       ?>
 
@@ -49,17 +55,15 @@ if( have_posts() ) {
 
 <?php
   }
-} else {
+}
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria'); ?></article>
-<?php
-} ?>
 
     <?php get_template_part('partials/pagination'); ?>
 
     <!-- end posts -->
     </section>
 
+  </div>
 
 <!-- end main-content -->
 
