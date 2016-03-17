@@ -39,6 +39,9 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'opengraph', 1200, 630, true );
 
   add_image_size( 'journal-index', 9999, 420, false );
+  add_image_size( 'journal-large-single', 9999, 9999, false );
+
+  add_image_size( 'name', 199, 299, true );
 }
 
 // Register Nav Menus
@@ -137,6 +140,17 @@ function is_single_type($type, $post) {
     return true;
   } else {
     return false;
+  }
+}
+
+// echo submenu of page children
+function echo_page_children_submenu($children) {
+  if ($children) {
+    echo '<ul class="submenu">';
+    foreach($children as $child) {
+      echo '<li><a href="' . get_the_permalink($child->ID) . '">' . $child->post_title . '</a></li>';
+    }
+    echo '</ul>';
   }
 }
 
