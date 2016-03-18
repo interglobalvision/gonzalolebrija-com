@@ -1,3 +1,5 @@
+@import "fonts"
+
 @import "kouto-swiss"
 
 @import "helpers"
@@ -73,19 +75,40 @@ $color-white-soft = rgb(253, 253, 253)
 // TYPOGRAPHY
 
 body
-  font-family: helvetica, arial, sans-serif
+  font-family: 'Graphik', helvetica, arial, sans-serif
   font-size: $font-size-basic
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
+
+.font-serif,
+h1,
+h2,
+h3
+  font-family: 'Garamond Premier Pro', serif
+
+.font-italic
+  font-style: italic
+
+.font-bold
+  font-weight: bold
 
 h1
   font-size: 3rem
 
 h2
-  font-size: 2rem
+  font-size: 2.1rem
 
 h3
-  font-size: 1.5rem
+  font-size: 1.7rem
+  font-style: italic
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  line-height: $font-leading-basic
 
 p
   margin-bottom: 1rem

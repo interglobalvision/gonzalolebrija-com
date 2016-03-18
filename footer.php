@@ -1,4 +1,4 @@
-    <footer id="footer" class="container">
+    <footer id="footer" class="container font-serif">
       <div class="row">
         <div class="col col-12">
           ©<?php echo date('Y'); ?> Gonzalo Lebrija.
