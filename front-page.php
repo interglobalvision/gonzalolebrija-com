@@ -21,7 +21,7 @@ $date_format = 'd M, y';
       <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
     </div>
     <div class="col col-12 u-align-center">
-      <h1>GL.</h1>
+      <h1 id="home-site-title" class="font-bold"><a href="<?php echo home_url(); ?>">GL.</a></h1>
     </div>
     <div class="col col-6">
       <?php get_search_form(); ?>
@@ -36,7 +36,7 @@ $date_format = 'd M, y';
   <div class="row">
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="underline"><?php echo __('[:es]Exposiciones actuales[:en]Current Exhibitions'); ?></h4>
+        <h4 class="border-bottom"><?php echo __('[:es]Exposiciones actuales[:en]Current Exhibitions'); ?></h4>
         <?php
           $args = array(
             'post_type' => 'exposiciones',
@@ -77,7 +77,7 @@ $date_format = 'd M, y';
       </div>
     </div>
     <div class="col col-12">
-      <h4 class="underline"><?php echo __('[:es]Noticias[:en]News'); ?></h4>
+      <h4 class="border-bottom"><?php echo __('[:es]Noticias[:en]News'); ?></h4>
         <?php
           $args = array(
             'post_type' => 'post',
@@ -104,7 +104,7 @@ $date_format = 'd M, y';
     </div>
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="underline"><?php echo __('[:es]Próximas exposiciones[:en]Upcoming Exhibitions'); ?></h4>
+        <h4 class="border-bottom"><?php echo __('[:es]Próximas exposiciones[:en]Upcoming Exhibitions'); ?></h4>
         <?php
           $args = array(
             'post_type' => 'exposiciones',
@@ -141,7 +141,7 @@ $date_format = 'd M, y';
 <div class="row">
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="underline"><?php echo __('[:es]Publicaciones[:en]Publications'); ?></h4>
+        <h4 class="border-bottom"><?php echo __('[:es]Publicaciones[:en]Publications'); ?></h4>
         <?php
           $args = array(
             'post_type' => 'publicaciones',
@@ -193,7 +193,7 @@ $date_format = 'd M, y';
     </div>
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="underline"><?php echo __('[:es]Obra[:en]Works'); ?></h4>
+        <h4 class="border-bottom"><?php echo __('[:es]Obra[:en]Works'); ?></h4>
         <?php
           $args = array(
             'post_type' => 'obra',
@@ -212,7 +212,7 @@ $date_format = 'd M, y';
           }
           wp_reset_postdata();
         ?>
-        <h4 class="underline"><?php echo __('[:es]En exhibición[:en]Works on view'); ?></h4>
+        <h4 class="border-bottom"><?php echo __('[:es]En exhibición[:en]Works on view'); ?></h4>
         <?php
           $args = array(
             'post_type' => 'obra',

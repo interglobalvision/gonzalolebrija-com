@@ -54,7 +54,7 @@
   <section id="main-container">
 
   <!-- start content -->
-  <header id="header" class="container">
+  <header id="header" class="container ">
     <div id="header-top" class="row">
       <div class="col col-6">
         <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
@@ -79,5 +79,9 @@
       <div class="col col-6">
         <?php get_search_form(); ?>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-24 border-bottom"></div>
     </div>
   </header>

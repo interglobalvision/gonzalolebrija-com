@@ -1176,13 +1176,15 @@ img {
   max-width: 100%;
   height: auto;
 }
-#header {
-  margin-top: 32px;
-  padding-bottom: 8px;
-  margin-bottom: 16px;
+.border-bottom {
   border-bottom-color: #0e0e0e;
   border-bottom-width: 2px;
   border-bottom-style: solid;
+  padding-bottom: 4px;
+}
+#header {
+  margin-top: 32px;
+  margin-bottom: 16px;
 }
 #site-title {
   font-size: 2rem;
@@ -1212,6 +1214,18 @@ img {
   border: none;
   outline: none;
   margin-left: 8px;
+}
+.home #header {
+  display: none;
+}
+#home-header {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+#home-site-title {
+  font-size: 7rem;
+  line-height: 1;
+  margin: 0;
 }
 @media screen and (max-width: 1296px) {
   html {

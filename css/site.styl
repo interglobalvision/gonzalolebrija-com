@@ -73,6 +73,16 @@ $font-tracking-wider = 0.01em
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
 
+
+// MIXINS
+
+border-bottom()
+  border-bottom-color: $color-black-soft
+  border-bottom-width: 2px
+  border-bottom-style: solid
+  padding-bottom: ($margin-tiny / 2)
+
+
 // TYPOGRAPHY
 
 body
@@ -140,22 +150,14 @@ img
   max-width: 100%
   height: auto
 
-
-// MIXINS
-
-border-bottom()
-  border-bottom-color: $color-black-soft
-  border-bottom-width: 2px
-  border-bottom-style: solid
-
+.border-bottom
+  border-bottom()
 
 // HEADER
 
 #header
   margin-top: $margin-basic
-  padding-bottom: $margin-tiny
   margin-bottom: $margin-small
-  border-bottom()
 
 #site-title
   font-size: 2rem
@@ -185,6 +187,18 @@ border-bottom()
   outline: none
   margin-left: $margin-tiny
 
+.home
+  #header
+    display: none
+
+#home-header
+  margin-top: $margin-basic
+  margin-bottom: $margin-small
+
+#home-site-title
+  font-size: 7rem
+  line-height: 1
+  margin: 0
 
 
 // MEDIA QUERIES
