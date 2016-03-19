@@ -57,7 +57,7 @@
   <header id="header" class="container">
     <div id="header-top" class="row">
       <div class="col col-6">
-        <h1 id="site-title" class="font-bold"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+        <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
       </div>
       <div class="col col-18">
         <ul id="menu">
