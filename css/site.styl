@@ -156,8 +156,14 @@ img
 // HEADER
 
 #header
-  margin-top: $margin-basic
-  margin-bottom: $margin-small
+  padding-top: $margin-basic
+  position: fixed
+  top: 0
+  width: 100%
+  background-color: $color-white-soft
+
+#main-content
+  padding-top: (101 + $margin-small)
 
 #site-title
   font-size: 2rem
@@ -187,9 +193,17 @@ img
   outline: none
   margin-left: $margin-tiny
 
+  // HOME HEADER
+
 .home
   #header
     display: none
+  #main-content
+    padding-top: 0
+
+.home.state-scrolled
+  #header
+    display: block
 
 #home-header
   margin-top: $margin-basic

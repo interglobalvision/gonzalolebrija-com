@@ -1183,8 +1183,14 @@ img {
   padding-bottom: 4px;
 }
 #header {
-  margin-top: 32px;
-  margin-bottom: 16px;
+  padding-top: 32px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fdfdfd;
+}
+#main-content {
+  padding-top: 117px;
 }
 #site-title {
   font-size: 2rem;
@@ -1217,6 +1223,12 @@ img {
 }
 .home #header {
   display: none;
+}
+.home #main-content {
+  padding-top: 0;
+}
+.home.state-scrolled #header {
+  display: block;
 }
 #home-header {
   margin-top: 32px;
