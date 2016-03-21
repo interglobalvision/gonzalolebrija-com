@@ -26,7 +26,7 @@ get_header();
         wp_get_archives($args);
       ?>
         <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('obras/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+        <li><a href="<?php echo home_url('obra/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
       </ul>
 
     </div>
