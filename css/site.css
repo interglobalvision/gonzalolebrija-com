@@ -1145,6 +1145,11 @@ h5,
 h6 {
   line-height: 1.35em;
 }
+h4,
+h5,
+h6 {
+  letter-spacing: 0.01em;
+}
 p {
   margin-bottom: 1rem;
 }
@@ -1170,6 +1175,69 @@ html {
 img {
   max-width: 100%;
   height: auto;
+}
+.border-bottom {
+  border-bottom-color: #0e0e0e;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-bottom: 4px;
+}
+#header {
+  padding-top: 32px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fdfdfd;
+}
+#main-content {
+  padding-top: 117px;
+}
+#site-title {
+  font-size: 2rem;
+  margin: 0;
+}
+#menu {
+  font-size: 1.6rem;
+  line-height: 1.35em;
+  letter-spacing: 0.01em;
+}
+.menu-item {
+  display: inline-block;
+}
+.menu-item:last-child a:after {
+  content: '';
+}
+.menu-item a:after {
+  content: ', ';
+}
+#qtranslate-chooser li {
+  display: inline-block;
+}
+#qtranslate-chooser li:first-child:after {
+  content: ' / ';
+}
+#search-field {
+  border: none;
+  outline: none;
+  margin-left: 8px;
+}
+.home #header {
+  display: none;
+}
+.home #main-content {
+  padding-top: 0;
+}
+.home.state-scrolled #header {
+  display: block;
+}
+#home-header {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+#home-site-title {
+  font-size: 7rem;
+  line-height: 1;
+  margin: 0;
 }
 @media screen and (max-width: 1296px) {
   html {
