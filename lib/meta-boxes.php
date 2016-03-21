@@ -98,8 +98,15 @@ function igv_cmb_metaboxes() {
   ) );
 
   $obra_meta->add_field( array(
-    'name'       => __( 'Medium', 'cmb2' ),
-    'desc'       => __( '', 'cmb2' ),
+    'name'       => __( 'Medium ES', 'cmb2' ),
+    'desc'       => __( 'en español', 'cmb2' ),
+    'id'         => $prefix . 'medium_es',
+    'type'       => 'text',
+  ) );
+
+  $obra_meta->add_field( array(
+    'name'       => __( 'Medium EN', 'cmb2' ),
+    'desc'       => __( 'in english', 'cmb2' ),
     'id'         => $prefix . 'medium',
     'type'       => 'text',
   ) );
