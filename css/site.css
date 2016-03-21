@@ -1239,6 +1239,10 @@ img {
   line-height: 1;
   margin: 0;
 }
+#footer {
+  padding-top: 16px;
+  margin-bottom: 32px;
+}
 @media screen and (max-width: 1296px) {
   html {
     width: 100%;
