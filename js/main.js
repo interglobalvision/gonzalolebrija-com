@@ -5,34 +5,50 @@ Site = {
   init: function() {
     var _this = this;
 
-    _this.showHideHeader.init();
+    _this.Header.init();
   },
 
 };
 
 // Show/Hide header on scroll
-Site.showHideHeader = {
+Site.Header = {
   init: function() {
     var _this = this;
 
-    _this.headerHeight = $('#header').height();
+    var $body = $('body');
 
-    _this.bindScroll();
+    if ( $body.hasClass('home') ) {
+      _this.headerHeight = $('#home-header').height();
+
+      // Initial check
+      if ( $(window).scrollTop() > _this.headerHeight * _this.threshold ) {
+        $body.addClass('state-scrolled');
+      } else { 
+        $body.removeClass('state-scrolled');
+      }
+
+      _this.bindScroll();
+    }
   },
 
-  debounceSpeed: 150,
+  debounceSpeed: 10,
+  threshold: 1.1,
 
   showHide: function() {
     var _this = this;
 
     return Debounce( function () {
-      if ( $(this).scrollTop() >= _this.headerHeight ) {
-        $('body').addClass('state-scrolled');
+      var scrollTop = $(this).scrollTop();
+      var $body = $('body');
+
+      if ( scrollTop >= _this.headerHeight * _this.threshold) {
+        $body.addClass('state-scrolled');
       } else { 
-        $('body').removeClass('state-scrolled');
+        $body.removeClass('state-scrolled');
       }
 
-      console.log($(this).scrollTop());
+      _this.lastScroll = scrollTop;
+
     }, _this.debounceSpeed);
   },
 
