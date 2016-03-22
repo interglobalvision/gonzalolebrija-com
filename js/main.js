@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr */
+/* global $, jQuery, document, Modernizr, Debounce, Swiper, Site */
 
 Site = {
   init: function() {
@@ -23,7 +23,7 @@ Site.Header = {
       // Initial check
       if ( $(window).scrollTop() > _this.headerHeight * _this.threshold ) {
         $body.addClass('state-scrolled');
-      } else { 
+      } else {
         $body.removeClass('state-scrolled');
       }
 
@@ -43,7 +43,7 @@ Site.Header = {
 
       if ( scrollTop >= _this.headerHeight * _this.threshold) {
         $body.addClass('state-scrolled');
-      } else { 
+      } else {
         $body.removeClass('state-scrolled');
       }
 
