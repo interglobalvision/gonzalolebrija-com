@@ -136,10 +136,6 @@ p
 a, a:active, a:visited
   color: inherit
   text-decoration: none
-  transition:opacity .2s
-  &:hover
-    opacity:.5
-
 
 // BASIC
 
@@ -162,6 +158,7 @@ img
   top: 0
   width: 100%
   background-color: $color-white-soft
+  backface-visibility: hidden
 
 #main-content
   padding-top: (101 + $margin-small)

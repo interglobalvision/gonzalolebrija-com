@@ -1,7 +1,65 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr */
+/* global $, jQuery, document, Modernizr, Debounce, Swiper, Site */
 
-Gallery = {
+Site = {
+  init: function() {
+    var _this = this;
+
+    _this.Header.init();
+    _this.Gallery.init();
+  },
+
+};
+
+// Show/Hide header on scroll
+Site.Header = {
+  debounceSpeed: 10,
+  threshold: 1.1,
+
+  init: function() {
+    var _this = this;
+    var $body = $('body');
+
+    if ( $body.hasClass('home') ) {
+      _this.headerHeight = $('#home-header').height();
+
+      // Initial check
+      if ( $(window).scrollTop() > _this.headerHeight * _this.threshold ) {
+        $body.addClass('state-scrolled');
+      } else {
+        $body.removeClass('state-scrolled');
+      }
+
+      _this.bindScroll();
+    }
+  },
+
+  showHide: function() {
+    var _this = this;
+
+    return Debounce( function () {
+      var scrollTop = $(this).scrollTop();
+      var $body = $('body');
+
+      if ( scrollTop >= _this.headerHeight * _this.threshold) {
+        $body.addClass('state-scrolled');
+      } else {
+        $body.removeClass('state-scrolled');
+      }
+
+      _this.lastScroll = scrollTop;
+
+    }, _this.debounceSpeed);
+  },
+
+  bindScroll: function() {
+    var _this = this;
+
+    window.addEventListener('scroll', _this.showHide());
+  },
+};
+
+Site.Gallery = {
   Swiper: undefined,
   init: function() {
     var _this = this;
@@ -17,9 +75,11 @@ Gallery = {
         $('#gallery-index-length').html(swiper.slides.length - 2);
         _this.setActive(swiper.activeIndex);
       },
+
       onSlideChangeEnd: function(swiper) {
         _this.setActive(swiper.activeIndex);
       },
+
       onClick: function(swiper) {
         swiper.slideNext();
       },
@@ -30,7 +90,7 @@ Gallery = {
   setActive: function(activeIndex) {
     $('#gallery-index-active').html(activeIndex);
   },
-}
+};
 
 jQuery(document).ready(function () {
   'use strict';
@@ -43,6 +103,6 @@ jQuery(document).ready(function () {
     $(this).html(string);
   });
 
-  Gallery.init();
+  Site.init();
 
 });
