@@ -1,5 +1,6 @@
 <?php
 get_header();
+$lang = qtranxf_getLanguage();
 ?>
 
 <!-- main content -->
@@ -53,8 +54,8 @@ if( have_posts() ) {
 
           <div id="single-work-meta">
             <?php
-              if (!empty($meta['_igv_medium_es']) && !empty($meta['_igv_medium'])) {
-                echo '<div>' . __('[:es]' . $meta['_igv_medium_es'][0] . '[:en]' . $meta['_igv_medium'][0]) . '</div>';
+              if (!empty($meta['_igv_medium_' . $lang])) {
+                echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
               }
               if (!empty($meta['_igv_size'])) {
                 echo $meta['_igv_size'][0];
