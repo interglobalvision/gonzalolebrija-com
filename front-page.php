@@ -36,7 +36,7 @@ $date_format = 'd M, y';
   <div class="row">
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="border-bottom"><?php echo __('[:es]Exposiciones actuales[:en]Current Exhibitions'); ?></h4>
+        <a href="<?php echo home_url('exposiciones/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Exposiciones actuales[:en]Current Exhibitions'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'exposiciones',
@@ -63,12 +63,14 @@ $date_format = 'd M, y';
             $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
         ?>
           <div class="home-column-post">
-            <h3><?php the_title(); ?></h3>
-            <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format) ?></h4>
-            <?php the_post_thumbnail(); ?>
-            <div class="home-column-post-copy">
-              <?php the_excerpt();?>
-            </div>
+            <a href="<?php the_permalink() ?>">
+              <h3><?php the_title(); ?></h3>
+              <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format) ?></h4>
+              <?php the_post_thumbnail(); ?>
+              <div class="home-column-post-copy">
+                <?php the_excerpt();?>
+              </div>
+            </a>
           </div>
         <?php
           }
@@ -77,7 +79,7 @@ $date_format = 'd M, y';
       </div>
     </div>
     <div class="col col-12">
-      <h4 class="border-bottom"><?php echo __('[:es]Noticias[:en]News'); ?></h4>
+      <a href="<?php echo home_url('noticias/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Noticias[:en]News'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'post',
@@ -88,14 +90,16 @@ $date_format = 'd M, y';
             $news->the_post();
         ?>
           <div class="home-news-post">
-            <header class="home-news-post-header">
-              <h4><?php the_time($date_format) ?></h4>
-              <h2><?php the_title(); ?></h2>
-            </header>
-            <?php the_post_thumbnail(); ?>
-            <div class="home-news-post-copy">
-              <?php the_excerpt();?>
-            </div>
+            <a href="<?php the_permalink() ?>">
+              <header class="home-news-post-header">
+                <h4><?php the_time($date_format) ?></h4>
+                <h2><?php the_title(); ?></h2>
+              </header>
+              <?php the_post_thumbnail(); ?>
+              <div class="home-news-post-copy">
+                <?php the_excerpt();?>
+              </div>
+            </a>
           </div>
         <?php
           }
@@ -104,7 +108,7 @@ $date_format = 'd M, y';
     </div>
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="border-bottom"><?php echo __('[:es]Próximas exposiciones[:en]Upcoming Exhibitions'); ?></h4>
+        <a href="<?php echo home_url('exposiciones/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Próximas exposiciones[:en]Upcoming Exhibitions'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'exposiciones',
@@ -123,12 +127,14 @@ $date_format = 'd M, y';
             $meta = get_post_meta($post->ID);
         ?>
           <div class="home-column-post">
-            <h3><?php the_title(); ?></h3>
-            <h4><?php if (!empty($meta['_igv_location'][0])) {echo $meta['_igv_location'][0]; } ?></h4>
-            <?php the_post_thumbnail(); ?>
-            <div class="home-column-post-copy">
-              <?php the_excerpt();?>
-            </div>
+            <a href="<?php the_permalink() ?>">
+              <h3><?php the_title(); ?></h3>
+              <h4><?php if (!empty($meta['_igv_location'][0])) {echo $meta['_igv_location'][0]; } ?></h4>
+              <?php the_post_thumbnail(); ?>
+              <div class="home-column-post-copy">
+                <?php the_excerpt();?>
+              </div>
+            </a>
           </div>
         <?php
           }
@@ -141,7 +147,7 @@ $date_format = 'd M, y';
 <div class="row">
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="border-bottom"><?php echo __('[:es]Publicaciones[:en]Publications'); ?></h4>
+        <a href="<?php echo home_url('publicaciones/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Publicaciones[:en]Publications'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'publicaciones',
@@ -153,11 +159,13 @@ $date_format = 'd M, y';
             $meta = get_post_meta($post->ID);
         ?>
           <div class="home-column-post">
-            <h3><?php the_title(); ?></h3>
-            <?php the_post_thumbnail(); ?>
-            <div class="home-column-post-copy">
-              <?php the_excerpt();?>
-            </div>
+            <a href="<?php the_permalink() ?>">
+              <h3><?php the_title(); ?></h3>
+              <?php the_post_thumbnail(); ?>
+              <div class="home-column-post-copy">
+                <?php the_excerpt();?>
+              </div>
+            </a>
           </div>
         <?php
           }
@@ -177,14 +185,16 @@ $date_format = 'd M, y';
             $news->the_post();
         ?>
           <div class="home-news-post">
-            <header class="home-news-post-header">
-              <h4><?php the_time($date_format) ?></h4>
-              <h2><?php the_title(); ?></h2>
-            </header>
-            <?php the_post_thumbnail(); ?>
-            <div class="home-news-post-copy">
-              <?php the_excerpt();?>
-            </div>
+            <a href="<?php the_permalink() ?>">
+              <header class="home-news-post-header">
+                <h4><?php the_time($date_format) ?></h4>
+                <h2><?php the_title(); ?></h2>
+              </header>
+              <?php the_post_thumbnail(); ?>
+              <div class="home-news-post-copy">
+                <?php the_excerpt();?>
+              </div>
+            </a>
           </div>
         <?php
           }
@@ -193,7 +203,7 @@ $date_format = 'd M, y';
     </div>
     <div class="col col-6">
       <div class="home-column">
-        <h4 class="border-bottom"><?php echo __('[:es]Obra[:en]Works'); ?></h4>
+        <a href="<?php echo home_url('obra/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Obra[:en]Works'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'obra',
@@ -205,14 +215,16 @@ $date_format = 'd M, y';
             $meta = get_post_meta($post->ID);
         ?>
           <div class="home-column-post">
-            <?php the_post_thumbnail(); ?>
-            <h4 class="u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+            <a href="<?php the_permalink() ?>">
+              <?php the_post_thumbnail(); ?>
+              <h4 class="u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+            </a>
           </div>
         <?php
           }
           wp_reset_postdata();
         ?>
-        <h4 class="border-bottom"><?php echo __('[:es]En exhibición[:en]Works on view'); ?></h4>
+        <a href="<?php echo home_url('obra/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]En exhibición[:en]Works on view'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'obra',
@@ -225,8 +237,10 @@ $date_format = 'd M, y';
             $meta = get_post_meta($post->ID);
         ?>
           <div class="home-column-post">
-            <?php the_post_thumbnail(); ?>
-            <h4 class="u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+            <a href="<?php the_permalink() ?>">
+              <?php the_post_thumbnail(); ?>
+              <h4 class="u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+            </a>
           </div>
         <?php
           }
