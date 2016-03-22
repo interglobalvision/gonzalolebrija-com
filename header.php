@@ -54,30 +54,36 @@
   <section id="main-container">
 
   <!-- start content -->
-  <header id="header" class="container">
-    <div id="header-top" class="row">
-      <div class="col col-6">
-        <h1 id="site-title" class="font-bold"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+  <header id="header">
+    <div class="container">
+      <div id="header-top" class="row">
+        <div class="col col-6">
+          <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+        </div>
+        <div class="col col-18">
+          <ul id="menu">
+            <li class="menu-item"><a href="<?php echo home_url('noticias/'); ?>"><?php echo __('[:es]Noticias[:en]News'); ?></a></li>
+            <li class="menu-item"><a href="<?php echo home_url('exposiciones/'); ?>"><?php echo __('[:es]Exposiciones[:en]Exhibitions'); ?></a></a></li>
+            <li class="menu-item"><a href="<?php echo home_url('obra/'); ?>"><?php echo __('[:es]Obra[:en]Work'); ?></a></a></li>
+            <li class="menu-item"><a href="<?php echo home_url('journal/'); ?>"><?php echo __('[:es]Journal[:en]Journal'); ?></a></a></li>
+            <li class="menu-item"><a href="<?php echo home_url('publicaciones/'); ?>"><?php echo __('[:es]Publicaciones[:en]Publications'); ?></a></a></li>
+            <li class="menu-item"><a href="<?php echo home_url('archivo/'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></a></li>
+            <li class="menu-item"><a href="<?php echo home_url('info/'); ?>"><?php echo __('[:es]Info[:en]Info'); ?></a></a></li>
+          </ul>
+        </div>
       </div>
-      <div class="col col-18">
-        <ul id="menu">
-          <li class="menu-item"><a href="<?php echo home_url('noticias/'); ?>"><?php echo __('[:es]Noticias[:en]News'); ?></a></li>
-          <li class="menu-item"><a href="<?php echo home_url('exposiciones/'); ?>"><?php echo __('[:es]Exposiciones[:en]Exhibitions'); ?></a></a></li>
-          <li class="menu-item"><a href="<?php echo home_url('obra/'); ?>"><?php echo __('[:es]Obra[:en]Work'); ?></a></a></li>
-          <li class="menu-item"><a href="<?php echo home_url('journal/'); ?>"><?php echo __('[:es]Journal[:en]Journal'); ?></a></a></li>
-          <li class="menu-item"><a href="<?php echo home_url('publicaciones/'); ?>"><?php echo __('[:es]Publicaciones[:en]Publications'); ?></a></a></li>
-          <li class="menu-item"><a href="<?php echo home_url('archivo/'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></a></li>
-          <li class="menu-item"><a href="<?php echo home_url('info/'); ?>"><?php echo __('[:es]Info[:en]Info'); ?></a></a></li>
-        </ul>
-      </div>
-    </div>
 
-    <div id="header-bottom" class="row font-serif">
-      <div class="col col-18">
-        <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+      <div id="header-bottom" class="row font-serif">
+        <div class="col col-18">
+          <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
+        </div>
+        <div class="col col-6">
+          <?php get_search_form(); ?>
+        </div>
       </div>
-      <div class="col col-6">
-        <?php get_search_form(); ?>
+
+      <div class="row">
+        <div class="col col-24 border-bottom"></div>
       </div>
     </div>
   </header>
