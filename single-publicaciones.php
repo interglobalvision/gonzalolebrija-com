@@ -39,7 +39,7 @@ if( have_posts() ) {
             }
           ?></h2></a>
 
-          >>>gallery pagination
+          <?php get_template_part('partials/gallery-nav'); ?>
         </div>
 
         <div class="col col-12">
