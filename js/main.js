@@ -6,15 +6,18 @@ Site = {
     var _this = this;
 
     _this.Header.init();
+    _this.Gallery.init();
   },
 
 };
 
 // Show/Hide header on scroll
 Site.Header = {
+  debounceSpeed: 10,
+  threshold: 1.1,
+
   init: function() {
     var _this = this;
-
     var $body = $('body');
 
     if ( $body.hasClass('home') ) {
@@ -30,9 +33,6 @@ Site.Header = {
       _this.bindScroll();
     }
   },
-
-  debounceSpeed: 10,
-  threshold: 1.1,
 
   showHide: function() {
     var _this = this;
@@ -59,7 +59,7 @@ Site.Header = {
   },
 };
 
-Gallery = {
+Site.Gallery = {
   Swiper: undefined,
   init: function() {
     var _this = this;
@@ -104,6 +104,5 @@ jQuery(document).ready(function () {
   });
 
   Site.init();
-  Gallery.init();
 
 });
