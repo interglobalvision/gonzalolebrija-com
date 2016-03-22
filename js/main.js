@@ -14,7 +14,7 @@ Gallery = {
       nextButton: '.js-gallery-next',
       prevButton: '.js-gallery-prev',
       onInit: function(swiper) {
-        $('#gallery-index-length').html(swiper.slides.length);
+        $('#gallery-index-length').html(swiper.slides.length - 2);
         _this.setActive(swiper.activeIndex);
       },
       onSlideChangeEnd: function(swiper) {
