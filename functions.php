@@ -125,6 +125,50 @@ add_action( 'login_head', 'custom_login_logo' );
 
 // UTILITY FUNCTIONS
 
+// Return a list of years
+function get_all_years($post_types, $order) {
+  global $wpdb;
+
+  $where = '';
+  for ($i = 0; $i < count($post_types); ++$i) {
+    if ( $i == 0 ) {
+      $where .= 'WHERE ( ';
+    } else {
+      $where .= ' OR ';
+    }
+    $where .= 'post_type = "' . $post_types[$i] . '"';
+  }
+  $where .= ' ) AND post_status = "publish " ';
+
+  $order = strtoupper( $order );
+  if ( $order !== 'ASC' ) {
+    $order = 'DESC';
+  }
+
+  $years = array();
+
+  $last_changed = wp_cache_get( 'last_changed', 'posts' );
+  if ( ! $last_changed ) {
+    $last_changed = microtime();
+    wp_cache_set( 'last_changed', $last_changed, 'posts' );
+  }
+
+  $query = "SELECT YEAR(post_date) AS `year` FROM $wpdb->posts $where GROUP BY YEAR(post_date) ORDER BY post_date $order";
+  $key = md5( $query );
+  $key = "igv_get_all_years:$key:$last_changed";
+  if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+    $results = $wpdb->get_results( $query );
+    wp_cache_set( $key, $results, 'posts' );
+  }
+  if ( $results ) {
+    foreach ( (array) $results as $result) {
+      $years[] = $result->year;
+    }
+  }
+
+  return $years;
+}
+
 // to replace file_get_contents
 function url_get_contents($Url) {
   if (!function_exists('curl_init')){
