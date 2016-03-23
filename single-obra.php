@@ -37,6 +37,18 @@ if( have_posts() ) {
   while( have_posts() ) {
     the_post();
     $meta = get_post_meta($post->ID);
+
+    if (!empty($meta['_igv_in_progress'][0])) {
+      $in_progress = $meta['_igv_in_progress'][0];
+    } else {
+      $in_progress = false;
+    }
+
+    if (!empty($meta['_igv_gallery'][0])) {
+      $gallery = true;
+    } else {
+      $gallery = false;
+    }
 ?>
 
       <article <?php post_class('u-float'); ?> id="single-work-<?php the_ID(); ?>">
@@ -48,6 +60,9 @@ if( have_posts() ) {
               the_title();
               if (!empty($meta['_igv_year'])) {
                 echo '<br/>' . $meta['_igv_year'][0];
+                if ($in_progress) {
+                  echo ' ' . __('[:es](en progreso)[:en](in progress)');
+                }
               }
             ?>
           </h2>
@@ -69,9 +84,11 @@ if( have_posts() ) {
 
             <?php previous_post_link('%link', __('[:es]obra anterior[:en]previous work')); ?> / <?php next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
 
+            <?php if ($gallery) { ?>
             <nav id="single-work-gallery-nav">
               <span class="js-gallery-prev u-pointer"><</span> <span id="gallery-index-active">0</span> / <span id="gallery-index-length">0</span> <span class="js-gallery-next u-pointer">></span>
             </nav>
+            <?php } ?>
 
           </nav>
 
@@ -82,6 +99,10 @@ if( have_posts() ) {
           <?php
             if (!empty($meta['_igv_gallery'])) {
               echo do_shortcode(__($meta['_igv_gallery'][0]));
+            } else if (!empty($meta['_igv_image'])) {
+              echo wp_get_attachment_image($meta['_igv_image_id'][0], 'single-work-image');
+            } else if (!empty($meta['_igv_video'])) {
+              echo $meta['_igv_video'][0];
             }
           ?>
 
