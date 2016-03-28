@@ -43,7 +43,7 @@ foreach($years as $year) {
     </div>
 
     <div class="col col-6">
-      <ul id="type-filter">
+      <ul id="type-filter" class="filters">
 <?php
 foreach($filter_terms as $filter_term) {
 ?>
@@ -73,7 +73,7 @@ if ( $archivo_query->have_posts() ) {
     } 
 ?>
 
-      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>" data-filter-type="<?php echo $types; ?>">
+      <article <?php post_class('filtered-content'); ?> id="post-<?php the_ID(); ?>" data-filter-type="<?php echo $types; ?>">
         <a href="<?php the_permalink() ?>">
           <h3 class="post-title"><?php the_title(); ?><h3>
         </a>
