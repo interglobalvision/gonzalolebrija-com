@@ -23,18 +23,18 @@ function scripts_and_styles_method() {
   wp_enqueue_style( 'site', get_stylesheet_directory_uri() . '/css/site.css' );
 
   // dashicons for admin
-  if(is_admin()){
+  if (is_admin()){
     wp_enqueue_style( 'dashicons' );
   }
 
 }
 add_action('wp_enqueue_scripts', 'scripts_and_styles_method');
 
-if( function_exists( 'add_theme_support' ) ) {
+if ( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
 }
 
-if( function_exists( 'add_image_size' ) ) {
+if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'admin-thumb', 150, 150, false );
   add_image_size( 'opengraph', 1200, 630, true );
 
@@ -54,7 +54,7 @@ register_nav_menus( array(
 
 add_action( 'init', 'init_moment_php', 9999 );
 function init_moment_php() {
-  if( ! class_exists( 'Moment' ) )
+  if ( ! class_exists( 'Moment' ) )
     require_once 'lib/moment-php/src/Moment.php';
     require_once 'lib/moment-php/src/MomentException.php';
     require_once 'lib/moment-php/src/MomentFromVo.php';
@@ -72,7 +72,7 @@ get_template_part( 'lib/theme-options' );
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 function cmb_initialize_cmb_meta_boxes() {
   // Add CMB2 plugin
-  if( ! class_exists( 'cmb2_bootstrap_202' ) )
+  if ( ! class_exists( 'cmb2_bootstrap_202' ) )
     require_once 'lib/CMB2/init.php';
 }
 
@@ -97,7 +97,7 @@ add_action('manage_posts_custom_column', 'new_display_post_thumbnail_column', 5,
 function new_display_post_thumbnail_column($col, $id){
   switch($col){
     case 'new_post_thumb':
-    if( function_exists('the_post_thumbnail') ) {
+    if ( function_exists('the_post_thumbnail') ) {
       echo the_post_thumbnail( 'admin-thumb' );
       }
     else
@@ -109,7 +109,7 @@ function new_display_post_thumbnail_column($col, $id){
 // remove automatic <a> links from images in blog
 function wpb_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
-	if($image_set !== 'none') {
+	if ($image_set !== 'none') {
 		update_option('image_default_link_type', 'none');
 	}
 }
@@ -124,6 +124,59 @@ add_action( 'login_head', 'custom_login_logo' );
 */
 
 // UTILITY FUNCTIONS
+
+// Return an array of exhibition types from these $posts.
+function get_exhibition_types($posts) {
+  if ( empty( $posts ) ) {
+    return '';
+  }
+
+  $terms = array();
+
+  foreach($posts->posts as $post) {
+
+    if ($post->post_type === 'exposiciones') {
+      $post_type = get_post_type_object( $post->post_type );
+      $post_terms = wp_get_post_terms( $post->ID, 'tipo_de_exposicion' );
+      foreach($post_terms as $post_term) {
+        echo in_array($post_term->slug, array_column($terms, 'slug'));
+        if ( in_array($post_term->slug, array_column($terms, 'slug')) == false ) {
+          $terms[] = array(
+            'slug'  =>  $post_term->slug,
+            'name'  =>  $post_term->name,
+          );
+        }
+      }
+    } 
+  }
+  //pr( $terms );
+  return $terms;
+}
+
+// Return an array of post types fropm these $posts
+function get_posts_taxonomies($posts) {
+  if ( empty( $posts ) ) {
+    return '';
+  }
+
+  $terms = array();
+
+  foreach($posts->posts as $post) {
+
+    if ($post->post_type !== 'exposiciones') {
+      $post_type = get_post_type_object( $post->post_type );
+      if ( in_array($post_type->name, array_column($terms, 'slug')) == false ) {
+        $terms[] = array(
+          'slug'  =>  $post_type->name,
+          'name'  =>  $post_type->label,
+        );
+      }
+    }
+
+  }
+  //pr( $terms );
+  return $terms;
+}
 
 // Return a list of years
 function get_all_years($post_types, $order) {
@@ -185,7 +238,7 @@ function url_get_contents($Url) {
 // get ID of page by slug
 function get_id_by_slug($page_slug) {
 	$page = get_page_by_path($page_slug);
-	if($page) {
+	if ($page) {
 		return $page->ID;
 	} else {
 		return null;
