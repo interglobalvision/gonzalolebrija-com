@@ -68,7 +68,7 @@ $date_format = 'd M, y';
               <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format) ?></h4>
               <?php the_post_thumbnail(); ?>
               <div class="home-column-post-copy">
-                <?php echo wp_trim_words($post->post_content, 20, ' <span class="font-small-caps">READ MORE</span>'); ?>
+                <?php echo wp_trim_words($post->post_content, 20, ' <span class="font-small-caps">' . __('[:es]Leer más[:en]Read more') . '</span>'); ?>
               </div>
             </a>
           </div>
