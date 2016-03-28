@@ -22,9 +22,9 @@ get_header();
           'after'           => '',
           'show_post_count' => false,
           'echo'            => 1,
-          'order'           => 'DESC'
+          'order'           => 'ASC'
         );
-        pr(wp_get_archives($args));
+        wp_get_archives($args);
       ?>
         <li>&nbsp;</li>
         <li><a href="<?php echo home_url('noticias/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
