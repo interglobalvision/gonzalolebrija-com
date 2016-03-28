@@ -123,6 +123,12 @@ function custom_login_logo() {
 add_action( 'login_head', 'custom_login_logo' );
 */
 
+// CUSTOM EXCERPT MORE TEXT
+function custom_excerpt_more( $more ) {
+	return ' <span class="font-small-caps">' . __('[:es]Leer más[:en]Read more') . '</span>';
+}
+add_filter( 'excerpt_more', 'custom_excerpt_more' );
+
 // UTILITY FUNCTIONS
 
 // to replace file_get_contents

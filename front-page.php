@@ -64,11 +64,11 @@ $date_format = 'd M, y';
         ?>
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
-              <h3><?php the_title(); ?></h3>
+              <h3 class="home-column-post-title"><?php the_title(); ?></h3>
               <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format) ?></h4>
               <?php the_post_thumbnail(); ?>
               <div class="home-column-post-copy">
-                <?php the_excerpt();?>
+                <?php echo wp_trim_words($post->post_content, 20, ' <span class="font-small-caps">' . __('[:es]Leer más[:en]Read more') . '</span>'); ?>
               </div>
             </a>
           </div>
@@ -88,20 +88,7 @@ $date_format = 'd M, y';
           $news = new WP_Query($args);
           if ($news->have_posts()) {
             $news->the_post();
-        ?>
-          <div class="home-news-post">
-            <a href="<?php the_permalink() ?>">
-              <header class="home-news-post-header">
-                <h4><?php the_time($date_format) ?></h4>
-                <h2><?php the_title(); ?></h2>
-              </header>
-              <?php the_post_thumbnail(); ?>
-              <div class="home-news-post-copy">
-                <?php the_excerpt();?>
-              </div>
-            </a>
-          </div>
-        <?php
+            get_template_part('partials/home-news-post');
           }
           wp_reset_postdata();
         ?>
@@ -128,11 +115,11 @@ $date_format = 'd M, y';
         ?>
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
-              <h3><?php the_title(); ?></h3>
+              <h3 class="home-column-post-title"><?php the_title(); ?></h3>
               <h4><?php if (!empty($meta['_igv_location'][0])) {echo $meta['_igv_location'][0]; } ?></h4>
               <?php the_post_thumbnail(); ?>
               <div class="home-column-post-copy">
-                <?php the_excerpt();?>
+                <?php echo wp_trim_words($post->post_content, 20, ' <span class="font-small-caps">READ MORE</span>'); ?>
               </div>
             </a>
           </div>
@@ -160,10 +147,10 @@ $date_format = 'd M, y';
         ?>
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
-              <h3><?php the_title(); ?></h3>
+              <h3 class="home-column-post-title"><?php the_title(); ?></h3>
               <?php the_post_thumbnail(); ?>
               <div class="home-column-post-copy">
-                <?php the_excerpt();?>
+                <?php echo wp_trim_words($post->post_content, 20, ' <span class="font-small-caps">READ MORE</span>'); ?>
               </div>
             </a>
           </div>
@@ -183,20 +170,7 @@ $date_format = 'd M, y';
           $news = new WP_Query($args);
           if ($news->have_posts()) {
             $news->the_post();
-        ?>
-          <div class="home-news-post">
-            <a href="<?php the_permalink() ?>">
-              <header class="home-news-post-header">
-                <h4><?php the_time($date_format) ?></h4>
-                <h2><?php the_title(); ?></h2>
-              </header>
-              <?php the_post_thumbnail(); ?>
-              <div class="home-news-post-copy">
-                <?php the_excerpt();?>
-              </div>
-            </a>
-          </div>
-        <?php
+            get_template_part('partials/home-news-post');
           }
           wp_reset_postdata();
         ?>
@@ -217,7 +191,7 @@ $date_format = 'd M, y';
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
               <?php the_post_thumbnail(); ?>
-              <h4 class="u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+              <h4 class="home-column-post-title u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
             </a>
           </div>
         <?php
@@ -239,7 +213,7 @@ $date_format = 'd M, y';
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
               <?php the_post_thumbnail(); ?>
-              <h4 class="u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+              <h4 class="home-column-post-title u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
             </a>
           </div>
         <?php
