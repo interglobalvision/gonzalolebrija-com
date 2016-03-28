@@ -1,6 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
 /* global $, jQuery, document, Modernizr, Site, Gallery, animationSpeed */
-
 const animationSpeed = 300;
 
 Site = {
@@ -18,11 +17,24 @@ Site.Filters = {
 
     if($links) {
       $links.bind('click', function(event) {
-        // Get filter type clicked
-        var type = event.currentTarget.dataset.filter;
 
-        // Hide everything then fade in the filtred posts 
-        $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
+        // If clicked on active, reset filter
+        if( $(this).hasClass('active') ) {
+          $(this).removeClass('active');
+          $posts.fadeIn();
+        } else {
+        // Else, apply filter
+     
+          // Get filter type clicked
+          var type = event.currentTarget.dataset.filter;
+
+          // Reset active filter class
+          $links.removeClass('active');
+          $(this).addClass('active');
+
+          // Hide everything then fade in the filtred posts 
+          $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
+        }
       });
     }
   },

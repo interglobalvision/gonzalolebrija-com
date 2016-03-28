@@ -10,10 +10,10 @@ $archivo_post_types = array(
 );
 
 // Get yearl url param
-$year = empty($_GET['año']) ? null : $_GET['año'];
+$year_param = empty($_GET['año']) ? null : $_GET['año'];
 
 $query_params = array(
-  'year'  =>  $year,
+  'year'  =>  $year_param,
   'posts_per_page'  =>  -1,
   'post_type'  => $archivo_post_types,
 );
@@ -36,14 +36,17 @@ $filter_terms = array_merge( get_exhibition_types($archivo_query), get_posts_tax
       <ul id="year-filter">
 <?php
 foreach($years as $year) {
-  echo '<li><a href="?año=' . $year . '">' . $year . '</a></li>';
+  $active_class = $year == $year_param ? 'active' : '';
+?>
+        <li><a href="?año=<?php echo $year; ?>" class="<?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+<?php
 }
 ?>
       </ul>
     </div>
 
     <div class="col col-6">
-      <ul id="type-filter" class="filters">
+      <ul id="type-filter" class="filters col col-3">
 <?php
 foreach($filter_terms as $filter_term) {
 ?>
