@@ -124,14 +124,7 @@ function igv_cmb_metaboxes() {
     'id'         => $prefix . 'size',
     'type'       => 'text',
   ) );
-
-  $obra_meta->add_field( array(
-    'name'       => __( 'Image', 'cmb2' ),
-    'desc'       => __( 'if single image not slideshow', 'cmb2' ),
-    'id'         => $prefix . 'image',
-    'type'       => 'file',
-  ) );
-
+ 
   $obra_meta->add_field( array(
     'name'       => __( 'Video', 'cmb2' ),
     'desc'       => __( 'if video not slideshow. [vimeo embed id or ???]', 'cmb2' ),

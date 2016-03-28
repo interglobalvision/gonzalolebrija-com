@@ -99,10 +99,10 @@ if( have_posts() ) {
           <?php
             if (!empty($meta['_igv_gallery'])) {
               echo do_shortcode(__($meta['_igv_gallery'][0]));
-            } else if (!empty($meta['_igv_image'])) {
-              echo wp_get_attachment_image($meta['_igv_image_id'][0], 'single-work-image');
             } else if (!empty($meta['_igv_video'])) {
               echo $meta['_igv_video'][0];
+            } else {
+              the_post_thumbnail(); // Need image size
             }
           ?>
 
