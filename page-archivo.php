@@ -10,7 +10,7 @@ $archivo_post_types = array(
 );
 
 // Get yearl url param
-$year_param = empty($_GET['año']) ? null : $_GET['año'];
+$year_param = empty($_GET['a']) ? null : $_GET['a'];
 
 $query_params = array(
   'year'  =>  $year_param,
@@ -38,7 +38,7 @@ $filter_terms = array_merge( get_filter_terms($archivo_query, 'exposiciones'), g
 foreach($years as $year) {
   $active_class = $year == $year_param ? 'active' : '';
 ?>
-        <li><a href="?año=<?php echo $year; ?>" class="<?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+        <li><a href="?a=<?php echo $year; ?>" class="<?php echo $active_class; ?>"><?php echo $year; ?></a></li>
 <?php
 }
 ?>
