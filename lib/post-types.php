@@ -67,7 +67,7 @@ function post_type_exposiciones() {
 
   add_rewrite_rule(
     'exposiciones/([0-9]{4})/?$',
-    'index.php?post_type=obra&year=$matches[1]',
+    'index.php?post_type=exposiciones&year=$matches[1]',
     'top'
   );
 
