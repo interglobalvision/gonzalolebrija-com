@@ -1764,12 +1764,10 @@ img {
   line-height: 1;
   margin: 0;
 }
-#year-filter a,
-[data-filter] {
+.filter-term {
   position: relative;
 }
-#year-filter a.active:after,
-[data-filter].active:after {
+.filter-term.active:after {
   content: '\2190';
   position: absolute;
   left: 125%;

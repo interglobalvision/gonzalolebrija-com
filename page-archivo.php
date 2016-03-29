@@ -38,7 +38,7 @@ $filter_terms = array_merge( get_filter_terms($archivo_query, 'exposiciones'), g
 foreach($years as $year) {
   $active_class = $year == $year_param ? 'active' : '';
 ?>
-        <li><a href="?a=<?php echo $year; ?>" class="<?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+        <li><a href="?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
 <?php
 }
 ?>
@@ -50,7 +50,7 @@ foreach($years as $year) {
 <?php
 foreach($filter_terms as $filter_term) {
 ?>
-        <li><a href="#" data-filter="<?php echo $filter_term['slug']; ?>"><?php echo $filter_term['name']; ?></a></li>
+        <li><a href="#" class="filter-term" data-filter="<?php echo $filter_term['slug']; ?>"><?php echo $filter_term['name']; ?></a></li>
 <?php
 }
 ?>
