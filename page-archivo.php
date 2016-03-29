@@ -22,7 +22,7 @@ $archivo_query = new WP_Query($query_params);
 
 $years = get_all_years($archivo_post_types, 'DESC');
 
-$filter_terms = array_merge( get_exhibition_types($archivo_query), get_posts_taxonomies($archivo_query) );
+$filter_terms = array_merge( get_filter_terms($archivo_query, 'exposiciones'), get_filter_terms($archivo_query) );
 
 ?>
 

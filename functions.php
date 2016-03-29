@@ -125,8 +125,8 @@ add_action( 'login_head', 'custom_login_logo' );
 
 // UTILITY FUNCTIONS
 
-// Return an array of exhibition types from these $posts.
-function get_exhibition_types($posts) {
+// Return an array of exhibition terms from these $posts.
+function get_filter_terms($posts, $type = false) {
   if ( empty( $posts ) ) {
     return '';
   }
@@ -135,8 +135,8 @@ function get_exhibition_types($posts) {
 
   foreach($posts->posts as $post) {
 
-    if ($post->post_type === 'exposiciones') {
-      $post_type = get_post_type_object( $post->post_type );
+    $post_type = get_post_type_object( $post->post_type );
+    if ($post->post_type === 'exposiciones' && $type === 'exposiciones') {
       $post_terms = wp_get_post_terms( $post->ID, 'tipo_de_exposicion' );
       foreach($post_terms as $post_term) {
         echo in_array($post_term->slug, array_column($terms, 'slug'));
@@ -147,23 +147,7 @@ function get_exhibition_types($posts) {
           );
         }
       }
-    } 
-  }
-  //pr( $terms );
-  return $terms;
-}
-
-// Return an array of post types fropm these $posts
-function get_posts_taxonomies($posts) {
-  if ( empty( $posts ) ) {
-    return '';
-  }
-
-  $terms = array();
-
-  foreach($posts->posts as $post) {
-
-    if ($post->post_type !== 'exposiciones') {
+    } else if( $post->post_type !== 'exposiciones' && !$type ) {
       $post_type = get_post_type_object( $post->post_type );
       if ( in_array($post_type->name, array_column($terms, 'slug')) == false ) {
         $terms[] = array(
@@ -171,10 +155,9 @@ function get_posts_taxonomies($posts) {
           'name'  =>  $post_type->label,
         );
       }
-    }
-
+    } 
   }
-  //pr( $terms );
+  // pr( $terms );
   return $terms;
 }
 
