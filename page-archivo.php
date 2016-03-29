@@ -58,7 +58,7 @@ foreach($filter_terms as $filter_term) {
     </div>
 
     <!-- main posts loop -->
-    <section id="posts" class="col col-14 u-float">
+    <section id="posts" class="col col-14">
 
 <?php
 if ( $archivo_query->have_posts() ) {
@@ -89,8 +89,6 @@ if ( $archivo_query->have_posts() ) {
     <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
 <?php
 } ?>
-
-    <?php get_template_part('partials/pagination'); ?>
 
     <!-- end posts -->
     </section>
