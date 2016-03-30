@@ -1698,6 +1698,10 @@ img {
   border-bottom-style: solid;
   padding-bottom: 4px;
 }
+#posts {
+  float: left;
+  width: 972px;
+}
 #header {
   padding-top: 32px;
   position: fixed;
