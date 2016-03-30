@@ -42,7 +42,7 @@ foreach($years as $year) {
 <?php
 }
 ?>
-  <li><a href="<?php echo home_url('archivo/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>">All</a></li>
+  <li><a href="<?php echo home_url('archivo/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
       </ul>
     </div>
 
@@ -55,7 +55,7 @@ foreach($filter_terms as $filter_term) {
 <?php
 }
 ?>
-        <li><a href="#" data-filter="all" class="filter-term filter-term-all active">All</a></li>
+  <li><a href="#" data-filter="all" class="filter-term filter-term-all active"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
       </ul>
     </div>
 
