@@ -139,7 +139,6 @@ function get_filter_terms($posts, $type = false) {
     if ($post->post_type === 'exposiciones' && $type === 'exposiciones') {
       $post_terms = wp_get_post_terms( $post->ID, 'tipo_de_exposicion' );
       foreach($post_terms as $post_term) {
-        echo in_array($post_term->slug, array_column($terms, 'slug'));
         if ( in_array($post_term->slug, array_column($terms, 'slug')) == false ) {
           $terms[] = array(
             'slug'  =>  $post_term->slug,

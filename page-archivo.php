@@ -1,6 +1,7 @@
 <?php
 get_header();
 
+
 $archivo_post_types = array(
   'post',
   'exposiciones',
@@ -10,7 +11,7 @@ $archivo_post_types = array(
 );
 
 // Get yearl url param
-$year_param = empty($_GET['a']) ? null : $_GET['a'];
+$year_param = empty($_GET['a']) ? 'all' : $_GET['a'];
 
 $query_params = array(
   'year'  =>  $year_param,
@@ -23,7 +24,6 @@ $archivo_query = new WP_Query($query_params);
 $years = get_all_years($archivo_post_types, 'DESC');
 
 $filter_terms = array_merge( get_filter_terms($archivo_query, 'exposiciones'), get_filter_terms($archivo_query) );
-
 ?>
 
 <!-- main content -->
@@ -42,6 +42,7 @@ foreach($years as $year) {
 <?php
 }
 ?>
+  <li><a href="<?php echo home_url('archivo/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>">All</a></li>
       </ul>
     </div>
 
@@ -54,6 +55,7 @@ foreach($filter_terms as $filter_term) {
 <?php
 }
 ?>
+        <li><a href="#" data-filter="all" class="filter-term filter-term-all active">All</a></li>
       </ul>
     </div>
 
