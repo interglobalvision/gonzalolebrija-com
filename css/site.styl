@@ -10,10 +10,9 @@ meyer-reset()
 box-sizing-reset()
 normalize()
 
-// GRID OF 12 90px COLUMNS WITH 16px GUTTER
 $cols = 24
-$col = 38px
-$gutter = 16px
+$col = 32px
+$gutter = 24px
 
 .container
   margin: 0 auto
@@ -104,6 +103,10 @@ h3
 .font-bold
   font-weight: bold
 
+.font-small-caps
+  font-size: 0.85em
+  text-transform: uppercase
+
 h1
   font-size: 3rem
 
@@ -126,6 +129,8 @@ h4
 h5
 h6
   letter-spacing: $font-tracking-wider
+  &.border-bottom
+    padding-bottom: ($margin-tiny / 3)
 
 p
   margin-bottom: 1rem
@@ -159,6 +164,7 @@ img
 #header
   padding-top: $margin-basic
   position: fixed
+  z-index: 9999
   top: 0
   width: 100%
   background-color: $color-white-soft
@@ -215,6 +221,33 @@ img
   font-size: 7rem
   line-height: 1
   margin: 0
+
+// HOME CONTENT
+
+.no-touch
+  .home
+    img
+      filter: grayscale(100%)
+      &:hover
+        filter: grayscale(0%)
+
+.home-column-post, .home-column-post-copy, .home-news-post
+  margin-top: $margin-small
+  margin-bottom: $margin-basic
+
+.home-column-post-title
+  margin-bottom: $margin-tiny
+
+.home-news-post
+  .attachment-post-thumbnail
+    display: block
+    margin-bottom: $margin-tiny
+
+.home-news-post-header
+  margin-bottom: $margin-tiny
+
+.home-news-post-date
+  margin-bottom: $margin-small
 
 
 // FOOTER
