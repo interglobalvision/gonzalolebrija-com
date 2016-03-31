@@ -18,22 +18,25 @@ Site.Filters = {
     if($links) {
       $links.bind('click', function(event) {
 
+        // Get filter type clicked
+        var type = event.currentTarget.dataset.filter;
+
+
         // If clicked on active, reset filter
-        if( $(this).hasClass('active') ) {
-          $(this).removeClass('active');
-          $posts.fadeIn();
-        } else {
-        // Else, apply filter
-     
-          // Get filter type clicked
-          var type = event.currentTarget.dataset.filter;
-
-          // Reset active filter class
+        if( !$(this).hasClass('active') ) {
           $links.removeClass('active');
-          $(this).addClass('active');
 
-          // Hide everything then fade in the filtred posts 
-          $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
+          // Reset All
+          if( 'all' === type ) {
+            $('[data-filter="all"]').addClass('active');
+            $posts.fadeIn();
+          } else {
+          // Else, apply filter
+            $(this).addClass('active');
+
+            // Hide everything then fade in the filtred posts 
+            $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
+          }
         }
       });
     }
