@@ -1,6 +1,6 @@
     <footer id="footer" class="container font-serif">
       <div class="row">
-        <div class="col col-24 border-bottom"
+        <div class="col col-24 border-bottom"></div>
       </div>
       <div class="row">
         <div class="col col-12">

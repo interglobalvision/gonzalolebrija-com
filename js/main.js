@@ -1,12 +1,15 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Site, Gallery, animationSpeed */
+/* global $, jQuery, document, Modernizr, Site, Swiper, Gallery, animationSpeed */
 const animationSpeed = 300;
 
 Site = {
   init: function() {
+    var _this = this;
 
     Site.Filters.bind();
 
+    _this.Header.init();
+    _this.Gallery.init();
   },
 };
 
@@ -42,7 +45,55 @@ Site.Filters = {
   },
 };
 
-Gallery = {
+// Show/Hide header on scroll
+Site.Header = {
+  debounceSpeed: 10,
+  threshold: 1.1,
+
+  init: function() {
+    var _this = this;
+    var $body = $('body');
+
+    if ( $body.hasClass('home') ) {
+      _this.headerHeight = $('#home-header').height();
+
+      // Initial check
+      if ( $(window).scrollTop() > _this.headerHeight * _this.threshold ) {
+        $body.addClass('state-scrolled');
+      } else {
+        $body.removeClass('state-scrolled');
+      }
+
+      _this.bindScroll();
+    }
+  },
+
+  showHide: function() {
+    var _this = this;
+
+    return Debounce( function () {
+      var scrollTop = $(this).scrollTop();
+      var $body = $('body');
+
+      if ( scrollTop >= _this.headerHeight * _this.threshold) {
+        $body.addClass('state-scrolled');
+      } else {
+        $body.removeClass('state-scrolled');
+      }
+
+      _this.lastScroll = scrollTop;
+
+    }, _this.debounceSpeed);
+  },
+
+  bindScroll: function() {
+    var _this = this;
+
+    window.addEventListener('scroll', _this.showHide());
+  },
+};
+
+Site.Gallery = {
   Swiper: undefined,
   init: function() {
     var _this = this;
@@ -88,6 +139,5 @@ jQuery(document).ready(function () {
   });
 
   Site.init();
-  Gallery.init();
 
 });
