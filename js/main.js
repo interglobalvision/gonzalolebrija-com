@@ -21,20 +21,19 @@ Site.Filters = {
         // Get filter type clicked
         var type = event.currentTarget.dataset.filter;
 
-
         // If clicked on active, reset filter
         if( !$(this).hasClass('active') ) {
           $links.removeClass('active');
 
           // Reset All
-          if( 'all' === type ) {
+          if( type === 'all' ) {
             $('[data-filter="all"]').addClass('active');
             $posts.fadeIn();
           } else {
           // Else, apply filter
             $(this).addClass('active');
 
-            // Hide everything then fade in the filtred posts 
+            // Hide everything then fade in the filtred posts
             $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
           }
         }
