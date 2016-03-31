@@ -6,7 +6,7 @@ function add_menu_icons_styles(){
 
 <style>
 #menu-posts-project .dashicons-admin-post:before {
-    content: '\f319';
+  content: '\f319';
 }
 </style>
 
@@ -64,6 +64,13 @@ function post_type_exposiciones() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'exposiciones', $args );
+
+  add_rewrite_rule(
+    'exposiciones/([0-9]{4})/?$',
+    'index.php?post_type=exposiciones&year=$matches[1]',
+    'top'
+  );
+
 
 }
 add_action( 'init', 'post_type_exposiciones', 0 );
@@ -159,6 +166,12 @@ function post_type_obra() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'obra', $args );
+
+  add_rewrite_rule(
+    'obra/([0-9]{4})/?$',
+    'index.php?post_type=obra&year=$matches[1]',
+    'top'
+  );
 
 }
 add_action( 'init', 'post_type_obra', 0 );

@@ -1794,6 +1794,18 @@ img {
 .home-news-post-date {
   margin-bottom: 24px;
 }
+.filter-term {
+  position: relative;
+}
+.filter-term.active:after {
+  content: '\2190';
+  position: absolute;
+  left: 125%;
+  font-size: 2.8em;
+  top: 0;
+  bottom: 0;
+  line-height: 0.3;
+}
 #footer {
   padding-top: 24px;
   margin-bottom: 48px;

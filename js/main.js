@@ -1,14 +1,48 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Debounce, Swiper, Site */
+/* global $, jQuery, document, Modernizr, Site, Swiper, Gallery, animationSpeed */
+const animationSpeed = 300;
 
 Site = {
   init: function() {
     var _this = this;
 
+    Site.Filters.bind();
+
     _this.Header.init();
     _this.Gallery.init();
   },
+};
 
+Site.Filters = {
+  bind: function() {
+    var $links = $('.filters a');
+    var $posts = $('.filtered-content');
+
+    if($links) {
+      $links.bind('click', function(event) {
+
+        // Get filter type clicked
+        var type = event.currentTarget.dataset.filter;
+
+        // If clicked on active, reset filter
+        if( !$(this).hasClass('active') ) {
+          $links.removeClass('active');
+
+          // Reset All
+          if( type === 'all' ) {
+            $('[data-filter="all"]').addClass('active');
+            $posts.fadeIn();
+          } else {
+          // Else, apply filter
+            $(this).addClass('active');
+
+            // Hide everything then fade in the filtred posts
+            $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
+          }
+        }
+      });
+    }
+  },
 };
 
 // Show/Hide header on scroll
@@ -83,6 +117,7 @@ Site.Gallery = {
       onClick: function(swiper) {
         swiper.slideNext();
       },
+
     });
 
   },
