@@ -9,29 +9,6 @@ $lang = qtranxf_getLanguage();
 
   <div class="row">
 
-    <div class="col col-6">
-
-      <ul>
-      <?php
-        // this needs active state for current year. but wp_get_archives doesnt do that so perhaps we add a class with js string matching!?!?
-        $args = array(
-          'type'            => 'yearly',
-          'limit'           => '',
-          'format'          => 'html',
-          'before'          => '',
-          'after'           => '',
-          'show_post_count' => false,
-          'echo'            => 1,
-          'order'           => 'DESC'
-        );
-        wp_get_archives($args);
-      ?>
-        <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('obra/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
-      </ul>
-
-    </div>
-
 <?php
 if( have_posts() ) {
   while( have_posts() ) {
@@ -49,7 +26,27 @@ if( have_posts() ) {
     } else {
       $gallery = false;
     }
+
+    $years = get_all_years(array('obra'), 'DESC');
+    $year_post = get_the_time('Y');
 ?>
+
+    <div class="col col-6">
+
+      <ul id="year-filter">
+<?php
+foreach($years as $year) {
+  $active_class = $year == $year_post ? 'active' : '';
+?>
+        <li><a href="<?php echo home_url('obra/'); ?>?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+<?php
+}
+?>
+        <li>&nbsp;</li>
+        <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
+      </ul>
+
+    </div>
 
       <article <?php post_class('u-float'); ?> id="single-work-<?php the_ID(); ?>">
 
@@ -102,7 +99,7 @@ if( have_posts() ) {
             } else if (!empty($meta['_igv_video'])) {
               echo $meta['_igv_video'][0];
             } else {
-              the_post_thumbnail(); // Need image size
+              the_post_thumbnail('col-9'); // Need image size
             }
           ?>
 
@@ -114,6 +111,7 @@ if( have_posts() ) {
   }
 } else {
 ?>
+    <div class="col col-6"></div>
     <div class="u-alert col col-18"><?php _e('Sorry, no posts matched your criteria'); ?></div>
 <?php
 } ?>
