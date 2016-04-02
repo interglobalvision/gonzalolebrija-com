@@ -1,6 +1,15 @@
 <?php
 get_header();
 
+if (qtranxf_getLanguage() == 'es') {
+  $locale = 'es_ES';
+} else {
+  $locale = 'en_US';
+}
+
+\Moment\Moment::setLocale($locale);
+
+$date_format = 'd M., y';
 
 $archivo_post_types = array(
   'post',
@@ -42,7 +51,8 @@ foreach($years as $year) {
 <?php
 }
 ?>
-  <li><a href="<?php echo home_url('archivo/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
+        <li>&nbsp;</li>
+        <li><a href="<?php echo home_url('archivo/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
       </ul>
     </div>
 
@@ -55,12 +65,13 @@ foreach($filter_terms as $filter_term) {
 <?php
 }
 ?>
-  <li><a href="#" data-filter="all" class="filter-term filter-term-all active"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+        <li>&nbsp;</li>
+        <li><a href="#" data-filter="all" class="filter-term filter-term-all active"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
       </ul>
     </div>
 
     <!-- main posts loop -->
-    <section id="posts" class="col col-14">
+    <section id="archivo-posts" class="col col-14">
 
 <?php
 if ( $archivo_query->have_posts() ) {
@@ -73,14 +84,33 @@ if ( $archivo_query->have_posts() ) {
     if ( $post->post_type === 'exposiciones' ) {
       $types = wp_get_post_terms($post->ID, 'tipo_de_exposicion', array('fields' => 'slugs'));
       $types = implode(' ', $types);
+
+      $meta = get_post_meta($post->ID);
+      $isExposicion = true;
+
     } else {
       $types = $post->post_type;
-    } 
+
+      $isExposicion = false;
+    }
 ?>
 
-      <article <?php post_class('filtered-content'); ?> id="post-<?php the_ID(); ?>" data-filter-type="<?php echo $types; ?>">
+      <article <?php post_class('archivo-post filtered-content'); ?> id="post-<?php the_ID(); ?>" data-filter-type="<?php echo $types; ?>">
         <a href="<?php the_permalink() ?>">
-          <h3 class="post-title"><?php the_title(); ?><h3>
+          <h2 class="post-title font-italic font-spaced"><?php the_title(); ?><h2>
+          <?php
+            if ($isExposicion) {
+              $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
+              $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
+          ?>
+            <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
+          <?php
+            } else {
+          ?>
+            <h4><?php echo get_the_time($date_format); ?></h4>
+          <?php
+            }
+          ?>
         </a>
       </article>
 
