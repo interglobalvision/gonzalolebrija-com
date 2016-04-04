@@ -57,11 +57,9 @@ foreach($years as $year) {
             <h2 id="single-work-title" class="font-italic">
               <?php
                 the_title();
-                if (!empty($meta['_igv_year'])) {
-                  echo '<br/>' . $meta['_igv_year'][0];
-                  if ($in_progress) {
-                    echo ' ' . __('[:es](en progreso)[:en](in progress)');
-                  }
+                echo '<br/>' . the_date('Y','','',false);
+                if ($in_progress) {
+                  echo ' ' . __('[:es](en progreso)[:en](in progress)');
                 }
               ?>
             </h2>
