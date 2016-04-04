@@ -128,9 +128,10 @@ Site.Gallery = {
 };
 
 Site.GridHovers = {
-  $hoverElements: $('.attachment-hover-grid-thumb'),
   init: function() {
     var _this = this;
+
+    _this.$hoverElements = $('.attachment-hover-grid-thumb');
 
     _this.$hoverElements.on({
       mousemove: function(e) {
@@ -139,7 +140,7 @@ Site.GridHovers = {
         $title.css({
           display: 'block',
           top: e.screenY - 70,
-          left: e.screenX
+          left: e.screenX,
         });
 
       },
