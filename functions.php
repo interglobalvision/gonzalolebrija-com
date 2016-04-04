@@ -42,7 +42,7 @@ if ( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'journal-large-single', 9999, 9999, false );
 
-  add_image_size( 'name', 199, 299, true );
+  add_image_size( 'col-9', 480, 99999, false );
 }
 
 // Register Nav Menus
@@ -160,7 +160,7 @@ function get_filter_terms($posts, $type = false) {
           'name'  =>  $post_type->label,
         );
       }
-    } 
+    }
   }
   // pr( $terms );
   return $terms;
@@ -192,7 +192,7 @@ function get_all_years($post_types, $order) {
 
   $years = array();
 
-  // The 'last_changed' incrementor is used to invalidate the $key cache. 
+  // The 'last_changed' incrementor is used to invalidate the $key cache.
   // This way we invalidate the cache on add, delete, and update.
   $last_changed = wp_cache_get( 'last_changed', 'posts' );
   if ( ! $last_changed ) {
@@ -204,9 +204,9 @@ function get_all_years($post_types, $order) {
   $query = "SELECT YEAR(post_date) AS `year` FROM $wpdb->posts $where GROUP BY YEAR(post_date) ORDER BY post_date $order";
 
   // By creating a cache key that's a hash of igv + last_changed + md5 (from query)
-  // we have a simple method for cache invalidation: whenever new activity 
-  // (or whatever) is created, bump last_changed. Now all cache using a key 
-  // generated from last_changed is invalidated. 
+  // we have a simple method for cache invalidation: whenever new activity
+  // (or whatever) is created, bump last_changed. Now all cache using a key
+  // generated from last_changed is invalidated.
   $key = md5( $query );
   $key = "igv_get_all_years:$key:$last_changed";
   if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
