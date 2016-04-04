@@ -52,37 +52,43 @@ foreach($years as $year) {
 
         <div class="col col-9">
 
-          <h2 id="single-work-title" class="font-italic">
-            <?php
-              the_title();
-              if (!empty($meta['_igv_year'])) {
-                echo '<br/>' . $meta['_igv_year'][0];
+          <header id="single-work-header">
+
+            <h2 id="single-work-title" class="font-italic">
+              <?php
+                the_title();
+                echo '<br/>' . the_date('Y','','',false);
                 if ($in_progress) {
                   echo ' ' . __('[:es](en progreso)[:en](in progress)');
                 }
-              }
-            ?>
-          </h2>
+              ?>
+            </h2>
 
-          <div id="single-work-meta">
-            <?php
-              if (!empty($meta['_igv_medium_' . $lang])) {
-                echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
-              }
-              if (!empty($meta['_igv_size'])) {
-                echo $meta['_igv_size'][0];
-              }
-            ?>
+            <div id="single-work-meta">
+              <?php
+                if (!empty($meta['_igv_medium_' . $lang])) {
+                  echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
+                }
+                if (!empty($meta['_igv_size'])) {
+                  echo $meta['_igv_size'][0];
+                }
+              ?>
+            </div>
+
+          </header>
+
+          <div id="single-work-copy">
+            <?php the_content(); ?>
           </div>
 
-          <?php the_content(); ?>
+          <nav id="single-work-nav" class="u-cf">
 
-          <nav id="single-work-nav">
-
-            <?php previous_post_link('%link', __('[:es]obra anterior[:en]previous work')); ?> / <?php next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
+            <nav id="single-work-pagination" class="u-float">
+              <?php previous_post_link('%link', __('[:es]obra anterior[:en]previous work')); ?> / <?php next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
+            </nav>
 
             <?php if ($gallery) { ?>
-            <nav id="single-work-gallery-nav">
+            <nav id="single-work-gallery-nav" class="u-float">
               <span class="js-gallery-prev u-pointer"><</span> <span id="gallery-index-active">0</span> / <span id="gallery-index-length">0</span> <span class="js-gallery-next u-pointer">></span>
             </nav>
             <?php } ?>

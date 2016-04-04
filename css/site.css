@@ -119,6 +119,9 @@ ul.u-inline-list li {
 .u-align-center {
   text-align: center;
 }
+.u-float {
+  float: left;
+}
 .u-holder {
   display: table;
   width: 100%;
@@ -1801,6 +1804,21 @@ img {
 }
 .home-news-post-date {
   margin-bottom: 24px;
+}
+#single-work-header {
+  margin-bottom: 48px;
+}
+#single-work-title {
+  line-height: 1.2em;
+}
+#single-work-meta {
+  margin-top: 12px;
+}
+#single-work-copy {
+  min-height: 350px;
+}
+#single-work-pagination {
+  width: 66%;
 }
 #year-filter,
 #type-filter {
