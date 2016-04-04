@@ -1805,6 +1805,17 @@ img {
 .home-news-post-date {
   margin-bottom: 24px;
 }
+.hover-grid-item {
+  height: 420px;
+  position: relative;
+}
+.hover-grid-title {
+  position: fixed;
+  display: none;
+  font-size: 1.7rem;
+  line-height: 1.35em;
+  z-index: 99999;
+}
 #single-work-header {
   margin-bottom: 48px;
 }
