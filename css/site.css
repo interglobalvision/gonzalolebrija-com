@@ -1659,6 +1659,9 @@ h3 {
   font-size: 0.85em;
   text-transform: uppercase;
 }
+.font-spaced {
+  letter-spacing: 0.03em;
+}
 h1 {
   font-size: 3rem;
 }
@@ -1680,7 +1683,7 @@ h6 {
 h4,
 h5,
 h6 {
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
 }
 h4.border-bottom,
 h5.border-bottom,
@@ -1699,6 +1702,10 @@ a:visited {
 html {
   background-color: #fdfdfd;
   color: #0e0e0e;
+}
+#main-content {
+  padding-top: 149px;
+  min-height: 85vh;
 }
 img {
   max-width: 100%;
@@ -1724,9 +1731,6 @@ img {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-#main-content {
-  padding-top: 125px;
-}
 #site-title {
   font-size: 2rem;
   margin: 0;
@@ -1734,7 +1738,7 @@ img {
 #menu {
   font-size: 1.6rem;
   line-height: 1.35em;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
 }
 .menu-item {
   display: inline-block;
@@ -1816,17 +1820,24 @@ img {
 #single-work-pagination {
   width: 66%;
 }
+#year-filter,
+#type-filter {
+  line-height: 1.45em;
+}
 .filter-term {
   position: relative;
 }
 .filter-term.active:after {
   content: '\2190';
   position: absolute;
-  left: 125%;
-  font-size: 2.8em;
+  left: 165%;
+  font-size: 3em;
   top: 0;
   bottom: 0;
-  line-height: 0.3;
+  line-height: 0.15;
+}
+.archivo-post {
+  margin-bottom: 24px;
 }
 #footer {
   padding-top: 24px;
