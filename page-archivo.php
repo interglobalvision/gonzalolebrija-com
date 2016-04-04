@@ -99,7 +99,7 @@ if ( $archivo_query->have_posts() ) {
         <a href="<?php the_permalink() ?>">
           <h2 class="post-title font-italic font-spaced"><?php the_title(); ?><h2>
           <?php
-            if ($isExposicion) {
+            if ($isExposicion && !empty($meta['_igv_start_date'][0]) && !empty($meta['_igv_end_date'][0])) {
               $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
               $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
           ?>
