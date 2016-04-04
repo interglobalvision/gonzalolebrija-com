@@ -24,7 +24,7 @@ if( have_posts() ) {
       <article <?php post_class('col col-6 hover-grid-item'); ?> id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail('hover-grid-thumb'); ?>
-          <div class="hover-grid-title font-serif"><?php the_title(); ?></div>
+          <div class="hover-grid-title font-serif font-italic"><?php the_title(); ?></div>
         </a>
       </article>
 
@@ -32,7 +32,7 @@ if( have_posts() ) {
   }
 } else {
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria'); ?></article>
 <?php
 } ?>
 
