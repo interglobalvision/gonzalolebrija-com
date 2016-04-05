@@ -42,7 +42,7 @@ $filter_terms = array_merge( get_filter_terms($archivo_query, 'exposiciones'), g
   <div class="row">
 
     <div class="col col-4">
-      <ul id="year-filter">
+      <ul id="year-filter" class="filter-list">
 <?php
 foreach($years as $year) {
   $active_class = $year == $year_param ? 'active' : '';
@@ -57,7 +57,7 @@ foreach($years as $year) {
     </div>
 
     <div class="col col-6">
-      <ul id="type-filter" class="filters col col-3">
+      <ul id="type-filter" class="filter-list filters col col-3">
 <?php
 foreach($filter_terms as $filter_term) {
 ?>

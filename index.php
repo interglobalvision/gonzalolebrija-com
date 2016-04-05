@@ -13,7 +13,7 @@ get_header();
     </div>
 
     <!-- main posts loop -->
-    <section id="posts" class="col col-18">
+    <section id="posts">
 
 <?php
 if( have_posts() ) {
@@ -21,7 +21,7 @@ if( have_posts() ) {
     the_post();
 ?>
 
-      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('col col-18'); ?> id="post-<?php the_ID(); ?>">
 
         <header class="post-header">
 

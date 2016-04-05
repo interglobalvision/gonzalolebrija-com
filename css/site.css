@@ -1835,8 +1835,17 @@ img {
 #single-work-pagination {
   width: 66%;
 }
-#year-filter,
-#type-filter {
+.archive-noticia-post {
+  margin-bottom: 24px;
+}
+.archive-noticia-post .post-date {
+  margin-bottom: 24px;
+}
+.archive-noticia-post .post-title {
+  margin: 0 auto;
+  max-width: 600px;
+}
+.filter-list {
   line-height: 1.45em;
 }
 .filter-term {
