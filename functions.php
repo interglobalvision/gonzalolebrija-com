@@ -223,6 +223,63 @@ function get_all_years($post_types, $order) {
   return $years;
 }
 
+// Return a list of months which have posts for the specified post type
+function get_all_months($post_types, $order) {
+  global $wpdb;
+
+  $where = '';
+
+  // Construct WHERE clausule for the query
+  // For all $post_types and with status 'publish'
+  // Ex. WHERE ( post_type = "post" OR post_type = "exposiciones" OR post_type = "obra" ) AND post_status = "publish "
+  for ($i = 0; $i < count($post_types); ++$i) {
+    if ( $i == 0 ) {
+      $where .= 'WHERE ( ';
+    } else {
+      $where .= ' OR ';
+    }
+    $where .= 'post_type = "' . $post_types[$i] . '"';
+  }
+  $where .= ' ) AND post_status = "publish " ';
+
+  $order = strtoupper( $order );
+  if ( $order !== 'ASC' ) {
+    $order = 'DESC';
+  }
+
+  $months = array();
+
+  // The 'last_changed' incrementor is used to invalidate the $key cache.
+  // This way we invalidate the cache on add, delete, and update.
+  $last_changed = wp_cache_get( 'last_changed', 'posts' );
+  if ( ! $last_changed ) {
+    $last_changed = microtime();
+    wp_cache_set( 'last_changed', $last_changed, 'posts' );
+  }
+
+  // Final query
+  $query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month` FROM $wpdb->posts $where GROUP BY MONTH(post_date) ORDER BY post_date $order";
+
+  // By creating a cache key that's a hash of igv + last_changed + md5 (from query)
+  // we have a simple method for cache invalidation: whenever new activity
+  // (or whatever) is created, bump last_changed. Now all cache using a key
+  // generated from last_changed is invalidated.
+  $key = md5( $query );
+  $key = "igv_get_all_years:$key:$last_changed";
+  if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+    $results = $wpdb->get_results( $query );
+    wp_cache_set( $key, $results, 'posts' );
+  }
+
+  if ( $results ) {
+    foreach ( (array) $results as $result) {
+      $months[] = $result;
+    }
+  }
+
+  return $months;
+}
+
 // to replace file_get_contents
 function url_get_contents($Url) {
   if (!function_exists('curl_init')){
