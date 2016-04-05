@@ -143,6 +143,11 @@ h6
 p
   margin-bottom: 1rem
 
+.copy
+  max-width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
+  margin: 0 auto
+
+
 
 // LINKS
 
@@ -296,11 +301,20 @@ img
 #single-work-pagination
   width: 66%
 
-// ARCHIVO
+// ARCHIVES
+
+.archive-noticia-post
+  margin-bottom: $margin-small
+  .post-date
+    margin-bottom: $margin-small
+  .post-title
+    margin: 0 auto
+    max-width: 600px
+
+
 // YEARS and FILTERS
 
-#year-filter,
-#type-filter
+.filter-list
   line-height: $font-leading-wider
 
 .filter-term
@@ -316,6 +330,8 @@ img
       bottom: 0
       line-height: 0.15
 
+// ARCHIVO
+
 .archivo-post
   margin-bottom: $margin-small
 
@@ -325,6 +341,9 @@ img
 #footer
   padding-top: $margin-small
   margin-bottom: $margin-basic
+
+#footer-content
+  padding-top: $margin-small
 
 // MEDIA QUERIES
 
