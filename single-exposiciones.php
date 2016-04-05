@@ -28,7 +28,7 @@ if( have_posts() ) {
     $post_terms = get_the_terms($post->ID, 'tipo_de_exposicion');
 
     if (!empty($post_terms)) {
-      $post_term_id = $post_terms[0]->ID;
+      $post_term_id = $post_terms[0]->term_id;
     } else {
       $post_term_id = 0;
     }
