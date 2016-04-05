@@ -131,7 +131,7 @@ Site.GridHovers = {
   init: function() {
     var _this = this;
 
-    _this.$hoverElements = $('.attachment-hover-grid-thumb');
+    _this.$hoverElements = $('.attachment-hover-grid-thumb, .attachment-hover-grid-thumb-small');
 
     _this.$hoverElements.on({
       mousemove: function(e) {

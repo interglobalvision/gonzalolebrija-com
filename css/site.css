@@ -1811,7 +1811,12 @@ img {
 }
 .hover-grid-item {
   height: 420px;
+  margin-bottom: 24px;
   position: relative;
+  text-align: center;
+}
+.hover-grid-item-small {
+  height: 380px;
 }
 .hover-grid-title {
   position: fixed;

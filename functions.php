@@ -39,6 +39,7 @@ if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'opengraph', 1200, 630, true );
 
   add_image_size( 'hover-grid-thumb', 9999, 420, false );
+  add_image_size( 'hover-grid-thumb-small', 9999, 320, false );
 
   add_image_size( 'journal-large-single', 9999, 9999, false );
 

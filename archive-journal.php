@@ -21,9 +21,9 @@ if( have_posts() ) {
     the_post();
 ?>
 
-      <article <?php post_class('col col-6 hover-grid-item'); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('col col-6 hover-grid-item hover-grid-item-small u-flex-center'); ?> id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink() ?>">
-          <?php the_post_thumbnail('hover-grid-thumb'); ?>
+          <?php the_post_thumbnail('hover-grid-thumb-small'); ?>
           <div class="hover-grid-title font-serif font-italic"><?php the_title(); ?></div>
         </a>
       </article>
