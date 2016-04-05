@@ -26,6 +26,12 @@ if( have_posts() ) {
     the_post();
     $meta = get_post_meta($post->ID);
     $post_terms = get_the_terms($post->ID, 'tipo_de_exposicion');
+
+    if (!empty($post_terms)) {
+      $post_term_id = $post_terms[0]->ID;
+    } else {
+      $post_term_id = 0;
+    }
 ?>
 
     <div class="col col-6">
@@ -36,7 +42,7 @@ if( have_posts() ) {
 
         if ($exhibition_types) {
           foreach ($exhibition_types as $type) {
-            if ($post_terms[0]->ID === $type->ID) {
+            if ($post_term_id === $type->term_id) {
       ?>
         <li><a class="filter-term active" href="<?php echo get_term_link($type->term_id); ?>"><?php echo $type->name; ?></a></li>
       <?php
