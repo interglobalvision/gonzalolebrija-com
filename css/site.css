@@ -1854,6 +1854,9 @@ img {
   padding-top: 24px;
   margin-bottom: 48px;
 }
+#footer-content {
+  padding-top: 24px;
+}
 @media screen and (max-width: 1344px) {
   html {
     width: 100%;
