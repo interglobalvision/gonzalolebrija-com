@@ -1693,6 +1693,10 @@ h6.border-bottom {
 p {
   margin-bottom: 1rem;
 }
+.copy {
+  max-width: 648px;
+  margin: 0 auto;
+}
 a,
 a:active,
 a:visited {
