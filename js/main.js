@@ -1,15 +1,15 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Site, Swiper, Gallery, animationSpeed */
+/* global $, jQuery, document, Modernizr, Site, Swiper, animationSpeed */
 const animationSpeed = 300;
 
 Site = {
   init: function() {
     var _this = this;
 
-    Site.Filters.bind();
-
+    _this.Filters.bind();
     _this.Header.init();
     _this.Gallery.init();
+    _this.GridHovers.init();
   },
 };
 
@@ -124,6 +124,33 @@ Site.Gallery = {
 
   setActive: function(activeIndex) {
     $('#gallery-index-active').html(activeIndex);
+  },
+};
+
+Site.GridHovers = {
+  init: function() {
+    var _this = this;
+
+    _this.$hoverElements = $('.attachment-hover-grid-thumb');
+
+    _this.$hoverElements.on({
+      mousemove: function(e) {
+        var $title = $(this).siblings('.hover-grid-title').first();
+
+        $title.css({
+          display: 'block',
+          top: e.screenY - 70,
+          left: e.screenX,
+        });
+
+      },
+
+      mouseout: function() {
+        var $title = $(this).siblings('.hover-grid-title').first();
+
+        $title.hide();
+      },
+    });
   },
 };
 
