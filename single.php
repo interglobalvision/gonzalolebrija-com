@@ -33,7 +33,7 @@ get_header();
     </div>
 
     <!-- main posts loop -->
-    <section id="posts" class="col col-12">
+    <section id="post" class="col col-12">
 
 <?php
 if( have_posts() ) {
