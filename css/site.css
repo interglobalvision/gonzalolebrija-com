@@ -1840,6 +1840,17 @@ img {
 #single-work-pagination {
   width: 66%;
 }
+#page-copy {
+  font-size: 1.1rem;
+  line-height: 1.45em;
+}
+#page-copy p {
+  margin-bottom: 0;
+  text-indent: 48px;
+}
+#page-copy p:first-child {
+  text-indent: 0;
+}
 .archive-noticia-post {
   margin-bottom: 24px;
 }

@@ -39,7 +39,7 @@ get_header();
     </div>
 
     <!-- main posts loop -->
-    <section id="posts" class="col col-18">
+    <section id="page" class="col col-14">
 
 <?php
 if( have_posts() ) {
@@ -49,7 +49,7 @@ if( have_posts() ) {
 
       <article <?php post_class(); ?> id="page-<?php the_ID(); ?>">
 
-        <div class="copy">
+        <div id="page-copy" class="copy">
           <?php the_content(); ?>
         </div>
 
