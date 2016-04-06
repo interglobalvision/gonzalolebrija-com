@@ -2,7 +2,7 @@
       <div class="row">
         <div class="col col-24 border-bottom"></div>
       </div>
-      <div class="row">
+      <div id="footer-content" class="row">
         <div class="col col-12">
           ©<?php echo date('Y'); ?> Gonzalo Lebrija.
         </div>
