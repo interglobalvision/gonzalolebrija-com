@@ -1697,6 +1697,10 @@ p {
   max-width: 648px;
   margin: 0 auto;
 }
+.larger-copy {
+  font-size: 1.1rem;
+  line-height: 1.35em;
+}
 a,
 a:active,
 a:visited {
@@ -1721,9 +1725,19 @@ img {
   border-bottom-style: solid;
   padding-bottom: 6px;
 }
-#posts {
+#posts,
+#single-publicacion {
   float: left;
   width: 1008px;
+}
+.large-arrow {
+  font-size: 3rem;
+}
+.swiper-container {
+  margin-bottom: 24px;
+}
+.swiper-slide {
+  text-align: right;
 }
 #header {
   padding-top: 48px;

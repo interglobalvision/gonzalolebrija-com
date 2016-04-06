@@ -147,7 +147,9 @@ p
   max-width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
   margin: 0 auto
 
-
+.larger-copy
+  font-size: $font-size-larger
+  line-height: $font-leading-basic
 
 // LINKS
 
@@ -172,9 +174,23 @@ img
 .border-bottom
   border-bottom()
 
-#posts
+#posts, #single-publicacion
   float: left
   width: ( 18 * $col ) + ( ( 18 - 1 ) * $gutter ) + $gutter
+
+
+// UI ELEMENTS
+
+.large-arrow
+  font-size: 3rem
+
+// GALLERY
+
+.swiper-container
+  margin-bottom: $margin-small
+
+.swiper-slide
+  text-align: right
 
 // HEADER
 
