@@ -124,7 +124,7 @@ function igv_cmb_metaboxes() {
     'id'         => $prefix . 'size',
     'type'       => 'text',
   ) );
- 
+
   $obra_meta->add_field( array(
     'name'       => __( 'Video', 'cmb2' ),
     'desc'       => __( 'if video not slideshow. [vimeo embed id or ???]', 'cmb2' ),
@@ -160,13 +160,6 @@ function igv_cmb_metaboxes() {
     'id'            => $prefix . 'publicaciones_metabox',
     'title'         => __( 'Meta', 'cmb2' ),
     'object_types'  => array( 'publicaciones', ), // Post type
-  ) );
-
-  $publicaciones_meta->add_field( array(
-    'name'       => __( 'Year', 'cmb2' ),
-    'desc'       => __( '', 'cmb2' ),
-    'id'         => $prefix . 'year',
-    'type'       => 'text',
   ) );
 
   $publicaciones_meta->add_field( array(
