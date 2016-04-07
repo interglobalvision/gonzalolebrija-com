@@ -25,6 +25,8 @@ if( have_posts() ) {
   while( have_posts() ) {
     the_post();
     $meta = get_post_meta($post->ID);
+    $images = get_post_meta($post->ID, '_igv_exposicion_images', true);
+
     $post_terms = get_the_terms($post->ID, 'tipo_de_exposicion');
 
     if (!empty($post_terms)) {
@@ -81,8 +83,7 @@ if( have_posts() ) {
 
           <ul id="single-exposicion-nav" class="u-inline-list">
             <li class="exposicion-filter active u-pointer" data-target="text"><?php echo __('[:es]Texto[:en]Text'); ?></li>
-            <li class="exposicion-filter u-pointer" data-target="artwork"><?php echo __('[:es]Obra[:en]Artwork'); ?></li>
-            <li class="exposicion-filter u-pointer" data-target="installation"><?php echo __('[:es]Instalación[:en]Installation'); ?></li>
+            <li class="exposicion-filter u-pointer" data-target="content"><?php echo __('[:es]Imágenes[:en]Images'); ?></li>
           </ul>
 
 
@@ -94,14 +95,24 @@ if( have_posts() ) {
           </div>
         </div>
 
-        <div id="exposicion-artwork" class="exposicion-content">
-          What goes here?
-        </div>
-
-        <div id="exposicion-installation" class="exposicion-content">
+        <div id="exposicion-images" class="exposicion-content">
           <?php
-            if (!empty($meta['_igv_installation_gallery'])) {
-              echo do_shortcode(__($meta['_igv_installation_gallery'][0]));
+            if (!empty($images)) {
+              foreach ($images as $image) {
+          ?>
+            <div class="exposicion-image">
+          <?php
+                if (!empty($image['work'])) {
+                  echo '<a href="' . get_the_permalink($image['work']) . '">';
+                }
+                echo wp_get_attachment_image($image['image_id'], 'gallery');
+                if (!empty($image['work'])) {
+                  echo '</a>';
+                }
+          ?>
+            </div>
+          <?php
+              }
             }
           ?>
         </div>

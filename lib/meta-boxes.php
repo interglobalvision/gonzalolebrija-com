@@ -69,7 +69,7 @@ function igv_cmb_metaboxes() {
   ) );
 
   $exposiciones_images = $exposiciones_meta->add_field( array(
-      'id'          => 'exposicion_images',
+      'id'          => $prefix . 'exposicion_images',
       'type'        => 'group',
       'description' => __( 'Add images to the exhibition', 'cmb2' ),
       'options'     => array(
