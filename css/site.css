@@ -1840,6 +1840,27 @@ img {
 #single-work-pagination {
   width: 66%;
 }
+#single-exposicion-header {
+  margin-bottom: 48px;
+}
+#single-exposicion-nav {
+  margin-top: 24px;
+}
+.exposicion-filter {
+  padding: 0 24px;
+}
+.exposicion-filter.active {
+  text-decoration: underline;
+}
+.exposicion-content {
+  display: none;
+}
+.exposicion-content.active {
+  display: block;
+}
+.exposicion-image {
+  margin-bottom: 24px;
+}
 #page-copy {
   font-size: 1.1rem;
   line-height: 1.45em;

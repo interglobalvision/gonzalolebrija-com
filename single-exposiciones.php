@@ -36,7 +36,7 @@ if( have_posts() ) {
     }
 ?>
 
-    <div class="col col-6">
+    <div class="col col-8">
 
       <ul class="filter-menu">
       <?php
@@ -63,7 +63,7 @@ if( have_posts() ) {
     </div>
 
     <!-- main posts loop -->
-    <section id="exposicion" class="col col-18">
+    <section id="exposicion" class="col col-14">
 
       <article <?php post_class(); ?> id="single-post-<?php the_ID(); ?>">
 
