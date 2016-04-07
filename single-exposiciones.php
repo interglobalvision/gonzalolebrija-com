@@ -90,7 +90,7 @@ if( have_posts() ) {
         </header>
 
         <div id="exposicion-text" class="exposicion-content active">
-          <div class="copy">
+          <div class="copy larger-copy">
             <?php the_content(); ?>
           </div>
         </div>
