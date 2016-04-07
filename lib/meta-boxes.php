@@ -68,18 +68,34 @@ function igv_cmb_metaboxes() {
     'type'       => 'text_date_timestamp',
   ) );
 
-  $exposiciones_meta->add_field( array(
-    'name'       => __( 'Works gallery', 'cmb2' ),
-    'desc'       => __( 'as a wordpress gallery', 'cmb2' ),
-    'id'         => $prefix . 'works_gallery',
-    'type'       => 'wysiwyg',
+  $exposiciones_images = $exposiciones_meta->add_field( array(
+      'id'          => 'exposicion_images',
+      'type'        => 'group',
+      'description' => __( 'Add images to the exhibition', 'cmb2' ),
+      'options'     => array(
+          'group_title'   => __( 'Image {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+          'add_button'    => __( 'Add Another Image', 'cmb2' ),
+          'remove_button' => __( 'Remove Image', 'cmb2' ),
+          'sortable'      => false, // beta
+          // 'closed'     => true, // true to have the groups closed by default
+      ),
   ) );
 
-  $exposiciones_meta->add_field( array(
-    'name'       => __( 'Installation gallery', 'cmb2' ),
-    'desc'       => __( 'as a wordpress gallery', 'cmb2' ),
-    'id'         => $prefix . 'installation_gallery',
-    'type'       => 'wysiwyg',
+  $exposiciones_meta->add_group_field( $exposiciones_images, array(
+      'name' => 'Image',
+      'id'   => 'image',
+      'type' => 'file',
+      'attributes'  => array(
+        'required'    => 'required',
+      ),
+  ) );
+
+  $exposiciones_meta->add_group_field( $exposiciones_images, array(
+      'name' => 'Related work (optional)',
+      'description' => __( 'Relate a work to this image. (Clicking the image will go to the work single page). To do this open a search and find the work. The data in this field should be a number. e.g. 43 or 6', 'cmb2' ),
+      'id'   => 'work',
+      'type' => 'post_search_text',
+      'post_type' => 'obra',
   ) );
 
   // works
@@ -124,7 +140,7 @@ function igv_cmb_metaboxes() {
     'id'         => $prefix . 'size',
     'type'       => 'text',
   ) );
- 
+
   $obra_meta->add_field( array(
     'name'       => __( 'Video', 'cmb2' ),
     'desc'       => __( 'if video not slideshow. [vimeo embed id or ???]', 'cmb2' ),
