@@ -10,20 +10,20 @@ get_header();
 
     <div class="col col-6">
 
-      <ul>
+      <ul class="filter-menu">
       <?php
         $exhibition_types = get_terms('tipo_de_exposicion');
 
         if ($exhibition_types) {
           foreach ($exhibition_types as $type) {
       ?>
-        <li><a href="<?php echo get_term_link($type->term_id); ?>"><?php echo $type->name; ?></a></li>
+        <li class="filter-term"><a href="<?php echo get_term_link($type->term_id); ?>"><?php echo $type->name; ?></a></li>
       <?php
           }
         }
       ?>
         <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('exposiciones/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+        <li><a href="<?php echo home_url('exposiciones/'); ?>" class="filter-term filter-term-all active"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
       </ul>
 
     </div>
