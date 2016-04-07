@@ -77,6 +77,7 @@ function cmb_initialize_cmb_meta_boxes() {
   // Add CMB2 plugin
   if ( ! class_exists( 'cmb2_bootstrap_202' ) )
     require_once 'lib/CMB2/init.php';
+    require_once 'lib/CMB2-Post-Search-field/lib/init.php';
 }
 
 // Remove WP Emoji
