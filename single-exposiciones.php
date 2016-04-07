@@ -83,7 +83,7 @@ if( have_posts() ) {
 
           <ul id="single-exposicion-nav" class="u-inline-list">
             <li class="exposicion-filter active u-pointer" data-target="text"><?php echo __('[:es]Texto[:en]Text'); ?></li>
-            <li class="exposicion-filter u-pointer" data-target="content"><?php echo __('[:es]Imágenes[:en]Images'); ?></li>
+            <li class="exposicion-filter u-pointer" data-target="images"><?php echo __('[:es]Imágenes[:en]Images'); ?></li>
           </ul>
 
 

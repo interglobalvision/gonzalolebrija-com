@@ -7,6 +7,7 @@ Site = {
     var _this = this;
 
     _this.Filters.bind();
+    _this.ExhibitionFilters.init();
     _this.Header.init();
     _this.Gallery.init();
     _this.GridHovers.init();
@@ -42,6 +43,34 @@ Site.Filters = {
         }
       });
     }
+  },
+};
+
+Site.ExhibitionFilters = {
+  init: function() {
+    var _this = this;
+
+    if ($('body').hasClass('single-exposiciones')) {
+      _this.bind();
+    }
+
+  },
+
+  bind: function() {
+    var $exhibtionFilters = $('.exposicion-filter');
+
+    $exhibtionFilters.on({
+      click: function() {
+        var $this = $(this);
+        var target = $this.data('target');
+
+        $exhibtionFilters.removeClass('active');
+        $this.addClass('active');
+
+        $('.exposicion-content').removeClass('active');
+        $('#exposicion-' + target).addClass('active');
+      },
+    });
   },
 };
 
