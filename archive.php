@@ -36,16 +36,16 @@ $monthNumber = get_query_var('monthnum');
 
             echo '<li>';
             if ($monthNumber == $monthMoment->format('n')) {
-              echo '<a class="filter-term active" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
+              echo '<a class="filter-term font-capitalize active" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
             } else {
-              echo '<a class="filter-term" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
+              echo '<a class="filter-term font-capitalize" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
             }
             echo '</li>';
           }
         ?>
 
         <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
+        <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
 
       </ul>
 
@@ -64,7 +64,7 @@ if( have_posts() ) {
 
         <header class="post-header">
 
-          <a href="<?php the_permalink() ?>"><h4 class="post-date"><?php the_time('M., Y'); ?></h4></a>
+          <a href="<?php the_permalink() ?>"><h4 class="post-date font-capitalize"><?php the_time('M., Y'); ?></h4></a>
 
           <a href="<?php the_permalink() ?>"><h2 class="post-title font-spaced js-fix-widows"><?php the_title(); ?></h2></a>
 
