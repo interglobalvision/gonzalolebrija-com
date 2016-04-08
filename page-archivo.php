@@ -103,11 +103,11 @@ if ( $archivo_query->have_posts() ) {
               $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
               $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
           ?>
-            <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
+            <h4 class="font-capitalize"><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
           <?php
             } else {
           ?>
-            <h4><?php echo get_the_time($date_format); ?></h4>
+            <h4 class="font-capitalize"><?php echo get_the_time($date_format); ?></h4>
           <?php
             }
           ?>

@@ -76,7 +76,7 @@ if( have_posts() ) {
               $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
               $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
           ?>
-            <h4><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
+            <h4 class="font-capitalize"><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
           <?php
             }
           ?>
