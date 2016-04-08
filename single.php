@@ -1,5 +1,19 @@
 <?php
 get_header();
+
+if (qtranxf_getLanguage() == 'es') {
+  $locale = 'es_ES';
+} else {
+  $locale = 'en_US';
+}
+
+\Moment\Moment::setLocale($locale);
+
+// current time
+$now = new \Moment\Moment();
+
+$date_format = 'M., y';
+
 ?>
 
 <!-- main content -->
@@ -10,24 +24,28 @@ get_header();
 
     <div class="col col-8">
 
-      <ul>
-      <?php
-        // this needs active state for current year. but wp_get_archives doesnt do that so perhaps we add a class with js string matching!?!?
-        // the date format is also incorrect and there is no way to set it. so perhaps we need to write a custom version of this function
-        $args = array(
-          'type'            => 'monthly',
-          'limit'           => '',
-          'format'          => 'html',
-          'before'          => '',
-          'after'           => '',
-          'show_post_count' => false,
-          'echo'            => 1,
-          'order'           => 'ASC'
-        );
-        wp_get_archives($args);
-      ?>
+      <ul id="month-filter" class="filter-list">
+        <?php
+
+          $months = get_all_months(array('post'), 'DESC');
+
+          foreach($months as $month) {
+
+            $monthMoment = new \Moment\Moment($month->month . '/1/' . $month->year);
+            $link = get_month_link($monthMoment->format('Y'), $monthMoment->format('n'));
+
+            echo '<li>';
+            if (get_the_time('n') == $monthMoment->format('n')) {
+              echo '<a class="filter-term font-capitalize active" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
+            } else {
+              echo '<a class="filter-term font-capitalize" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
+            }
+            echo '</li>';
+          }
+        ?>
+
         <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('noticias/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+        <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
       </ul>
 
     </div>
