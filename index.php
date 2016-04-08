@@ -45,7 +45,7 @@ $monthNumber = get_query_var('monthnum');
         ?>
 
         <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
+        <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize <?php echo $monthNumber ? '' : 'active'; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
 
       </ul>
 
