@@ -107,13 +107,6 @@ function igv_cmb_metaboxes() {
   ) );
 
   $obra_meta->add_field( array(
-    'name'       => __( 'Year', 'cmb2' ),
-    'desc'       => __( '', 'cmb2' ),
-    'id'         => $prefix . 'year',
-    'type'       => 'text',
-  ) );
-
-  $obra_meta->add_field( array(
     'name'       => __( 'Work in progress?', 'cmb2' ),
     'desc'       => __( '', 'cmb2' ),
     'id'         => $prefix . 'in_progress',
