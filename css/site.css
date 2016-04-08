@@ -1777,6 +1777,7 @@ img {
   content: ' / ';
 }
 #search-field {
+  background-color: #fdfdfd;
   border: none;
   outline: none;
   margin-left: 12px;
