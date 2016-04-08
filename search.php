@@ -25,7 +25,7 @@ get_header();
     </div>
 
     <!-- main posts loop -->
-    <section id="posts" class="col col-18">
+    <section id="search-results" class="col col-10">
 
 <?php
 if( have_posts() ) {
@@ -33,11 +33,11 @@ if( have_posts() ) {
     the_post();
 ?>
 
-      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('search-result'); ?> id="post-<?php the_ID(); ?>">
 
         <header class="post-header">
 
-          <a href="<?php the_permalink() ?>"><h5 class="post-type">
+          <a href="<?php the_permalink() ?>"><h5 class="post-type font-capitalize">
             <?php
               if (get_post_type() !== 'post') {
                 echo get_post_type();
