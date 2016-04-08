@@ -69,7 +69,7 @@ if( have_posts() ) {
 
         </header>
 
-        <div class="copy">
+        <div class="copy larger-copy">
           <?php the_content(); ?>
         </div>
 
