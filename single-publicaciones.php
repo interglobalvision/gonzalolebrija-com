@@ -32,7 +32,7 @@ if( have_posts() ) {
         </div>
 
         <div class="col col-6">
-          <h2 class="publicacion-title"><?php
+          <h2 id="single-publicacion-title"><?php
             the_title();
             echo ', ' . get_the_time('Y', $post->ID);
           ?></h2>
@@ -42,7 +42,7 @@ if( have_posts() ) {
 
         <div class="col col-12">
 
-          <div class="copy larger-copy">
+          <div id="single-publicacion-content" class="copy larger-copy">
             <?php the_content(); ?>
           </div>
 

@@ -1878,8 +1878,11 @@ img {
 .exposicion-image {
   margin-bottom: 24px;
 }
-.publicacion-title {
+#single-publicacion-title {
   margin-bottom: 12px;
+}
+#single-publicacion-content {
+  margin-top: 12px;
 }
 #page-copy {
   font-size: 1.1rem;
