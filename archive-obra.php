@@ -26,7 +26,7 @@ if ($year_param) {
 
     <div class="col col-6">
 
-      <ul>
+      <ul class="filter-menu">
       <?php
         $year_archive = get_all_years(array('obra'), 'DESC');
 
@@ -40,7 +40,7 @@ if ($year_param) {
         }
       ?>
         <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('obra/'); ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+        <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
       </ul>
 
     </div>

@@ -84,7 +84,12 @@ foreach($years as $year) {
           <nav id="single-work-nav" class="u-cf">
 
             <nav id="single-work-pagination" class="u-float">
-              <?php previous_post_link('%link', __('[:es]obra anterior[:en]previous work')); ?> / <?php next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
+              <?php
+                previous_post_link('%link', __('[:es]obra anterior[:en]previous work'));
+                if (get_previous_post_link() && get_next_post_link()) {
+                  echo ' / ';
+                }
+                next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
             </nav>
 
             <?php if ($gallery) { ?>
