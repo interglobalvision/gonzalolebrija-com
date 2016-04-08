@@ -32,10 +32,10 @@ if( have_posts() ) {
         </div>
 
         <div class="col col-6">
-          <a href="<?php the_permalink() ?>"><h2 class="post-title"><?php
+          <h2 class="publicacion-title"><?php
             the_title();
             echo ', ' . get_the_time('Y', $post->ID);
-          ?></h2></a>
+          ?></h2>
 
           <?php get_template_part('partials/gallery-nav'); ?>
         </div>
