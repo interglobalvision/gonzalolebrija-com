@@ -12,7 +12,7 @@ get_header();
 
       <ul class="filter-menu">
       <?php
-        $exhibition_types = get_terms('tipo_de_exposicion');
+        $exhibition_types = get_terms('tipo-de-exposicion');
 
         if ($exhibition_types) {
           foreach ($exhibition_types as $type) {
