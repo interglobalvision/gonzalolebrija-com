@@ -57,10 +57,11 @@ $date_format = 'd M, y';
           );
           $current_exhibitions = new WP_Query($args);
           if ($current_exhibitions->have_posts()) {
-            $current_exhibitions->the_post();
-            $meta = get_post_meta($post->ID);
-            $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
-            $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
+            while ($current_exhibitions->have_posts()) {
+              $current_exhibitions->the_post();
+              $meta = get_post_meta($post->ID);
+              $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
+              $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
         ?>
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
@@ -73,6 +74,7 @@ $date_format = 'd M, y';
             </a>
           </div>
         <?php
+            }
           }
           wp_reset_postdata();
         ?>
@@ -110,8 +112,9 @@ $date_format = 'd M, y';
           );
           $future_exhibitions = new WP_Query($args);
           if ($future_exhibitions->have_posts()) {
-            $future_exhibitions->the_post();
-            $meta = get_post_meta($post->ID);
+            while ($future_exhibitions->have_posts()) {
+              $future_exhibitions->the_post();
+              $meta = get_post_meta($post->ID);
         ?>
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
@@ -124,6 +127,7 @@ $date_format = 'd M, y';
             </a>
           </div>
         <?php
+            }
           }
           wp_reset_postdata();
         ?>
@@ -142,8 +146,9 @@ $date_format = 'd M, y';
           );
           $publications = new WP_Query($args);
           if ($publications->have_posts()) {
-            $publications->the_post();
-            $meta = get_post_meta($post->ID);
+            while ($publications->have_posts()) {
+              $publications->the_post();
+              $meta = get_post_meta($post->ID);
         ?>
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
@@ -155,6 +160,7 @@ $date_format = 'd M, y';
             </a>
           </div>
         <?php
+            }
           }
           wp_reset_postdata();
         ?>
