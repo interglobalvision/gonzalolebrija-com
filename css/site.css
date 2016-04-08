@@ -1875,6 +1875,9 @@ img {
 .exposicion-image {
   margin-bottom: 24px;
 }
+.publicacion-title {
+  margin-bottom: 12px;
+}
 #page-copy {
   font-size: 1.1rem;
   line-height: 1.45em;
