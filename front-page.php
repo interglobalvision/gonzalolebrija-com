@@ -188,6 +188,7 @@ $date_format = 'd M, y';
           $args = array(
             'post_type' => 'obra',
             'posts_per_page' => 1,
+            'orderby' => 'rand',
           );
           $works = new WP_Query($args);
           if ($works->have_posts()) {
@@ -209,6 +210,7 @@ $date_format = 'd M, y';
           $args = array(
             'post_type' => 'obra',
             'posts_per_page' => 1,
+            'orderby' => 'rand',
             // category or wtf chooses works on view
           );
           $works = new WP_Query($args);
