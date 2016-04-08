@@ -43,9 +43,9 @@ if( have_posts() ) {
 
       <article <?php post_class(); ?> id="single-post-<?php the_ID(); ?>">
 
-        <header id="single-post-header">
+        <header id="single-post-header" class="u-align-center">
 
-          <a href="<?php the_permalink() ?>"><h4 id="single-post-date font-capitalize"><?php the_time('M., Y'); ?></h4></a>
+          <a href="<?php the_permalink() ?>"><h4 id="single-post-date" class="font-capitalize"><?php the_time('M., Y'); ?></h4></a>
 
           <a href="<?php the_permalink() ?>"><h2 id="single-post-title"><?php the_title(); ?></h2></a>
 
