@@ -134,25 +134,17 @@ Site.Gallery = {
       lazyLoadingInPrevNext: true,
       nextButton: '.js-gallery-next',
       prevButton: '.js-gallery-prev',
-      onInit: function(swiper) {
-        $('#gallery-index-length').html(swiper.slides.length - 2);
-        _this.setActive(swiper.activeIndex);
-      },
 
-      onSlideChangeEnd: function(swiper) {
-        _this.setActive(swiper.activeIndex);
+      pagination: '#single-work-gallery-nav',
+      paginationType: 'custom',
+      paginationCustomRender: function (swiper, current, total) {
+        return '<span class="js-gallery-prev u-pointer">< </span><span id="gallery-index-active">' + current + '</span> / <span id="gallery-index-length">' + total + '</span><span class="js-gallery-next u-pointer"> ></span>';
       },
 
       onClick: function(swiper) {
         swiper.slideNext();
       },
-
     });
-
-  },
-
-  setActive: function(activeIndex) {
-    $('#gallery-index-active').html(activeIndex);
   },
 };
 
