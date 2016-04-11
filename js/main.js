@@ -9,6 +9,7 @@ Site = {
     _this.Filters.bind();
     _this.ExhibitionFilters.init();
     _this.Header.init();
+    _this.Mobile.init();
     _this.Gallery.init();
     _this.GridHovers.init();
   },
@@ -119,6 +120,33 @@ Site.Header = {
     var _this = this;
 
     window.addEventListener('scroll', _this.showHide());
+  },
+};
+
+Site.Mobile = {
+  init: function() {
+    var _this = this;
+
+    $('#mobile-menu-open').on({
+      click: function() {
+        _this.Menu.open();
+      },
+    });
+
+    $('#mobile-menu-close').on({
+      click: function() {
+        _this.Menu.close();
+      },
+    });
+
+  },
+  Menu: {
+    open: function() {
+      $('#mobile-active-menu').show();
+    },
+    close: function() {
+      $('#mobile-active-menu').hide();
+    },
   },
 };
 
