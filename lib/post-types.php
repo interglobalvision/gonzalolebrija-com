@@ -49,7 +49,7 @@ function post_type_exposiciones() {
 		'description'           => __( 'Exposiciones', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', ),
-		'taxonomies'            => array( 'tipo_de_exposicion' ),
+		'taxonomies'            => array( 'tipo-de-exposicion' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -111,7 +111,7 @@ function tipo_de_exposicion() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'tipo_de_exposicion', array( 'exposiciones' ), $args );
+	register_taxonomy( 'tipo-de-exposicion', array( 'exposiciones' ), $args );
 
 }
 add_action( 'init', 'tipo_de_exposicion', 0 );

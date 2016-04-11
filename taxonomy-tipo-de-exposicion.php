@@ -1,5 +1,8 @@
 <?php
 get_header();
+
+var_dump(get_query_var('tipo-de-exposicion'));
+
 ?>
 
 <!-- main content -->
