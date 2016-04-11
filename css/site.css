@@ -1843,6 +1843,12 @@ img {
   line-height: 1.35em;
   z-index: 99999;
 }
+#single-post-header {
+  margin-bottom: 24px;
+}
+#single-post-date {
+  margin-bottom: 12px;
+}
 #single-work-header {
   margin-bottom: 48px;
 }
