@@ -1,0 +1,356 @@
+$cols = 24
+$col = 24px
+$gutter = 18px
+
+.container
+  margin: 0 auto
+  width: ($col * $cols)+($gutter * $cols)
+
+.col
+  float: left
+  margin-left: ($gutter/2)
+  margin-right: ($gutter/2)
+  min-height: 1px
+
+for col in 1..$cols
+  .col-{col}
+    width: ( col * $col ) + ( ( col - 1 ) * $gutter )
+
+// VARIABLES
+
+$margin-small = ($gutter)
+$margin-tiny = ($gutter / 2)
+$margin-basic = ($gutter * 2)
+$margin-mid = ($gutter * 3.5)
+$margin-large = ($gutter * 5)
+
+$font-size-basic = 14px
+$font-size-larger = 1.1rem
+
+$font-leading-basic = 1.35em
+$font-leading-tighter = 1.2em
+$font-leading-wider = 1.45em
+
+$font-tracking-basic = 0.001em
+$font-tracking-wider = 0.03em
+
+
+// MIXINS
+
+border-bottom()
+  border-bottom-width: 2px
+  border-bottom-style: solid
+  padding-bottom: ($margin-tiny / 2)
+
+
+// TYPOGRAPHY
+
+body
+  font-size: $font-size-basic
+  line-height: $font-leading-basic
+  letter-spacing: $font-tracking-basic
+
+.font-small-caps
+  font-size: 0.85em
+
+.font-spaced
+  letter-spacing: $font-tracking-wider
+
+.font-capitalize
+  text-transform: capitalize
+
+h1
+  font-size: 3rem
+
+h2
+  font-size: 2.1rem
+
+h3
+  font-size: 1.7rem
+  font-style: italic
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  line-height: $font-leading-basic
+
+h4
+h5
+h6
+  letter-spacing: $font-tracking-wider
+  &.border-bottom
+    padding-bottom: ($margin-tiny / 3)
+
+p
+  margin-bottom: 1rem
+
+.copy
+  max-width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
+  margin: 0 auto
+
+.larger-copy
+  font-size: $font-size-larger
+  line-height: $font-leading-basic
+
+// LINKS
+
+a, a:active, a:visited
+  color: inherit
+  text-decoration: none
+
+// BASIC
+
+html
+  background-color: $color-white-soft
+  color: $color-black-soft
+
+#main-content
+  padding-top: (101 + $margin-small + $margin-small)
+  min-height: 85vh
+
+img
+  max-width: 100%
+  height: auto
+
+.border-bottom
+  border-bottom()
+
+#posts, #single-publicacion
+  float: left
+  width: ( 18 * $col ) + ( ( 18 - 1 ) * $gutter ) + $gutter
+
+
+// UI ELEMENTS
+
+.large-arrow
+  font-size: 3rem
+
+// GALLERY
+
+.swiper-container
+  margin-bottom: $margin-small
+
+.swiper-slide
+  text-align: right
+
+// HEADER
+
+#header
+  padding-top: $margin-basic
+  position: fixed
+  z-index: 9999
+  top: 0
+  width: 100%
+  background-color: $color-white-soft
+  backface-visibility: hidden
+  .language-chooser
+    li
+      display: inline-block
+      &:first-child:after
+        content: ' / '
+
+#site-title
+  font-size: 2rem
+  margin: 0
+
+#menu
+  font-size: 1.6rem
+  line-height: $font-leading-basic
+  letter-spacing: $font-tracking-wider
+
+.menu-item
+  display: inline-block
+  &:last-child
+    a:after
+      content: ''
+  a:after
+    content: ', '
+
+.search-field
+  background-color: $color-white-soft
+  border: none
+  outline: none
+  margin-left: $margin-tiny
+
+  // HOME HEADER
+
+.home
+  #header
+    display: none
+  #main-content
+    padding-top: 0
+
+.home.state-scrolled
+  #header
+    display: block
+
+#home-header
+  margin-top: $margin-basic
+  margin-bottom: $margin-small
+
+#home-site-title
+  font-size: 7rem
+  line-height: 1
+  margin: 0
+
+// HOME CONTENT
+
+.no-touch
+  .home
+    img
+      filter: grayscale(100%)
+      &:hover
+        filter: grayscale(0%)
+
+.home-column-post, .home-column-post-copy, .home-news-post
+  margin-top: $margin-small
+  margin-bottom: $margin-basic
+
+.home-column-post-title
+  margin-bottom: $margin-tiny
+
+.home-news-post
+  .attachment-post-thumbnail
+    display: block
+    margin-bottom: $margin-tiny
+
+.home-news-post-header
+  margin-bottom: $margin-tiny
+
+.home-news-post-date
+  margin-bottom: $margin-small
+
+// HOVER GRIDS
+
+.hover-grid-item
+  height: 420px
+  margin-bottom: $margin-small
+  position: relative
+  text-align: center
+
+.hover-grid-item-small
+  height: 380px
+
+.hover-grid-title
+  position: fixed
+  display: none
+  font-size: 1.7rem
+  line-height: $font-leading-basic
+  z-index: 99999
+
+// SINGLE
+
+  // POST
+
+#single-post-header
+  margin-bottom: $margin-small
+
+#single-post-date
+  margin-bottom: $margin-tiny
+
+  // SINGLE WORK
+
+#single-work-header
+  margin-bottom: $margin-basic
+
+#single-work-title
+  line-height: $font-leading-tighter
+
+#single-work-meta
+  margin-top: $margin-tiny
+
+#single-work-copy
+  min-height: 350px
+
+#single-work-pagination
+  width: 66%
+
+  // SINGLE EXPO
+
+#single-exposicion-header
+  margin-bottom: $margin-basic
+
+#single-exposicion-nav
+  margin-top: $margin-small
+
+.exposicion-filter
+  padding: 0 $margin-small
+  &.active
+    text-decoration: underline
+
+.exposicion-content
+  display: none
+  &.active
+    display: block
+
+.exposicion-image
+  margin-bottom: $margin-small
+
+  // SINGLE PUBLICATION
+
+#single-publicacion-title
+  margin-bottom: $margin-tiny
+
+#single-publicacion-content
+  margin-top: $margin-tiny
+
+// PAGE
+
+#page-copy
+  font-size: $font-size-larger
+  line-height: $font-leading-wider
+  p
+    margin-bottom: 0
+    text-indent: $margin-basic
+    &:first-child
+      text-indent: 0
+
+// ARCHIVES
+
+.archive-noticia-post
+  margin-bottom: $margin-small
+  .post-date
+    margin-bottom: $margin-small
+  .post-title
+    margin: 0 auto
+    max-width: 600px
+
+// ARCHIVO
+// YEARS and FILTERS
+
+.filter-list
+  line-height: $font-leading-wider
+
+.filter-term
+  position: relative
+  &.active
+    &:after
+      content: '\2190'
+      position: absolute
+      left: 165%
+      font-size: 3em
+      top: 0
+      bottom: 0
+      line-height: 0.15
+
+// ARCHIVO
+
+.archivo-post
+  margin-bottom: $margin-small
+
+// SEARCH RESULTS
+
+.search-result
+  margin-bottom: $margin-small
+
+// FOOTER
+
+#footer
+  padding-top: $margin-small
+  margin-bottom: $margin-basic
+
+#footer-content
+  padding-top: $margin-tiny
