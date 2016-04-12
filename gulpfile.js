@@ -89,7 +89,7 @@ gulp.task('images', function () {
 gulp.task('watch', function() {
   gulp.watch(['js/main.js'], ['javascript']);
   gulp.watch(['js/library/*.js'], ['javascript-library']);
-  gulp.watch(['css/site.styl'], ['style']);
+  gulp.watch(['css/site.styl', 'css/responsive/desktop-medium.styl', 'css/responsive/mobile.styl'], ['style']);
   gulp.watch(['img/src/*.*'], ['images']);
 });
 

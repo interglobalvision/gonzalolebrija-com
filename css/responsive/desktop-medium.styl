@@ -1,25 +1,10 @@
-@import "fonts"
-
-@import "kouto-swiss"
-
-@import "helpers"
-@import "swiper"
-@import "genericons"
-
-meyer-reset()
-box-sizing-reset()
-normalize()
-
 $cols = 24
-$col = 32px
-$gutter = 24px
+$col = 24px
+$gutter = 18px
 
 .container
   margin: 0 auto
   width: ($col * $cols)+($gutter * $cols)
-
-.row
-  clear: both
 
 .col
   float: left
@@ -31,33 +16,7 @@ for col in 1..$cols
   .col-{col}
     width: ( col * $col ) + ( ( col - 1 ) * $gutter )
 
-// FLUID COLS
-
-.percent-col
-  float: left
-  box-sizing: border-box
-
-$pcols = 10
-
-for pcol in 1..$pcols
-  .s-into-{pcol}
-    width: ( 100% / pcol )
-
-@media screen and (min-width: 601px)
-
-  for pcol in 1..$pcols
-    .m-into-{pcol}
-      width: ( 100% / pcol )
-
-@media screen and (min-width: 993px)
-
-  for pcol in 1..$pcols
-    .l-into-{pcol}
-      width: ( 100% / pcol )
-
 // VARIABLES
-
-$golden-ratio = 1.61803398875
 
 $margin-small = ($gutter)
 $margin-tiny = ($gutter / 2)
@@ -65,7 +24,7 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 15px
+$font-size-basic = 14px
 $font-size-larger = 1.1rem
 
 $font-leading-basic = 1.35em
@@ -75,14 +34,10 @@ $font-leading-wider = 1.45em
 $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.03em
 
-$color-black-soft = rgb(14, 14, 14)
-$color-white-soft = rgb(253, 253, 253)
-
 
 // MIXINS
 
 border-bottom()
-  border-bottom-color: $color-black-soft
   border-bottom-width: 2px
   border-bottom-style: solid
   padding-bottom: ($margin-tiny / 2)
@@ -91,26 +46,12 @@ border-bottom()
 // TYPOGRAPHY
 
 body
-  font-family: 'Graphik', helvetica, arial, sans-serif
   font-size: $font-size-basic
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
 
-.font-serif,
-h1,
-h2,
-h3
-  font-family: 'Garamond Premier Pro', serif
-
-.font-italic
-  font-style: italic
-
-.font-bold
-  font-weight: bold
-
 .font-small-caps
   font-size: 0.85em
-  text-transform: uppercase
 
 .font-spaced
   letter-spacing: $font-tracking-wider
@@ -211,7 +152,6 @@ img
       &:first-child:after
         content: ' / '
 
-
 #site-title
   font-size: 2rem
   margin: 0
@@ -234,12 +174,6 @@ img
   border: none
   outline: none
   margin-left: $margin-tiny
-
-  // MOBILE MENU
-
-#mobile-menu-open,
-#mobile-active-menu
-  display: none
 
   // HOME HEADER
 
@@ -420,13 +354,3 @@ img
 
 #footer-content
   padding-top: $margin-tiny
-
-// MEDIA QUERIES
-
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-
-  @import "responsive/desktop-medium"
-
-@media screen and (max-width: 1008px)
-
-  @import "responsive/mobile"

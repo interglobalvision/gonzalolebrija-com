@@ -14,6 +14,8 @@
 
   </section>
 
+  <?php get_template_part('partials/mobile-menu'); ?>
+
   <?php get_template_part('partials/scripts'); ?>
 
   <script type="application/ld+json">
