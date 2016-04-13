@@ -2406,11 +2406,13 @@ img {
   }
   #posts,
   #single-publicacion {
-    float: left;
-    width: 828px;
+    float: none;
+    width: 100%;
   }
   .large-arrow {
-    font-size: 3rem;
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 28px;
   }
   .swiper-container {
     margin-bottom: 14px;
@@ -2568,10 +2570,10 @@ img {
     margin-top: 7px;
   }
   #single-work-copy {
-    min-height: 350px;
+    min-height: initial;
   }
   #single-work-pagination {
-    width: 66%;
+    width: 100%;
   }
   #single-exposicion-header {
     margin-bottom: 28px;
