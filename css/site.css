@@ -2611,6 +2611,9 @@ img {
   #page-copy p:first-child {
     text-indent: 0;
   }
+  #mobile-page-submenu {
+    margin-top: 28px;
+  }
   .archive-noticia-post {
     margin-bottom: 14px;
   }

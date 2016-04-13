@@ -1,5 +1,32 @@
 <?php
 get_header();
+
+function render_submenu($post) {
+  $children = get_children(array(
+    'post_parent' => $post->ID,
+  	'post_type'   => 'page',
+  	'numberposts' => -1,
+  ));
+
+  // if page has children create submenu
+  if ($children) {
+    echo_page_children_submenu($children);
+  }
+
+  // if page has parent list the siblings
+  if ($post->post_parent) {
+
+    $children = get_children(array(
+      'post_parent' => $post->post_parent,
+    	'post_type'   => 'page',
+    	'numberposts' => -1,
+    ));
+    if ($children) {
+      echo_page_children_submenu($children);
+    }
+
+  }
+}
 ?>
 
 <!-- main content -->
@@ -8,34 +35,8 @@ get_header();
 
   <div class="row">
 
-    <div class="col col-6">
-<?php
-
-      $children = get_children(array(
-        'post_parent' => $post->ID,
-      	'post_type'   => 'page',
-      	'numberposts' => -1,
-      ));
-
-      // if page has children create submenu
-      if ($children) {
-        echo_page_children_submenu($children);
-      }
-
-      // if page has parent list the siblings
-      if ($post->post_parent) {
-
-        $children = get_children(array(
-          'post_parent' => $post->post_parent,
-        	'post_type'   => 'page',
-        	'numberposts' => -1,
-        ));
-        if ($children) {
-          echo_page_children_submenu($children);
-        }
-
-      }
-?>
+    <div class="col col-6 only-desktop">
+      <?php render_submenu($post); ?>
     </div>
 
     <!-- main posts loop -->
@@ -55,19 +56,22 @@ if( have_posts() ) {
 
       </article>
 
+    <!-- end page -->
+    </section>
+
+    <div id="mobile-page-submenu" class="only-mobile">
+      <?php render_submenu($post); ?>
+    </div>
+
 <?php
   }
 } else {
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    <section id="page" class="col col-14">
+      <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    </section>
 <?php
 } ?>
-
-    <?php get_template_part('partials/pagination'); ?>
-
-    <!-- end posts -->
-    </section>
-
 
 <!-- end main-content -->
 
