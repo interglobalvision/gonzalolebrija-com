@@ -115,14 +115,16 @@ img
   border-bottom()
 
 #posts, #single-publicacion
-  float: left
-  width: ( 18 * $col ) + ( ( 18 - 1 ) * $gutter ) + $gutter
+  float: none
+  width: 100%
 
 
 // UI ELEMENTS
 
 .large-arrow
-  font-size: 3rem
+  font-size: 2rem
+  display: block
+  margin-bottom: $margin-basic
 
 // GALLERY
 
@@ -290,10 +292,10 @@ img
   margin-top: $margin-tiny
 
 #single-work-copy
-  min-height: 350px
+  min-height: initial
 
 #single-work-pagination
-  width: 66%
+  width: 100%
 
   // SINGLE EXPO
 
@@ -334,6 +336,9 @@ img
     text-indent: $margin-basic
     &:first-child
       text-indent: 0
+
+#mobile-page-submenu
+  margin-top: $margin-basic
 
 // ARCHIVES
 
