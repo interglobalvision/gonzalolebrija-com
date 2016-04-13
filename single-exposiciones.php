@@ -27,7 +27,7 @@ if( have_posts() ) {
     $meta = get_post_meta($post->ID);
     $images = get_post_meta($post->ID, '_igv_exposicion_images', true);
 
-    $post_terms = get_the_terms($post->ID, 'tipo_de_exposicion');
+    $post_terms = get_the_terms($post->ID, 'tipo-de-exposicion');
 
     if (!empty($post_terms)) {
       $post_term_id = $post_terms[0]->term_id;
@@ -40,7 +40,7 @@ if( have_posts() ) {
 
       <ul class="filter-menu">
       <?php
-        $exhibition_types = get_terms('tipo_de_exposicion');
+        $exhibition_types = get_terms('tipo-de-exposicion');
 
         if ($exhibition_types) {
           foreach ($exhibition_types as $type) {
