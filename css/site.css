@@ -1783,7 +1783,8 @@ img {
   margin-left: 12px;
 }
 #mobile-menu-open,
-#mobile-active-menu {
+#mobile-active-menu,
+#mobile-home {
   display: none;
 }
 .home #header {
@@ -2386,6 +2387,9 @@ img {
     color: inherit;
     text-decoration: none;
   }
+  .only-desktop {
+    display: none;
+  }
   html {
     background-color: #fdfdfd;
     color: #0e0e0e;
@@ -2519,24 +2523,28 @@ img {
     line-height: 1;
     margin: 0;
   }
-  .home-column-post,
-  .home-column-post-copy,
-  .home-news-post {
-    margin-top: 14px;
-    margin-bottom: 28px;
-  }
-  .home-column-post-title {
-    margin-bottom: 7px;
-  }
-  .home-news-post .attachment-post-thumbnail {
+  #mobile-home {
     display: block;
-    margin-bottom: 7px;
   }
-  .home-news-post-header {
-    margin-bottom: 7px;
+  .mobile-home-section,
+  .mobile-home-post {
+    margin-bottom: 28px;
+    margin-top: 7px;
   }
-  .home-news-post-date {
+  .mobile-home-news-post-title {
+    font-size: 1.1rem;
     margin-bottom: 14px;
+    margin-top: 4px;
+  }
+  .mobile-home-news-exhibition-title {
+    font-size: 1.1rem;
+    margin-top: 4px;
+  }
+  .mobile-home-news-exhibition-dates {
+    margin-bottom: 14px;
+  }
+  .mobile-home-post-copy {
+    margin-top: 14px;
   }
   .hover-grid-item {
     height: 420px;
