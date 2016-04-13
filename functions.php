@@ -285,6 +285,34 @@ function get_all_months($post_types, $order) {
   return $months;
 }
 
+// Render page's submenu
+function render_page_submenu($post) {
+  $children = get_children(array(
+    'post_parent' => $post->ID,
+  	'post_type'   => 'page',
+  	'numberposts' => -1,
+  ));
+
+  // if page has children create submenu
+  if ($children) {
+    echo_page_children_submenu($children);
+  }
+
+  // if page has parent list the siblings
+  if ($post->post_parent) {
+
+    $children = get_children(array(
+      'post_parent' => $post->post_parent,
+    	'post_type'   => 'page',
+    	'numberposts' => -1,
+    ));
+    if ($children) {
+      echo_page_children_submenu($children);
+    }
+
+  }
+}
+
 // to replace file_get_contents
 function url_get_contents($Url) {
   if (!function_exists('curl_init')){
