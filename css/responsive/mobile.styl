@@ -14,6 +14,7 @@ $gutter = 14px
 
 $margin-small = ($gutter)
 $margin-tiny = ($gutter / 2)
+$margin-micro = ($gutter / 3.5)
 $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
@@ -238,23 +239,25 @@ img
 #mobile-home
   display: block
 
-.home-column-post, .home-column-post-copy, .home-news-post
-  margin-top: $margin-small
+.mobile-home-section,
+.mobile-home-post
   margin-bottom: $margin-basic
+  margin-top: $margin-tiny
 
-.home-column-post-title
-  margin-bottom: $margin-tiny
-
-.home-news-post
-  .attachment-post-thumbnail
-    display: block
-    margin-bottom: $margin-tiny
-
-.home-news-post-header
-  margin-bottom: $margin-tiny
-
-.home-news-post-date
+.mobile-home-news-post-title
+  font-size: $font-size-larger
   margin-bottom: $margin-small
+  margin-top: $margin-micro
+
+.mobile-home-news-exhibition-title
+  font-size: $font-size-larger
+  margin-top: $margin-micro
+
+.mobile-home-news-exhibition-dates
+  margin-bottom: $margin-small
+
+.mobile-home-post-copy
+  margin-top: $margin-small
 
 // HOVER GRIDS
 
