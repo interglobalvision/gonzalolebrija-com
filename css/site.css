@@ -1783,7 +1783,8 @@ img {
   margin-left: 12px;
 }
 #mobile-menu-open,
-#mobile-active-menu {
+#mobile-active-menu,
+#mobile-home {
   display: none;
 }
 .home #header {
@@ -2386,6 +2387,9 @@ img {
     color: inherit;
     text-decoration: none;
   }
+  .only-desktop {
+    display: none;
+  }
   html {
     background-color: #fdfdfd;
     color: #0e0e0e;
@@ -2516,6 +2520,9 @@ img {
     font-size: 7rem;
     line-height: 1;
     margin: 0;
+  }
+  #mobile-home {
+    display: block;
   }
   .home-column-post,
   .home-column-post-copy,
