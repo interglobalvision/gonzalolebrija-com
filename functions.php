@@ -48,8 +48,8 @@ if ( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'mobile', 580, 9999, false );
 
+  add_image_size( 'col-12', 648, 99999, false );
   add_image_size( 'col-9', 480, 99999, false );
-
   add_image_size( 'col-6', 312, 99999, false );
 
 }
