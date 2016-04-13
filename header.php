@@ -60,7 +60,7 @@
           <div class="col col-6">
             <h1 id="site-title">
               <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
-              <nav id="mobile-menu-open" class="u-pointer"><span class="genericon genericon-menu"></span></nav>
+              <nav class="mobile-menu-open u-pointer"><span class="genericon genericon-menu"></span></nav>
             </h1>
           </div>
           <div class="col col-18">
