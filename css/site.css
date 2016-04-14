@@ -2693,6 +2693,17 @@ img {
     bottom: 0;
     line-height: 0.15;
   }
+  .archive-noticia-post {
+    text-align: left;
+    margin-bottom: 70px;
+  }
+  .archive-noticia-post .post-date {
+    margin-bottom: 7px;
+  }
+  .archive-noticia-post .post-title {
+    font-size: 1.1rem;
+    line-height: 1.35em;
+  }
   .archivo-post {
     margin-bottom: 14px;
   }
