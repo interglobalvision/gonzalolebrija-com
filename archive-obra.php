@@ -22,11 +22,38 @@ if ($year_param) {
 
 <main id="main-content" class="container">
 
+<!--   mobile submenus -->
+
+  <nav id="mobile-submenu-open" class="u-pointer">></nav>
+
+  <div id="mobile-archive-submenu">
+    <nav id="mobile-submenu-close" class="u-pointer"><</nav>
+
+    <div id="mobile-submenu-header">
+      <div class="container">
+        <h1 class="mobile-site-title">
+          <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+          <nav class="mobile-menu-open u-pointer"><span class="genericon genericon-menu"></span></nav>
+        </h1>
+      </div>
+    </div>
+
+    <div id="mobile-submenu-main">
+      <div class="container">
+        <ul class="filter-list mobile-menu">
+          <?php render_work_submenu($year_param); ?>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- desktop -->
+
   <div class="row">
-
-    <div class="col col-6">
-
+    <div id="archive-submenu" class="col col-6">
       <ul class="filter-menu">
+        <?php render_work_submenu($year_param); ?>
+<!--
       <?php
         $year_archive = get_all_years(array('obra'), 'DESC');
 
@@ -41,8 +68,8 @@ if ($year_param) {
       ?>
         <li>&nbsp;</li>
         <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+-->
       </ul>
-
     </div>
 
     <!-- main posts loop -->

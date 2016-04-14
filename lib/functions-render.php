@@ -2,6 +2,26 @@
 
   // RENDER FUNCTIONS
 
+
+// Render year filters for work
+
+function render_work_submenu($year_param = false) {
+  $year_archive = get_all_years(array('obra'), 'DESC');
+
+  if ($year_archive) {
+    foreach ($year_archive as $year) {
+      $active_class = $year == $year_param ? 'active' : '';
+?>
+  <li><a href="?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+<?php
+    }
+  }
+?>
+  <li>&nbsp;</li>
+  <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+  <?php
+}
+
 // Render taxonomy filters for expos
 
 function render_expo_submenu($tax_slug = false) {
