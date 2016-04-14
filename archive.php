@@ -1,14 +1,6 @@
 <?php
 get_header();
 
-if (qtranxf_getLanguage() == 'es') {
-  $locale = 'es_ES';
-} else {
-  $locale = 'en_US';
-}
-
-\Moment\Moment::setLocale($locale);
-
 $date_format = 'M., y';
 
 $monthNumber = get_query_var('monthnum');
