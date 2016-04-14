@@ -1752,10 +1752,12 @@ img {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-#header .language-chooser li {
+#header .language-chooser li,
+#home-header .language-chooser li {
   display: inline-block;
 }
-#header .language-chooser li:first-child:after {
+#header .language-chooser li:first-child:after,
+#home-header .language-chooser li:first-child:after {
   content: ' / ';
 }
 #site-title {
