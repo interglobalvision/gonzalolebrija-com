@@ -195,14 +195,14 @@ Site.Mobile = {
       $('#mobile-archive-submenu').css({
         'transform': 'translateX(0%)',
       });
-      $('#mobile-submenu-open').hide();
+      $('#mobile-submenu-open').css('visibility', 'hidden');
     },
 
     close: function() {
       $('#mobile-archive-submenu').css({
         'transform': 'translateX(-100%)',
       });
-      $('#mobile-submenu-open').show();
+      $('#mobile-submenu-open').css('visibility', 'visible');
     },
 
     fixHeight: function() {
