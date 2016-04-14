@@ -266,20 +266,21 @@ img
 // HOVER GRIDS
 
 .hover-grid-item
-  height: 420px
-  margin-bottom: $margin-small
-  position: relative
+  width: 80%
+  height: initial
+  margin: 0 auto $margin-basic auto
   text-align: center
 
 .hover-grid-item-small
-  height: 380px
+  height: initial
 
 .hover-grid-title
-  position: fixed
-  display: none
-  font-size: 1.7rem
+  position: initial
+  display: block
+  text-align: center
+  font-size: $font-size-larger
+  margin-top: $margin-tiny
   line-height: $font-leading-basic
-  z-index: 99999
 
 // SINGLE
 
@@ -409,11 +410,11 @@ img
     &:after
       content: '\2190'
       position: absolute
-      left: 165%
-      font-size: 3em
+      left: 110%
+      font-size: 2em
       top: 0
       bottom: 0
-      line-height: 0.15
+      line-height: 0.3
 
 .archive-noticia-post
   text-align: left

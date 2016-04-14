@@ -2554,20 +2554,21 @@ img {
     margin-top: 14px;
   }
   .hover-grid-item {
-    height: 420px;
-    margin-bottom: 14px;
-    position: relative;
+    width: 80%;
+    height: initial;
+    margin: 0 auto 28px auto;
     text-align: center;
   }
   .hover-grid-item-small {
-    height: 380px;
+    height: initial;
   }
   .hover-grid-title {
-    position: fixed;
-    display: none;
-    font-size: 1.7rem;
+    position: initial;
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 7px;
     line-height: 1.35em;
-    z-index: 99999;
   }
   #single-post-header {
     margin-bottom: 14px;
@@ -2687,11 +2688,11 @@ img {
   .filter-term.active:after {
     content: '\2190';
     position: absolute;
-    left: 165%;
-    font-size: 3em;
+    left: 110%;
+    font-size: 2em;
     top: 0;
     bottom: 0;
-    line-height: 0.15;
+    line-height: 0.3;
   }
   .archive-noticia-post {
     text-align: left;
