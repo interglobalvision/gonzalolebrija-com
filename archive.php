@@ -9,9 +9,6 @@ if (qtranxf_getLanguage() == 'es') {
 
 \Moment\Moment::setLocale($locale);
 
-// current time
-$now = new \Moment\Moment();
-
 $date_format = 'M., y';
 
 $monthNumber = get_query_var('monthnum');
@@ -41,20 +38,7 @@ $monthNumber = get_query_var('monthnum');
       <div class="container">
         <ul id="month-filter" class="filter-list mobile-menu">
           <?php
-            $months = get_all_months(array('post'), 'DESC');
-
-            foreach($months as $month) {
-              $monthMoment = new \Moment\Moment($month->month . '/1/' . $month->year);
-              $link = get_month_link($monthMoment->format('Y'), $monthMoment->format('n'));
-
-              echo '<li>';
-              if ($monthNumber == $monthMoment->format('n')) {
-                echo '<a class="filter-term font-capitalize active" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
-              } else {
-                echo '<a class="filter-term font-capitalize" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
-              }
-              echo '</li>';
-            }
+            render_months_submenu($date_format, $monthNumber);
           ?>
           <li>&nbsp;</li>
           <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize <?php echo $monthNumber ? '' : 'active'; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
@@ -70,21 +54,7 @@ $monthNumber = get_query_var('monthnum');
     <div id="archive-submenu" class="col col-6">
       <ul id="month-filter" class="filter-list">
         <?php
-
-          $months = get_all_months(array('post'), 'DESC');
-
-          foreach($months as $month) {
-            $monthMoment = new \Moment\Moment($month->month . '/1/' . $month->year);
-            $link = get_month_link($monthMoment->format('Y'), $monthMoment->format('n'));
-
-            echo '<li>';
-            if ($monthNumber == $monthMoment->format('n')) {
-              echo '<a class="filter-term font-capitalize active" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
-            } else {
-              echo '<a class="filter-term font-capitalize" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
-            }
-            echo '</li>';
-          }
+          render_months_submenu($date_format, $monthNumber);
         ?>
         <li>&nbsp;</li>
         <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize <?php echo $monthNumber ? '' : 'active'; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
