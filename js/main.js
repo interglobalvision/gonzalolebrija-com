@@ -14,16 +14,15 @@ Site = {
     _this.GridHovers.init();
 
     $(window).resize(function(){
-
       _this.onResize();
     });
 
   },
 
   onResize: function() {
+    var _this = this;
 
     _this.Mobile.onResize();
-
   },
 };
 
@@ -196,12 +195,14 @@ Site.Mobile = {
       $('#mobile-archive-submenu').css({
         'transform': 'translateX(0%)',
       });
+      $('#mobile-submenu-open').hide();
     },
 
     close: function() {
       $('#mobile-archive-submenu').css({
         'transform': 'translateX(-100%)',
       });
+      $('#mobile-submenu-open').show();
     },
 
     fixHeight: function() {
