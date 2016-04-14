@@ -30,7 +30,6 @@ $font-leading-extra-wide = 1.6em
 $font-tracking-basic = 0.001em
 $font-tracking-wider = 0.03em
 
-
 // MIXINS
 
 border-bottom()
@@ -103,13 +102,16 @@ a, a:active, a:visited
 .only-desktop
   display: none
 
+.only-mobile
+  display: initial
+
 html
   background-color: $color-white-soft
   color: $color-black-soft
 
 #main-content
   padding-top: (101 + $margin-small + $margin-small)
-  min-height: 85vh
+  min-height: 100vh
 
 img
   max-width: 100%
@@ -143,7 +145,7 @@ img
 #header
   padding-top: $margin-small
   position: fixed
-  z-index: 9999
+  z-index: 7777
   top: 0
   width: 100%
   background-color: $color-white-soft
@@ -158,7 +160,7 @@ img
   margin: 0
   position: relative
 
-#mobile-menu-open
+.mobile-menu-open
   display: block
 
 #menu,
@@ -182,7 +184,7 @@ img
   height: 100vh
   background-color: $color-black-soft
   color: $color-white-soft
-  z-index: 999999
+  z-index: 9999
   overflow-y: auto
   padding-top: $margin-small
   .language-chooser
@@ -191,7 +193,7 @@ img
       &:first-child:after
         content: ''
 
-#mobile-site-title
+.mobile-site-title
   text-align: center
   border-bottom()
   border-color: $color-white-soft
@@ -199,15 +201,15 @@ img
   margin: 0
   position: relative
 
-#mobile-menu-open,
-#mobile-menu-close
+.mobile-menu-open,
+.mobile-menu-close
   position: absolute
   top: 0
   right: 0
   padding: $margin-tiny
   line-height: .7
 
-#mobile-menu,
+.mobile-menu,
 .language-chooser
 #mobile-search
   font-size: 1.5rem
@@ -362,8 +364,44 @@ img
 // ARCHIVO
 // YEARS and FILTERS
 
-.filter-list
-  line-height: $font-leading-wider
+#archive-submenu
+  display: none
+
+#mobile-archive-submenu
+  display: block
+  transform: translateX(-100%)
+  position: fixed
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100vh
+  z-index: 8888
+
+#mobile-submenu-header
+  padding-top: $margin-small
+  background-color: $color-white-soft
+
+#mobile-submenu-main
+  background-color: $color-black-soft
+  color: $color-white-soft
+
+#mobile-submenu-open
+  display: block
+  position: fixed
+  left: 0
+  top: 45%
+  padding: 4%
+  z-index: 99999
+  font-size: 2rem
+
+#mobile-submenu-close
+  color: $color-white-soft
+  display: block
+  position: fixed
+  right: 0
+  top: 45%
+  padding: 4%
+  font-size: 2rem
 
 .filter-term
   position: relative
@@ -376,6 +414,15 @@ img
       top: 0
       bottom: 0
       line-height: 0.15
+
+.archive-noticia-post
+  text-align: left
+  margin-bottom: $margin-large
+  .post-date
+    margin-bottom: $margin-tiny
+  .post-title
+    font-size: $font-size-larger
+    line-height: $font-leading-basic
 
 // ARCHIVO
 

@@ -1,6 +1,7 @@
 <?php
 get_header();
 
+/*
 if (qtranxf_getLanguage() == 'es') {
   $locale = 'es_ES';
 } else {
@@ -11,6 +12,7 @@ if (qtranxf_getLanguage() == 'es') {
 
 // current time
 $now = new \Moment\Moment();
+*/
 
 $date_format = 'M., y';
 
@@ -21,12 +23,45 @@ $monthNumber = get_query_var('monthnum');
 
 <main id="main-content" class="container">
 
+<!--   mobile submenus -->
+
+  <nav id="mobile-submenu-open" class="u-pointer">></nav>
+
+  <div id="mobile-archive-submenu">
+    <nav id="mobile-submenu-close" class="u-pointer"><</nav>
+
+    <div id="mobile-submenu-header">
+      <div class="container">
+        <h1 class="mobile-site-title">
+          <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+          <nav class="mobile-menu-open u-pointer"><span class="genericon genericon-menu"></span></nav>
+        </h1>
+      </div>
+    </div>
+
+    <div id="mobile-submenu-main">
+      <div class="container">
+        <ul id="month-filter" class="filter-list mobile-menu">
+          <?php
+            render_months_submenu($date_format, $monthNumber);
+          ?>
+          <li>&nbsp;</li>
+          <li><a href="<?php echo home_url('noticias/'); ?>" class="filter-term filter-term-all font-capitalize <?php echo $monthNumber ? '' : 'active'; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- desktop -->
+
   <div class="row">
 
-    <div class="col col-6">
+    <div id="archive-submenu" class="col col-6">
       <ul id="month-filter" class="filter-list">
         <?php
+          render_months_submenu($date_format, $monthNumber);
 
+/*
           $months = get_all_months(array('post'), 'DESC');
 
           foreach($months as $month) {
@@ -42,6 +77,7 @@ $monthNumber = get_query_var('monthnum');
             }
             echo '</li>';
           }
+*/
         ?>
 
         <li>&nbsp;</li>
