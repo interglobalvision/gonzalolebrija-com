@@ -110,7 +110,7 @@ foreach($years as $year) {
             } else if (!empty($meta['_igv_video'])) {
               echo $meta['_igv_video'][0];
             } else {
-              the_post_thumbnail('col-9'); // Need image size
+              the_post_thumbnail('col-9');
             }
           ?>
 
