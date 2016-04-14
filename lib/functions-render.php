@@ -2,6 +2,24 @@
 
   // RENDER FUNCTIONS
 
+// Render taxonomy filters for expos
+
+function render_expo_submenu($tax_slug = false) {
+
+  $exhibition_types = get_terms('tipo-de-exposicion');
+  if ($exhibition_types) {
+    foreach ($exhibition_types as $type) {
+  ?>
+  <li><a class="filter-term <?php if ($tax_slug === $type->slug) {echo 'active';}?>" href="<?php echo get_term_link($type->term_id); ?>"><?php echo $type->name; ?></a></li>
+  <?php
+    }
+  }
+  ?>
+  <li>&nbsp;</li>
+  <li><a href="<?php echo home_url('exposiciones/'); ?>" class="filter-term filter-term-all <?php echo $tax_slug ? '' : 'active'; ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+<?php
+}
+
 // Render month filter list for achives
 
 function render_months_submenu($date_format, $monthNumber) {
