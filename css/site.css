@@ -2665,6 +2665,7 @@ img {
   #mobile-submenu-main {
     background-color: #0e0e0e;
     color: #fdfdfd;
+    overflow-y: auto;
   }
   #mobile-submenu-open {
     display: block;
