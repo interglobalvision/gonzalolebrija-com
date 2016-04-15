@@ -2644,6 +2644,12 @@ img {
     margin: 0 auto;
     max-width: 600px;
   }
+  .post-type-archive-journal .hover-grid-item {
+    width: 60%;
+  }
+  .post-type-archive-journal .hover-grid-title {
+    display: none;
+  }
   #archive-submenu {
     display: none;
   }
