@@ -229,22 +229,23 @@ Site.Gallery = {
 
     _this.Swiper = new Swiper ('.swiper-container', {
       loop: true,
+      nextButton: '.js-gallery-next',
+      prevButton: '.js-gallery-prev',
       preloadImages: false,
       lazyLoading: true,
       lazyLoadingInPrevNext: true,
-      nextButton: '.js-gallery-next',
-      prevButton: '.js-gallery-prev',
 
-      pagination: '#single-work-gallery-nav',
+      pagination: '#single-work-gallery-pagination',
       paginationType: 'custom',
       paginationCustomRender: function (swiper, current, total) {
-        return '<span class="js-gallery-prev u-pointer">< </span><span id="gallery-index-active">' + current + '</span> / <span id="gallery-index-length">' + total + '</span><span class="js-gallery-next u-pointer"> ></span>';
+        return '<span id="gallery-index-active">' + current + '</span> / <span id="gallery-index-length">' + total + '</span>';
       },
 
       onClick: function(swiper) {
         swiper.slideNext();
       },
     });
+
   },
 };
 
