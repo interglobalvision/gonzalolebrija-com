@@ -2467,10 +2467,6 @@ img {
   .mobile-menu-open {
     display: block;
   }
-  #menu,
-  #header-bottom {
-    display: none;
-  }
   .search-field {
     background-color: #fdfdfd;
     border: none;

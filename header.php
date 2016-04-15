@@ -63,7 +63,7 @@
               <nav class="mobile-menu-open u-pointer"><span class="genericon genericon-menu"></span></nav>
             </h1>
           </div>
-          <div class="col col-18">
+          <div class="col col-18 only-desktop">
             <ul id="menu">
               <li class="menu-item"><a href="<?php echo home_url('noticias/'); ?>"><?php echo __('[:es]Noticias[:en]News'); ?></a></li>
               <li class="menu-item"><a href="<?php echo home_url('exposiciones/'); ?>"><?php echo __('[:es]Exposiciones[:en]Exhibitions'); ?></a></a></li>
@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <div id="header-bottom" class="row font-serif">
+        <div id="header-bottom" class="row font-serif only-desktop">
           <div class="col col-18">
             <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
           </div>
