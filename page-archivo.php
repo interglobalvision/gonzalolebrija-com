@@ -39,9 +39,57 @@ $filter_terms = array_merge( get_filter_terms($archivo_query, 'exposiciones'), g
 
 <main id="main-content" class="container">
 
+<!--   mobile submenus -->
+
+  <nav id="mobile-submenu-open" class="u-pointer">></nav>
+
+  <div id="mobile-archive-submenu">
+    <nav id="mobile-submenu-close" class="u-pointer"><</nav>
+
+    <div id="mobile-submenu-header">
+      <div class="container">
+        <h1 class="mobile-site-title">
+          <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+          <nav class="mobile-menu-open u-pointer"><span class="genericon genericon-menu"></span></nav>
+        </h1>
+      </div>
+    </div>
+
+    <div id="mobile-submenu-main">
+      <div class="container">
+
+        <ul id="year-filter" class="filter-list mobile-menu">
+  <?php
+  foreach($years as $year) {
+    $active_class = $year == $year_param ? 'active' : '';
+  ?>
+          <li><a href="?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+  <?php
+  }
+  ?>
+          <li><a href="<?php echo home_url('archivo/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
+        </ul>
+
+        <ul id="type-filter" class="filter-list mobile-menu filters">
+  <?php
+  foreach($filter_terms as $filter_term) {
+  ?>
+          <li><a href="#" class="filter-term" data-filter="<?php echo $filter_term['slug']; ?>"><?php echo $filter_term['name']; ?></a></li>
+  <?php
+  }
+  ?>
+          <li><a href="#" data-filter="all" class="filter-term filter-term-all active"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+<!-- desktop -->
+
   <div class="row">
 
-    <div class="col col-4">
+    <div class="col col-4 only-desktop">
       <ul id="year-filter" class="filter-list">
 <?php
 foreach($years as $year) {
@@ -56,7 +104,7 @@ foreach($years as $year) {
       </ul>
     </div>
 
-    <div class="col col-6">
+    <div class="col col-6 only-desktop">
       <ul id="type-filter" class="filter-list filters col col-3">
 <?php
 foreach($filter_terms as $filter_term) {

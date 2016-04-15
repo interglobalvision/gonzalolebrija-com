@@ -3,6 +3,7 @@
 const animationSpeed = 300;
 
 Site = {
+  mobileThreshold: 1008,
   init: function() {
     var _this = this;
 
@@ -28,6 +29,7 @@ Site = {
 
 Site.Filters = {
   bind: function() {
+    var _this = this;
     var $links = $('.filters a');
     var $posts = $('.filtered-content');
 
@@ -51,6 +53,11 @@ Site.Filters = {
 
             // Hide everything then fade in the filtred posts
             $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
+
+            // If mobile close submenu
+            if ($(window).width() <= Site.mobileThreshold) {
+              Site.Mobile.Submenus.close();
+            }
           }
         }
       });
@@ -209,10 +216,10 @@ Site.Mobile = {
 
       $('#mobile-submenu-main').css({
         'height': ($(window).height() - $('#mobile-submenu-header').innerHeight()) + 'px',
-      })
+      });
 
     },
-  }
+  },
 };
 
 Site.Gallery = {
