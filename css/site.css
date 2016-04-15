@@ -1756,6 +1756,14 @@ img {
 #home-header .language-chooser li {
   display: inline-block;
 }
+#header .language-chooser li.active,
+#home-header .language-chooser li.active {
+  color: #00f;
+}
+#header .language-chooser li.active:after,
+#home-header .language-chooser li.active:after {
+  color: #0e0e0e;
+}
 #header .language-chooser li:first-child:after,
 #home-header .language-chooser li:first-child:after {
   content: ' / ';

@@ -78,6 +78,8 @@ $font-tracking-wider = 0.03em
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
 
+$color-active = #0000ff;
+
 
 // MIXINS
 
@@ -211,6 +213,10 @@ img
   .language-chooser
     li
       display: inline-block
+      &.active
+        color: $color-active
+        &:after
+          color: $color-black-soft
       &:first-child:after
         content: ' / '
 
