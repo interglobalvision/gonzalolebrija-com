@@ -4,13 +4,13 @@ get_header();
 
 if (qtranxf_getLanguage() == 'es') {
   $locale = 'es_ES';
+  $date_format = 'd M, y';
 } else {
   $locale = 'en_US';
+  $date_format = 'd M., y';
 }
 
 \Moment\Moment::setLocale($locale);
-
-$date_format = 'd M., y';
 
 ?>
 
@@ -38,7 +38,9 @@ if( have_posts() ) {
 
     <div class="col col-8">
 
-      <ul class="filter-menu">
+      <a href="<?php echo home_url('exposiciones/'); ?>" class="large-arrow only-mobile">&larr;</a>
+
+      <ul class="filter-menu only-desktop">
       <?php
         $exhibition_types = get_terms('tipo-de-exposicion');
 

@@ -33,7 +33,9 @@ if( have_posts() ) {
 
     <div class="col col-6">
 
-      <ul id="year-filter">
+      <a href="<?php echo home_url('obra/'); ?>" class="large-arrow only-mobile">&larr;</a>
+
+      <ul id="year-filter" class="filter-menu only-desktop">
 <?php
 foreach($years as $year) {
   $active_class = $year == $year_post ? 'active' : '';
@@ -83,7 +85,7 @@ foreach($years as $year) {
 
           <nav id="single-work-nav" class="u-cf">
 
-            <nav id="single-work-pagination" class="u-float">
+            <nav id="single-work-pagination" class="u-float only-desktop">
               <?php
                 previous_post_link('%link', __('[:es]obra anterior[:en]previous work'));
                 if (get_previous_post_link() && get_next_post_link()) {

@@ -24,7 +24,9 @@ $date_format = 'M., y';
 
     <div class="col col-8">
 
-      <ul id="month-filter" class="filter-list">
+      <a href="<?php echo home_url('noticias/'); ?>" class="large-arrow only-mobile">&larr;</a>
+
+      <ul id="month-filter" class="filter-list only-desktop">
         <?php
 
           $months = get_all_months(array('post'), 'DESC');
