@@ -54,9 +54,9 @@ foreach($years as $year) {
 
           <header id="single-work-header">
 
-            <h2 id="single-work-title" class="font-italic">
+            <h2 id="single-work-title">
+              <span class="font-italic"><?php the_title(); ?></span>
               <?php
-                the_title();
                 echo '<br/>' . the_date('Y','','',false);
                 if ($in_progress) {
                   echo ' ' . __('[:es](en progreso)[:en](in progress)');
