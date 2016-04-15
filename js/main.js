@@ -259,11 +259,14 @@ Site.GridHovers = {
       mousemove: function(e) {
         var $title = $(this).siblings('.hover-grid-title').first();
 
-        $title.css({
-          display: 'block',
-          top: e.clientY + 15,
-          left: e.clientX + 15,
-        });
+        // If mobile dont
+        if ($(window).width() > Site.mobileThreshold) {
+          $title.css({
+            display: 'block',
+            top: e.clientY + 15,
+            left: e.clientX + 15,
+          });
+        }
 
       },
 
