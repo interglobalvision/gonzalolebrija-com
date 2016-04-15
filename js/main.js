@@ -260,8 +260,8 @@ Site.GridHovers = {
 
         $title.css({
           display: 'block',
-          top: e.screenY - 70,
-          left: e.screenX,
+          top: e.clientY + 15,
+          left: e.clientX + 15,
         });
 
       },
