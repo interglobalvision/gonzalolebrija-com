@@ -208,29 +208,71 @@ $date_format = 'd M, y';
         <a href="<?php echo home_url('obra/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]En exhibición[:en]Works on view'); ?></h4></a>
         <?php
           $args = array(
-            'post_type' => 'obra',
-            'posts_per_page' => 1,
-            'orderby' => 'rand',
-            // category or wtf chooses works on view
+            'post_type' => 'exposiciones',
+            'posts_per_page' => 2,
+            'meta_query' => array(
+              'relation' => 'AND',
+              array(
+                'key'     => '_igv_start_date',
+                'value'   => $date,
+                'compare' => '<='
+              ),
+              array(
+                'key'     => '_igv_end_date',
+                'value'   => $date,
+                'compare' => '>='
+              )
+            )
           );
-          $works = new WP_Query($args);
-          if ($works->have_posts()) {
-            $works->the_post();
-            $meta = get_post_meta($post->ID);
-        ?>
-          <div class="home-column-post">
-            <a href="<?php the_permalink() ?>">
-              <?php the_post_thumbnail('col-6'); ?>
-              <h4 class="home-column-post-title u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
-            </a>
-          </div>
-        <?php
+          $current_exhibitions = new WP_Query($args);
+          if ($current_exhibitions->have_posts()) {
+
+            $work_ids = array();
+
+            while ($current_exhibitions->have_posts()) {
+              $current_exhibitions->the_post();
+              $meta = get_post_meta($post->ID, '_igv_exposicion_images');
+              if ($meta) {
+                foreach ($meta[0] as $work) {
+                  if (isset($work['work'])) {
+                    $work_ids[] = $work['work'];
+                  }
+                }
+
+              }
+
+            }
+
+            if (!empty($work_ids) ) {
+              $work_id = $work_ids[rand(0, (count($work_ids) - 1))];
+
+              $args = array(
+                'post_type' => 'obra',
+                'posts_per_page' => 1,
+                'p' => $work_id,
+              );
+              $works = new WP_Query($args);
+              if ($works->have_posts()) {
+                $works->the_post();
+                $meta = get_post_meta($post->ID);
+          ?>
+            <div class="home-column-post">
+              <a href="<?php the_permalink() ?>">
+                <?php the_post_thumbnail('col-6'); ?>
+                <h4 class="home-column-post-title u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
+              </a>
+            </div>
+            <?php
+              }
+              wp_reset_postdata();
+            }
           }
-          wp_reset_postdata();
         ?>
       </div>
     </div>
   </div>
+
+<!-- mobile content -->
 
   <div id="mobile-home">
     <div class="mobile-home-section border-bottom">
