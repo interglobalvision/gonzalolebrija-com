@@ -243,17 +243,18 @@ $date_format = 'd M, y';
 
             }
 
-            $work_id = $work_ids[rand(0, (count($work_ids) - 1))];
+            if (!empty($work_ids) ) {
+              $work_id = $work_ids[rand(0, (count($work_ids) - 1))];
 
-            $args = array(
-              'post_type' => 'obra',
-              'posts_per_page' => 1,
-              'p' => $work_id,
-            );
-            $works = new WP_Query($args);
-            if ($works->have_posts()) {
-              $works->the_post();
-              $meta = get_post_meta($post->ID);
+              $args = array(
+                'post_type' => 'obra',
+                'posts_per_page' => 1,
+                'p' => $work_id,
+              );
+              $works = new WP_Query($args);
+              if ($works->have_posts()) {
+                $works->the_post();
+                $meta = get_post_meta($post->ID);
           ?>
             <div class="home-column-post">
               <a href="<?php the_permalink() ?>">
@@ -261,9 +262,10 @@ $date_format = 'd M, y';
                 <h4 class="home-column-post-title u-align-center"><?php the_title(); ?> <?php if (!empty($meta['_igv_year'][0])) {echo $meta['_igv_year'][0]; } ?></h4>
               </a>
             </div>
-          <?php
+            <?php
+              }
+              wp_reset_postdata();
             }
-            wp_reset_postdata();
           }
         ?>
       </div>
