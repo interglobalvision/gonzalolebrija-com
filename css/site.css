@@ -1852,6 +1852,9 @@ img {
   position: relative;
   text-align: center;
 }
+.hover-grid-item a {
+  max-width: 100%;
+}
 .hover-grid-item-small {
   height: 380px;
 }
