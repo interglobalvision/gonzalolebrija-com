@@ -109,8 +109,12 @@ foreach($years as $year) {
           <?php
             if (!empty($meta['_igv_gallery'])) {
               echo do_shortcode(__($meta['_igv_gallery'][0]));
-            } else if (!empty($meta['_igv_video'])) {
-              echo $meta['_igv_video'][0];
+            } else if (!empty($meta['_igv_video_id'])) {
+          ?>
+          <div class="u-video-embed-container">
+            <iframe src="https://player.vimeo.com/video/<?php echo $meta['_igv_video_id'][0]; ?>?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <?php
             } else {
               the_post_thumbnail('col-9');
             }
