@@ -66,19 +66,6 @@
 .u-invisible {
   visibility: hidden;
 }
-.row:before,
-.row:after,
-.u-cf:before,
-.u-cf:after {
-  content: " ";
-/* 1 */
-  display: table;
-/* 2 */
-}
-.row:after,
-.u-cf:after {
-  clear: both;
-}
 .u-video-embed-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -1458,7 +1445,12 @@ th {
   margin: 0 auto;
   width: 1344px;
 }
-.row {
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
   clear: both;
 }
 .col {
@@ -1732,6 +1724,17 @@ img {
 #single-publicacion {
   float: left;
   width: 1008px;
+}
+#pagination {
+  width: 100%;
+}
+#pagination:before,
+#pagination:after {
+  content: " ";
+  display: table;
+}
+#pagination:after {
+  clear: both;
 }
 .large-arrow {
   font-size: 3rem;
