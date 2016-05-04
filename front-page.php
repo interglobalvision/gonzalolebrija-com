@@ -17,11 +17,10 @@ $date_format = 'd M, y';
 <div id="home-header" class="container font-serif">
   <div class="row">
     <div class="col col-6">
-      <h4><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h4>
       <?php echo qtranxf_generateLanguageSelectCode('both'); ?>
     </div>
     <div class="col col-12 u-align-center">
-      <h1 id="home-site-title" class="font-bold"><a href="<?php echo home_url(); ?>">GL.</a></h1>
+      <h1 id="home-site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
     </div>
     <div class="col col-6">
       <?php get_search_form(); ?>
