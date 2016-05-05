@@ -9,7 +9,16 @@ get_header();
   <div class="row">
 
     <div class="col col-6 only-desktop">
-      <?php render_page_submenu($post); ?>
+      <?php
+        render_page_submenu($post);
+
+        if (is_page('info')) {
+          $cv = IGV_get_option('_igv_cv_download');
+          if (!empty($cv)) {
+            echo '<a href="' . $cv . '" target="_blank">CV</a>';
+          }
+        }
+      ?>
     </div>
 
     <!-- main posts loop -->
