@@ -1725,6 +1725,15 @@ img {
   float: left;
   width: 1008px;
 }
+.margin-top-tiny {
+  margin-top: 12px;
+}
+.margin-top-small {
+  margin-top: 24px;
+}
+.margin-bottom-tiny {
+  margin-bottom: 12px;
+}
 #pagination {
   width: 100%;
 }
@@ -1818,7 +1827,7 @@ img {
   margin-bottom: 24px;
 }
 #home-site-title {
-  font-size: 7rem;
+  font-size: 2rem;
   line-height: 1;
   margin: 0;
 }
@@ -2129,6 +2138,15 @@ img {
     float: left;
     width: 756px;
   }
+  .margin-top-tiny {
+    margin-top: 9px;
+  }
+  .margin-top-small {
+    margin-top: 18px;
+  }
+  .margin-bottom-tiny {
+    margin-bottom: 9px;
+  }
   .large-arrow {
     font-size: 3rem;
   }
@@ -2192,7 +2210,7 @@ img {
     margin-bottom: 18px;
   }
   #home-site-title {
-    font-size: 7rem;
+    font-size: 1.8rem;
     line-height: 1;
     margin: 0;
   }
@@ -2435,6 +2453,15 @@ img {
   #single-publicacion {
     float: none;
     width: 100%;
+  }
+  .margin-top-tiny {
+    margin-top: 7px;
+  }
+  .margin-top-small {
+    margin-top: 14px;
+  }
+  .margin-bottom-tiny {
+    margin-bottom: 7px;
   }
   .large-arrow {
     font-size: 2rem;
