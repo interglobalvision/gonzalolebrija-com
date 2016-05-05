@@ -2554,6 +2554,7 @@ img {
   #mobile-search .search-field {
     background-color: #0e0e0e;
     color: #fdfdfd;
+    width: 60%;
   }
   .home #header {
     display: block;
