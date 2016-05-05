@@ -26,6 +26,7 @@ if( have_posts() ) {
     the_post();
     $meta = get_post_meta($post->ID);
     $images = get_post_meta($post->ID, '_igv_exposicion_images', true);
+    $location = get_post_meta($post->ID, '_igv_location', true);
 
     $post_terms = get_the_terms($post->ID, 'tipo-de-exposicion');
 
@@ -79,6 +80,11 @@ if( have_posts() ) {
               $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
           ?>
             <h4 class="font-capitalize"><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
+          <?php
+            }
+            if (!empty($location)) {
+          ?>
+            <h4 class="font-capitalize"><?php echo $location; ?></h4>
           <?php
             }
           ?>
