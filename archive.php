@@ -1,7 +1,11 @@
 <?php
 get_header();
 
-$date_format = 'M., y';
+if (qtranxf_getLanguage() == 'es') {
+  $date_format = 'M, y';
+} else {
+  $date_format = 'M., y';
+}
 
 $monthNumber = get_query_var('monthnum');
 ?>
