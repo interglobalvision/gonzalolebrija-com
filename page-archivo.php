@@ -130,11 +130,13 @@ if ( $archivo_query->have_posts() ) {
 
     // Define post type / expo type
     if ( $post->post_type === 'exposiciones' ) {
-      $types = wp_get_post_terms($post->ID, 'tipo_de_exposicion', array('fields' => 'slugs'));
+      $types = wp_get_post_terms($post->ID, 'tipo-de-exposicion', array('fields' => 'slugs'));
+
       $types = implode(' ', $types);
 
       $meta = get_post_meta($post->ID);
       $isExposicion = true;
+
 
     } else {
       $types = $post->post_type;
