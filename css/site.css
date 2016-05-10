@@ -1804,6 +1804,9 @@ img {
   outline: none;
   margin-left: 12px;
 }
+.u-float-desktop {
+  float: left;
+}
 .mobile-menu-open,
 #mobile-active-menu,
 #mobile-home,
@@ -2424,6 +2427,9 @@ img {
   a:visited {
     color: inherit;
     text-decoration: none;
+  }
+  .u-float-desktop {
+    float: none;
   }
   .only-desktop {
     display: none;

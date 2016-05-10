@@ -50,7 +50,7 @@ foreach($years as $year) {
 
     </div>
 
-      <article <?php post_class('u-float'); ?> id="single-work-<?php the_ID(); ?>">
+      <article <?php post_class('u-float-desktop'); ?> id="single-work-<?php the_ID(); ?>">
 
         <div class="col col-9">
 
@@ -94,12 +94,11 @@ foreach($years as $year) {
                 next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
             </nav>
 
-            <?php if ($gallery) { ?>
-            <nav id="single-work-gallery-nav" class="u-float">
-              <span class="js-gallery-prev u-pointer"><</span> <span id="gallery-index-active">0</span> / <span id="gallery-index-length">0</span> <span class="js-gallery-next u-pointer">></span>
-            </nav>
-            <?php } ?>
-
+            <?php
+              if ($gallery) {
+                get_template_part('partials/gallery-nav');
+              }
+            ?>
           </nav>
 
         </div>

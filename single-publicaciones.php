@@ -26,7 +26,7 @@ if( have_posts() ) {
         <div class="col col-18">
           <?php
             if (!empty($meta['_igv_gallery'])) {
-              echo do_shortcode($meta['_igv_gallery'][0]);
+              echo do_shortcode(__($meta['_igv_gallery'][0]));
             }
           ?>
         </div>
