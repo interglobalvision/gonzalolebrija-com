@@ -228,7 +228,9 @@ Site.Gallery = {
     var _this = this;
 
     _this.Swiper = new Swiper ('.swiper-container', {
+      effect: 'slide',
       loop: true,
+      spaceBetween: 24,
       nextButton: '.js-gallery-next',
       prevButton: '.js-gallery-prev',
       preloadImages: false,
