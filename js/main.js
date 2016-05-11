@@ -24,6 +24,20 @@ Site = {
     var _this = this;
 
     _this.Mobile.onResize();
+
+    if ($('body').hasClass('single-obra')) {
+      _this.Gallery.layoutForObra();
+    }
+  },
+
+  isMobile: function() {
+    var _this = this;
+
+    if ($(window).width() <= _this.mobileThreshold) {
+      return true;
+    } else {
+      return false;
+    }
   },
 };
 
@@ -55,7 +69,7 @@ Site.Filters = {
             $posts.hide().filter('[data-filter-type="' + type + '"]').fadeIn(animationSpeed);
 
             // If mobile close submenu
-            if ($(window).width() <= Site.mobileThreshold) {
+            if (Site.isMobile()) {
               Site.Mobile.Submenus.close();
             }
           }
@@ -224,8 +238,11 @@ Site.Mobile = {
 
 Site.Gallery = {
   Swiper: undefined,
+  captionHolder: undefined,
   init: function() {
     var _this = this;
+
+    _this.captionHolder = $('#swiper-caption-holder');
 
     _this.Swiper = new Swiper ('.swiper-container', {
       effect: 'slide',
@@ -246,8 +263,37 @@ Site.Gallery = {
       onClick: function(swiper) {
         swiper.slideNext();
       },
+
+      onSlideChangeEnd: function(swiper) {
+        var caption = $('.swiper-slide-active .swiper-caption').html();
+
+        _this.captionHolder.html(caption);
+      },
     });
 
+    if ($('body').hasClass('single-obra')) {
+      _this.layoutForObra();
+    }
+
+  },
+
+  layoutForObra: function() {
+    var _this = this;
+    var minHeight = 480;
+
+    if (!Site.isMobile()) {
+
+      var headerHeight = $('#single-work-header').outerHeight(true);
+
+      $('#single-work-copy').css({
+        'min-height': (minHeight - headerHeight) + 'px',
+      });
+
+      $('.swiper-wrapper').css({
+        'min-height': minHeight + 'px',
+      });
+
+    }
   },
 };
 
@@ -262,7 +308,7 @@ Site.GridHovers = {
         var $title = $(this).siblings('.hover-grid-title').first();
 
         // If mobile dont
-        if ($(window).width() > Site.mobileThreshold) {
+        if (Site.isMobile()) {
           $title.css({
             display: 'block',
             top: e.clientY + 15,

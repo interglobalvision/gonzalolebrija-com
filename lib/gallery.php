@@ -89,40 +89,18 @@ function my_gallery_shortcode($attr) {
 	foreach ( $attachments as $id => $attachment ) {
 
 		$tag = '';
-
 		$img = wp_get_attachment_image_src($id, $size);
-/*
-		$largeimg = wp_get_attachment_image_src($id, 'single');
-		$large = $largeimg[0];
-*/
 
-if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$tag = "
-				<{$captiontag} class='wp-caption-text gallery-caption'>
-				" . wptexturize($attachment->post_excerpt) . "
-				</{$captiontag}>";
+    if ( $captiontag && trim($attachment->post_excerpt) ) {
+			$tag = wptexturize($attachment->post_excerpt);
 		} else {
 			$tag = null;
 		}
 
-		/*
+		$output .= "<div class='swiper-slide'><div class='swiper-image'><img src='{$img[0]}'></div><div class='swiper-caption'>{$tag}</div></div>";
+  }
 
-		$output .= "
-			<{$icontag} class='gallery-item'>
-			<div class='gallery-item-holder'>
-				<div class='gallery-img'>
-					<img src='{$img[0]}'>
-				</div>
-				{$tag}
-			</div>
-			</{$icontag}>";
-*/
-
-
-		$output .= "<div class='swiper-slide'><img src='{$img[0]}'>{$tag}</div>";
-		}
-
-	$output .= "</div>\n</div>\n";
+	$output .= "</div>\n<div id='swiper-caption-holder'></div></div>\n";
 
 	return $output;
 }
