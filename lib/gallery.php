@@ -61,7 +61,7 @@ function my_gallery_shortcode($attr) {
 	if ( is_feed() ) {
 		$output = "\n";
 		foreach ( $attachments as $att_id => $attachment )
-			$output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+			$output .= wp_get_attachment_link($att_id, 'large', true) . "\n";
 		return $output;
 	}
 
@@ -89,7 +89,6 @@ function my_gallery_shortcode($attr) {
 	foreach ( $attachments as $id => $attachment ) {
 
 		$tag = '';
-		$img = wp_get_attachment_image_src($id, $size);
 
     if ( $captiontag && trim($attachment->post_excerpt) ) {
 			$tag = wptexturize($attachment->post_excerpt);
@@ -97,7 +96,6 @@ function my_gallery_shortcode($attr) {
 			$tag = null;
 		}
 
-/* 		$output .= "<div class='swiper-slide'><div class='swiper-image'><img src='{$img[0]}'></div><div class='swiper-caption'>{$tag}</div></div>"; */
 		$output .= "<div class='swiper-slide'><div class='swiper-image'>" . wp_get_attachment_image($id, 'gallery') . "</div><div class='swiper-caption'>{$tag}</div></div>";
   }
 
