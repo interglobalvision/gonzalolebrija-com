@@ -61,7 +61,7 @@ function my_gallery_shortcode($attr) {
 	if ( is_feed() ) {
 		$output = "\n";
 		foreach ( $attachments as $att_id => $attachment )
-			$output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+			$output .= wp_get_attachment_link($att_id, 'large', true) . "\n";
 		return $output;
 	}
 
@@ -90,39 +90,16 @@ function my_gallery_shortcode($attr) {
 
 		$tag = '';
 
-		$img = wp_get_attachment_image_src($id, $size);
-/*
-		$largeimg = wp_get_attachment_image_src($id, 'single');
-		$large = $largeimg[0];
-*/
-
-if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$tag = "
-				<{$captiontag} class='wp-caption-text gallery-caption'>
-				" . wptexturize($attachment->post_excerpt) . "
-				</{$captiontag}>";
+    if ( $captiontag && trim($attachment->post_excerpt) ) {
+			$tag = wptexturize($attachment->post_excerpt);
 		} else {
 			$tag = null;
 		}
 
-		/*
+		$output .= "<div class='swiper-slide'><div class='swiper-image'>" . wp_get_attachment_image($id, 'gallery') . "</div><div class='swiper-caption'>{$tag}</div></div>";
+  }
 
-		$output .= "
-			<{$icontag} class='gallery-item'>
-			<div class='gallery-item-holder'>
-				<div class='gallery-img'>
-					<img src='{$img[0]}'>
-				</div>
-				{$tag}
-			</div>
-			</{$icontag}>";
-*/
-
-
-		$output .= "<div class='swiper-slide'><img src='{$img[0]}'>{$tag}</div>";
-		}
-
-	$output .= "</div>\n</div>\n";
+	$output .= "</div>\n<div id='swiper-caption-holder'></div></div>\n";
 
 	return $output;
 }
