@@ -59,6 +59,7 @@ function igv_cmb_metaboxes() {
     'desc'       => __( 'start of the exhibition', 'cmb2' ),
     'id'         => $prefix . 'start_date',
     'type'       => 'text_date_timestamp',
+    'date_format' => 'd/m/Y'
   ) );
 
   $exposiciones_meta->add_field( array(
@@ -66,6 +67,7 @@ function igv_cmb_metaboxes() {
     'desc'       => __( 'end of the exhibition', 'cmb2' ),
     'id'         => $prefix . 'end_date',
     'type'       => 'text_date_timestamp',
+    'date_format' => 'd/m/Y'
   ) );
 
   $exposiciones_images = $exposiciones_meta->add_field( array(
