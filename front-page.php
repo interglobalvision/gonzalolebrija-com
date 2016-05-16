@@ -104,6 +104,7 @@ $date_format = 'd M, y';
           <div class="home-column-post">
             <a href="<?php the_permalink() ?>">
               <h3 class="home-column-post-title"><?php the_title(); ?></h3>
+              <h4 class="font-capitalize"><?php the_time('M., y') ?></h4>
               <h4 class="margin-bottom-tiny"><?php if (!empty($meta['_igv_location'][0])) {echo $meta['_igv_location'][0]; } ?></h4>
               <?php the_post_thumbnail('col-6'); ?>
               <div class="home-column-post-copy">
