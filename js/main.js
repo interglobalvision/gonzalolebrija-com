@@ -308,7 +308,7 @@ Site.GridHovers = {
         var $title = $(this).siblings('.hover-grid-title').first();
 
         // If mobile dont
-        if (Site.isMobile()) {
+        if (!Site.isMobile()) {
           $title.css({
             display: 'block',
             top: e.clientY + 15,
