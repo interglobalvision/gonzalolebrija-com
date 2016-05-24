@@ -301,7 +301,6 @@ $date_format = 'd M, y';
     ?>
     </div>
 
-    <div class="mobile-home-section border-bottom">
       <?php
         $args = array(
           'post_type' => 'exposiciones',
@@ -323,6 +322,7 @@ $date_format = 'd M, y';
         $current_exhibitions = new WP_Query($args);
         if ($current_exhibitions->have_posts()) {
 ?>
+    <div class="mobile-home-section border-bottom">
       <a href="<?php echo home_url('noticias/'); ?>"><h5 class="u-align-center"><?php echo __('[:es]Exposiciones actuales[:en]Current Exhibitions'); ?></h5></a>
 <?php
             while ($current_exhibitions->have_posts()) {
@@ -343,12 +343,14 @@ $date_format = 'd M, y';
         </div>
       <?php
           }
+      ?>
+    </div>
+      <?php
         }
         wp_reset_postdata();
       ?>
     </div>
 
-    <div class="mobile-home-section">
       <?php
         $args = array(
           'post_type' => 'exposiciones',
@@ -364,6 +366,7 @@ $date_format = 'd M, y';
         $future_exhibitions = new WP_Query($args);
         if ($future_exhibitions->have_posts()) {
 ?>
+    <div class="mobile-home-section">
      <a href="<?php echo home_url('exposiciones/'); ?>"><h5 class="u-align-center"><?php echo __('[:es]Próximas exposiciones[:en]Upcoming Exhibitions'); ?></h5></a>
 <?php
           while ($future_exhibitions->have_posts()) {
@@ -378,10 +381,12 @@ $date_format = 'd M, y';
         </div>
       <?php
           }
+      ?>
+    </div>
+      <?php
         }
         wp_reset_postdata();
       ?>
-    </div>
   </div>
 
 <!-- end main-content -->
