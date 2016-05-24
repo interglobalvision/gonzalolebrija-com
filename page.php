@@ -32,7 +32,7 @@ if( have_posts() ) {
 
       <article <?php post_class(); ?> id="page-<?php the_ID(); ?>">
 
-        <div id="page-copy" class="copy">
+        <div class="copy copy-indented">
           <?php the_content(); ?>
         </div>
 

@@ -98,7 +98,7 @@ if( have_posts() ) {
         </header>
 
         <div id="exposicion-text" class="exposicion-content active">
-          <div class="copy larger-copy">
+          <div class="copy copy-indented">
             <?php the_content(); ?>
           </div>
         </div>
