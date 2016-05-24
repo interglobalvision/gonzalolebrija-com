@@ -1684,6 +1684,17 @@ p {
   font-size: 1.1rem;
   line-height: 1.35em;
 }
+.copy-indented {
+  font-size: 1.1rem;
+  line-height: 1.45em;
+}
+.copy-indented p {
+  margin-bottom: 0;
+  text-indent: 48px;
+}
+.copy-indented p:first-child {
+  text-indent: 0;
+}
 a,
 a:active,
 a:visited {
@@ -1922,17 +1933,6 @@ img {
 #single-publicacion-content {
   margin-top: 12px;
 }
-#page-copy {
-  font-size: 1.1rem;
-  line-height: 1.45em;
-}
-#page-copy p {
-  margin-bottom: 0;
-  text-indent: 48px;
-}
-#page-copy p:first-child {
-  text-indent: 0;
-}
 .archive-noticia-post {
   margin-bottom: 24px;
 }
@@ -2106,6 +2106,13 @@ img {
   .larger-copy {
     font-size: 1.1rem;
     line-height: 1.35em;
+  }
+  .copy-indented {
+    font-size: 1.1rem;
+    line-height: 1.45em;
+  }
+  .copy-indented p {
+    text-indent: 36px;
   }
   a,
   a:active,
@@ -2302,17 +2309,6 @@ img {
   #single-publicacion-content {
     margin-top: 9px;
   }
-  #page-copy {
-    font-size: 1.1rem;
-    line-height: 1.45em;
-  }
-  #page-copy p {
-    margin-bottom: 0;
-    text-indent: 36px;
-  }
-  #page-copy p:first-child {
-    text-indent: 0;
-  }
   .archive-noticia-post {
     margin-bottom: 18px;
   }
@@ -2415,6 +2411,13 @@ img {
   .larger-copy {
     font-size: 1.1rem;
     line-height: 1.35em;
+  }
+  .copy-indented {
+    font-size: 1.1rem;
+    line-height: 1.45em;
+  }
+  .copy-indented p {
+    text-indent: 28px;
   }
   a,
   a:active,
@@ -2661,17 +2664,6 @@ img {
   }
   #single-publicacion-content {
     margin-top: 7px;
-  }
-  #page-copy {
-    font-size: 1.1rem;
-    line-height: 1.45em;
-  }
-  #page-copy p {
-    margin-bottom: 0;
-    text-indent: 28px;
-  }
-  #page-copy p:first-child {
-    text-indent: 0;
   }
   #mobile-page-submenu {
     margin-top: 28px;

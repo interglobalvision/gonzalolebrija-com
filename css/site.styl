@@ -156,6 +156,15 @@ p
   font-size: $font-size-larger
   line-height: $font-leading-basic
 
+.copy-indented
+  font-size: $font-size-larger
+  line-height: $font-leading-wider
+  p
+    margin-bottom: 0
+    text-indent: $margin-basic
+    &:first-child
+      text-indent: 0
+
 // LINKS
 
 a, a:active, a:visited
@@ -401,17 +410,6 @@ img
 
 #single-publicacion-content
   margin-top: $margin-tiny
-
-// PAGE
-
-#page-copy
-  font-size: $font-size-larger
-  line-height: $font-leading-wider
-  p
-    margin-bottom: 0
-    text-indent: $margin-basic
-    &:first-child
-      text-indent: 0
 
 // ARCHIVES
 
