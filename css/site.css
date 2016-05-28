@@ -120,12 +120,15 @@ ul.u-inline-list li {
 }
 .u-flex-center {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
   -ms-align-items: center;
   -ms-flex-align: center;
       align-items: center;
+  -webkit-justify-content: center;
   -ms-justify-content: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -144,8 +147,10 @@ ul.u-inline-list li {
 .swiper-container-vertical > .swiper-wrapper {
   -webkit-box-orient: vertical;
   -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
@@ -156,7 +161,9 @@ ul.u-inline-list li {
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-transition-property: -webkit-transform;
@@ -176,6 +183,8 @@ ul.u-inline-list li {
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
   -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
@@ -188,6 +197,7 @@ ul.u-inline-list li {
 .swiper-slide {
   -webkit-flex-shrink: 0;
   -ms-flex: 0 0 auto;
+  -webkit-flex-shrink: 0;
   -ms-flex-shrink: 0;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -202,7 +212,9 @@ ul.u-inline-list li {
 .swiper-container-autoheight .swiper-wrapper {
   -webkit-box-align: start;
   -ms-flex-align: start;
+  -webkit-align-items: flex-start;
   -webkit-box-align: start;
+  -webkit-align-items: flex-start;
   -ms-align-items: flex-start;
   -ms-grid-row-align: flex-start;
       align-items: flex-start;
@@ -2710,13 +2722,14 @@ img {
   #mobile-submenu-main:after {
     content: '';
     width: 100%;
-    height: 20vh;
+    height: 120vh;
     position: absolute;
     display: block;
     background: #0e0e0e;
-    top: 100%;
+    top: 0;
     left: 0;
     right: 0;
+    z-index: -1;
   }
   #mobile-submenu-open {
     display: block;
