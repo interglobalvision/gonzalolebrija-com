@@ -2615,6 +2615,9 @@ img {
     margin: 0 auto 28px auto;
     text-align: center;
   }
+  .hover-grid-item a {
+    display: block;
+  }
   .hover-grid-item-small {
     height: initial;
   }
