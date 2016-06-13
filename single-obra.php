@@ -50,37 +50,44 @@ foreach($years as $year) {
 
     </div>
 
-      <article <?php post_class('u-float-desktop'); ?> id="single-work-<?php the_ID(); ?>">
+      <article <?php post_class('u-cf'); ?> id="single-work">
 
-        <div class="col col-9">
+        <div class="col col-18">
+          <?php
+            if (!empty($meta['_igv_gallery'])) {
+              echo do_shortcode(__($meta['_igv_gallery'][0]));
+            } else if (!empty($meta['_igv_video_id'])) {
+          ?>
+          <div class="u-video-embed-container">
+            <iframe src="https://player.vimeo.com/video/<?php echo $meta['_igv_video_id'][0]; ?>?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <?php
+            } else {
+              the_post_thumbnail('col-18');
+            }
+          ?>
+        </div>
 
-          <header id="single-work-header">
+        <header id="single-work-header" class="col col-6">
+          <h2 id="single-work-title">
+            <span class="font-italic"><?php the_title(); ?></span>
+            <?php
+              echo '<br/>' . the_date('Y','','',false);
+              if ($in_progress) {
+                echo ' ' . __('[:es](en progreso)[:en](in progress)');
+              }
+            ?>
+          </h2>
 
-            <h2 id="single-work-title">
-              <span class="font-italic"><?php the_title(); ?></span>
-              <?php
-                echo '<br/>' . the_date('Y','','',false);
-                if ($in_progress) {
-                  echo ' ' . __('[:es](en progreso)[:en](in progress)');
-                }
-              ?>
-            </h2>
-
-            <div id="single-work-meta">
-              <?php
-                if (!empty($meta['_igv_medium_' . $lang])) {
-                  echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
-                }
-                if (!empty($meta['_igv_size'])) {
-                  echo $meta['_igv_size'][0];
-                }
-              ?>
-            </div>
-
-          </header>
-
-          <div id="single-work-copy">
-            <?php the_content(); ?>
+          <div id="single-work-meta">
+            <?php
+              if (!empty($meta['_igv_medium_' . $lang])) {
+                echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
+              }
+              if (!empty($meta['_igv_size'])) {
+                echo $meta['_igv_size'][0];
+              }
+            ?>
           </div>
 
           <nav id="single-work-nav" class="u-cf">
@@ -94,30 +101,20 @@ foreach($years as $year) {
                 next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
             </nav>
 
-            <?php
-              if ($gallery) {
-                get_template_part('partials/gallery-nav');
-              }
-            ?>
-          </nav>
-
-        </div>
-
-        <div class="col col-9">
-
           <?php
-            if (!empty($meta['_igv_gallery'])) {
-              echo do_shortcode(__($meta['_igv_gallery'][0]));
-            } else if (!empty($meta['_igv_video_id'])) {
-          ?>
-          <div class="u-video-embed-container">
-            <iframe src="https://player.vimeo.com/video/<?php echo $meta['_igv_video_id'][0]; ?>?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-          </div>
-          <?php
-            } else {
-              the_post_thumbnail('col-9');
+            if ($gallery) {
+              get_template_part('partials/gallery-nav');
             }
           ?>
+          </nav>
+
+        </header>
+
+        <div class="col col-12">
+
+          <div id="single-work-content" class="copy larger-copy">
+            <?php the_content(); ?>
+          </div>
 
         </div>
 

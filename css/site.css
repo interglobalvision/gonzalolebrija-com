@@ -1732,7 +1732,8 @@ img {
   padding-bottom: 6px;
 }
 #posts,
-#single-publicacion {
+#single-publicacion,
+#single-work {
   float: left;
   width: 1008px;
 }
@@ -2150,7 +2151,8 @@ img {
     padding-bottom: 4.5px;
   }
   #posts,
-  #single-publicacion {
+  #single-publicacion,
+  #single-work {
     float: left;
     width: 756px;
   }
