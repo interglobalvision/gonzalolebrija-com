@@ -35,7 +35,6 @@ $date_format = 'd M, y';
   <div class="row only-desktop">
     <div class="col col-6">
       <div class="home-column">
-        <a href="<?php echo home_url('exposiciones/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Exposiciones[:en]Exhibitions'); ?></h4></a>
         <?php
           $args = array(
             'post_type' => 'exposiciones',
@@ -55,6 +54,26 @@ $date_format = 'd M, y';
             )
           );
           $current_exhibitions = new WP_Query($args);
+
+          $args = array(
+            'post_type' => 'exposiciones',
+            'posts_per_page' => 2,
+            'meta_query' => array(
+              array(
+                'key'     => '_igv_start_date',
+                'value'   => $date,
+                'compare' => '>'
+              ),
+            )
+          );
+          $future_exhibitions = new WP_Query($args);
+
+          if ($current_exhibitions->have_posts() || $future_exhibitions->have_posts()) {
+?>
+        <a href="<?php echo home_url('exposiciones/'); ?>"><h4 class="border-bottom"><?php echo __('[:es]Exposiciones[:en]Exhibitions'); ?></h4></a>
+<?php
+          }
+
           if ($current_exhibitions->have_posts()) {
 ?>
         <a href="<?php echo home_url('exposiciones/'); ?>"><h4 class="margin-top-tiny"><?php echo __('[:es]Actuales[:en]Current'); ?></h4></a>
@@ -81,18 +100,6 @@ $date_format = 'd M, y';
           }
           wp_reset_postdata();
 
-          $args = array(
-            'post_type' => 'exposiciones',
-            'posts_per_page' => 2,
-            'meta_query' => array(
-              array(
-                'key'     => '_igv_start_date',
-                'value'   => $date,
-                'compare' => '>'
-              ),
-            )
-          );
-          $future_exhibitions = new WP_Query($args);
           if ($future_exhibitions->have_posts()) {
 ?>
         <a href="<?php echo home_url('exposiciones/'); ?>"><h4 class="margin-top-tiny"><?php echo __('[:es]Próximas[:en]Upcoming'); ?></h4></a>
