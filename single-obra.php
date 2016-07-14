@@ -56,6 +56,11 @@ foreach($years as $year) {
           <?php
             if (!empty($meta['_igv_gallery'])) {
               echo do_shortcode(__($meta['_igv_gallery'][0]));
+          ?>
+          <nav id="single-work-gallery-nav" class="u-align-right">
+            <span id="swiper-caption-holder"></span> <span id="single-work-gallery-pagination-holder"><span class="js-gallery-prev u-pointer">< </span><span id="single-work-gallery-pagination"></span><span class="js-gallery-next u-pointer"> ></span></span>
+          </nav>
+          <?php
             } else if (!empty($meta['_igv_video_id'])) {
           ?>
           <div class="u-video-embed-container">
@@ -101,11 +106,6 @@ foreach($years as $year) {
                 next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
             </nav>
 
-          <?php
-            if ($gallery) {
-              get_template_part('partials/gallery-nav');
-            }
-          ?>
           </nav>
 
         </header>
