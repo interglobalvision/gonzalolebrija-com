@@ -113,9 +113,17 @@ foreach($years as $year) {
         <div class="col col-12">
 
           <div id="single-work-content" class="copy larger-copy">
-            <?php the_content(); ?>
+            <?php
+              the_content();
+            ?>
           </div>
-
+            <?php
+              if (!empty($meta['_igv_download'])) {
+            ?>
+            <a href="<?php echo $meta['_igv_download'][0]; ?>" download class="font-underline"><?php echo __('[:es]Descargar ficha[:en]Download file'); ?></a>
+            <?php
+              }
+            ?>
         </div>
 
       </article>

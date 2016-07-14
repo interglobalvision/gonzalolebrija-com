@@ -1657,6 +1657,9 @@ h3 {
 .font-capitalize {
   text-transform: capitalize;
 }
+.font-underline {
+  text-decoration: underline;
+}
 h1 {
   font-size: 3rem;
 }
