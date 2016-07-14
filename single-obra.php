@@ -77,7 +77,8 @@ foreach($years as $year) {
           <h2 id="single-work-title">
             <span class="font-italic"><?php the_title(); ?></span>
             <?php
-              echo '<br/>' . the_date('Y','','',false);
+              $post_year = the_date('Y','','',false);
+              echo '<br/><a href="' . home_url('obra/') . '?a=' . $post_year . '">' . $post_year . '</a>';
               if ($in_progress) {
                 echo ' ' . __('[:es](en progreso)[:en](in progress)');
               }
