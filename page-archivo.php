@@ -1,16 +1,6 @@
 <?php
 get_header();
 
-if (qtranxf_getLanguage() == 'es') {
-  $locale = 'es_ES';
-} else {
-  $locale = 'en_US';
-}
-
-\Moment\Moment::setLocale($locale);
-
-$date_format = 'd M., y';
-
 $archivo_post_types = array(
   'post',
   'exposiciones',
@@ -148,19 +138,7 @@ if ( $archivo_query->have_posts() ) {
       <article <?php post_class('archivo-post filtered-content'); ?> id="post-<?php the_ID(); ?>" data-filter-type="<?php echo $types; ?>">
         <a href="<?php the_permalink() ?>">
           <h2 class="post-title font-italic font-spaced"><?php the_title(); ?><h2>
-          <?php
-            if ($isExposicion && !empty($meta['_igv_start_date'][0]) && !empty($meta['_igv_end_date'][0])) {
-              $start = $m = new \Moment\Moment('@' . $meta['_igv_start_date'][0]);
-              $end = $m = new \Moment\Moment('@' . $meta['_igv_end_date'][0]);
-          ?>
-            <h4 class="font-capitalize"><?php echo $start->format($date_format) . ' - ' . $end->format($date_format); ?></h4>
-          <?php
-            } else {
-          ?>
-            <h4 class="font-capitalize"><?php echo get_the_time($date_format); ?></h4>
-          <?php
-            }
-          ?>
+          <h4 class="font-capitalize"><?php echo get_the_time('Y'); ?></h4>
         </a>
       </article>
 
