@@ -1641,10 +1641,14 @@ h2,
 h3 {
   font-family: 'Garamond Premier Pro', serif;
 }
-.font-italic {
+.font-italic,
+em,
+i {
   font-style: italic;
 }
-.font-bold {
+.font-bold,
+strong,
+b {
   font-weight: bold;
 }
 .font-small-caps {
