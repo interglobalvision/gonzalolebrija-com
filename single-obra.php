@@ -26,26 +26,29 @@ if( have_posts() ) {
     } else {
       $gallery = false;
     }
-
-    $years = get_all_years(array('obra'), 'DESC');
-    $year_post = get_the_time('Y');
 ?>
 
     <div class="col col-6">
 
       <a href="<?php echo home_url('obra/'); ?>" class="large-arrow only-mobile">&larr;</a>
 
-      <ul id="year-filter" class="filter-menu only-desktop">
+      <ul id="works-submenu" class="filter-menu only-desktop">
 <?php
-foreach($years as $year) {
-  $active_class = $year == $year_post ? 'active' : '';
+$args = array(
+  'post_type' => 'obra',
+  'posts_per_page' => -1,
+  'orderby' => 'title',
+  'order' => 'ASC',
+);
+
+$all_works = get_posts($args);
+foreach($all_works as $work) {
+  $active_class = $work->ID == $post->ID ? 'active' : '';
 ?>
-        <li><a href="<?php echo home_url('obra/'); ?>?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+        <li><a href="<?php echo get_permalink($work->ID); ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $work->post_title; ?></a></li>
 <?php
 }
 ?>
-        <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
       </ul>
 
     </div>

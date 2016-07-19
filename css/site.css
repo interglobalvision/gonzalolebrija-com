@@ -1901,6 +1901,10 @@ img {
   line-height: 1.35em;
   z-index: 99999;
 }
+#works-submenu {
+  max-height: 70vh;
+  overflow-y: auto;
+}
 #single-post-header {
   margin-bottom: 24px;
 }
