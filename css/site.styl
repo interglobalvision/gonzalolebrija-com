@@ -120,6 +120,9 @@ h3
 .font-capitalize
   text-transform: capitalize
 
+.font-underline
+  text-decoration: underline
+
 h1
   font-size: 3rem
 
@@ -188,7 +191,7 @@ img
 .border-bottom
   border-bottom()
 
-#posts, #single-publicacion
+#posts, #single-publicacion, #single-work
   float: left
   width: ( 18 * $col ) + ( ( 18 - 1 ) * $gutter ) + $gutter
 
@@ -355,6 +358,12 @@ img
   line-height: $font-leading-basic
   z-index: 99999
 
+// WORK ARCHIVE
+
+#works-submenu
+  max-height: 70vh
+  overflow-y: auto
+
 // SINGLE
 
   // POST
@@ -367,6 +376,20 @@ img
 
   // SINGLE WORK
 
+#single-work
+  .swiper-container
+    margin-bottom: $margin-tiny
+
+#single-work-gallery-nav
+  margin-bottom: $margin-small
+
+#swiper-caption-holder
+  margin-right: $margin-small
+
+#single-work-gallery-pagination-holder
+  display: inline-block
+  min-width: 60px
+
 #single-work-header
   margin-bottom: $margin-basic
 
@@ -375,6 +398,7 @@ img
 
 #single-work-meta
   margin-top: $margin-tiny
+  margin-bottom: 1rem
 
 #single-work-copy
   min-height: 350px

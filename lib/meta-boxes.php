@@ -150,6 +150,13 @@ function igv_cmb_metaboxes() {
     'type'       => 'wysiwyg',
   ) );
 
+  $obra_meta->add_field( array(
+    'name'       => __( 'Download', 'cmb2' ),
+    'desc'       => __( 'as a file. PDF or similar', 'cmb2' ),
+    'id'         => $prefix . 'download',
+    'type'       => 'file',
+  ) );
+
   // journal
 
   $journal_meta = new_cmb2_box( array(

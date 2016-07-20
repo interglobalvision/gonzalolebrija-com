@@ -1661,6 +1661,9 @@ b {
 .font-capitalize {
   text-transform: capitalize;
 }
+.font-underline {
+  text-decoration: underline;
+}
 h1 {
   font-size: 3rem;
 }
@@ -1736,7 +1739,8 @@ img {
   padding-bottom: 6px;
 }
 #posts,
-#single-publicacion {
+#single-publicacion,
+#single-work {
   float: left;
   width: 1008px;
 }
@@ -1901,11 +1905,28 @@ img {
   line-height: 1.35em;
   z-index: 99999;
 }
+#works-submenu {
+  max-height: 70vh;
+  overflow-y: auto;
+}
 #single-post-header {
   margin-bottom: 24px;
 }
 #single-post-date {
   margin-bottom: 12px;
+}
+#single-work .swiper-container {
+  margin-bottom: 12px;
+}
+#single-work-gallery-nav {
+  margin-bottom: 24px;
+}
+#swiper-caption-holder {
+  margin-right: 24px;
+}
+#single-work-gallery-pagination-holder {
+  display: inline-block;
+  min-width: 60px;
 }
 #single-work-header {
   margin-bottom: 48px;
@@ -1915,6 +1936,7 @@ img {
 }
 #single-work-meta {
   margin-top: 12px;
+  margin-bottom: 1rem;
 }
 #single-work-copy {
   min-height: 350px;
@@ -2154,7 +2176,8 @@ img {
     padding-bottom: 4.5px;
   }
   #posts,
-  #single-publicacion {
+  #single-publicacion,
+  #single-work {
     float: left;
     width: 756px;
   }
@@ -2469,7 +2492,8 @@ img {
     padding-bottom: 3.5px;
   }
   #posts,
-  #single-publicacion {
+  #single-publicacion,
+  #single-work {
     float: none;
     width: 100%;
   }
@@ -2640,7 +2664,8 @@ img {
     margin-bottom: 7px;
   }
   #single-work-header {
-    margin-bottom: 28px;
+    margin-top: 14px;
+    margin-bottom: 14px;
   }
   #single-work-title {
     line-height: 1.2em;

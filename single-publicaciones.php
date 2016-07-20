@@ -36,8 +36,15 @@ if( have_posts() ) {
             the_title();
             echo ', ' . get_the_time('Y', $post->ID);
           ?></h2>
-
-          <?php get_template_part('partials/gallery-nav'); ?>
+          <?php
+            if (!empty($meta['_igv_gallery'])) {
+          ?>
+          <nav id="single-publicacion-gallery-nav">
+            <span class="js-gallery-prev u-pointer">< </span><span id="single-work-gallery-pagination"></span><span class="js-gallery-next u-pointer"> ></span>
+          </nav>
+          <?php
+            }
+          ?>
         </div>
 
         <div class="col col-12">

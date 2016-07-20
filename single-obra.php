@@ -26,61 +26,77 @@ if( have_posts() ) {
     } else {
       $gallery = false;
     }
-
-    $years = get_all_years(array('obra'), 'DESC');
-    $year_post = get_the_time('Y');
 ?>
 
     <div class="col col-6">
 
       <a href="<?php echo home_url('obra/'); ?>" class="large-arrow only-mobile">&larr;</a>
 
-      <ul id="year-filter" class="filter-menu only-desktop">
+      <ul id="works-submenu" class="filter-menu only-desktop">
 <?php
-foreach($years as $year) {
-  $active_class = $year == $year_post ? 'active' : '';
+$args = array(
+  'post_type' => 'obra',
+  'posts_per_page' => -1,
+  'orderby' => 'title',
+  'order' => 'ASC',
+);
+
+$all_works = get_posts($args);
+foreach($all_works as $work) {
+  $active_class = $work->ID == $post->ID ? 'active' : '';
 ?>
-        <li><a href="<?php echo home_url('obra/'); ?>?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
+        <li><a href="<?php echo get_permalink($work->ID); ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $work->post_title; ?></a></li>
 <?php
 }
 ?>
-        <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todos[:en]All'); ?></a></li>
       </ul>
 
     </div>
 
-      <article <?php post_class('u-float-desktop'); ?> id="single-work-<?php the_ID(); ?>">
+      <article <?php post_class('u-cf'); ?> id="single-work">
 
-        <div class="col col-9">
+        <div class="col col-18">
+          <?php
+            if (!empty($meta['_igv_gallery'])) {
+              echo do_shortcode(__($meta['_igv_gallery'][0]));
+          ?>
+          <nav id="single-work-gallery-nav" class="u-align-right">
+            <span id="swiper-caption-holder"></span> <span id="single-work-gallery-pagination-holder"><span class="js-gallery-prev u-pointer">< </span><span id="single-work-gallery-pagination"></span><span class="js-gallery-next u-pointer"> ></span></span>
+          </nav>
+          <?php
+            } else if (!empty($meta['_igv_video_id'])) {
+          ?>
+          <div class="u-video-embed-container">
+            <iframe src="https://player.vimeo.com/video/<?php echo $meta['_igv_video_id'][0]; ?>?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <?php
+            } else {
+              the_post_thumbnail('col-18');
+            }
+          ?>
+        </div>
 
-          <header id="single-work-header">
+        <header id="single-work-header" class="col col-6">
+          <h2 id="single-work-title">
+            <span class="font-italic"><?php the_title(); ?></span>
+            <?php
+              $post_year = the_date('Y','','',false);
+              echo '<br/><a href="' . home_url('obra/') . '?a=' . $post_year . '">' . $post_year . '</a>';
+              if ($in_progress) {
+                echo ' ' . __('[:es](en progreso)[:en](in progress)');
+              }
+            ?>
+          </h2>
 
-            <h2 id="single-work-title">
-              <span class="font-italic"><?php the_title(); ?></span>
-              <?php
-                echo '<br/>' . the_date('Y','','',false);
-                if ($in_progress) {
-                  echo ' ' . __('[:es](en progreso)[:en](in progress)');
-                }
-              ?>
-            </h2>
-
-            <div id="single-work-meta">
-              <?php
-                if (!empty($meta['_igv_medium_' . $lang])) {
-                  echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
-                }
-                if (!empty($meta['_igv_size'])) {
-                  echo $meta['_igv_size'][0];
-                }
-              ?>
-            </div>
-
-          </header>
-
-          <div id="single-work-copy">
-            <?php the_content(); ?>
+          <div id="single-work-meta">
+            <?php
+              if (!empty($meta['_igv_medium_' . $lang])) {
+                echo '<div>' . $meta['_igv_medium_' . $lang][0] . '</div>';
+              }
+              if (!empty($meta['_igv_size'])) {
+                echo $meta['_igv_size'][0];
+              }
+            ?>
           </div>
 
           <nav id="single-work-nav" class="u-cf">
@@ -94,31 +110,24 @@ foreach($years as $year) {
                 next_post_link('%link', __('[:es]siguiente obra[:en]next work')); ?>
             </nav>
 
-            <?php
-              if ($gallery) {
-                get_template_part('partials/gallery-nav');
-              }
-            ?>
           </nav>
 
-        </div>
+        </header>
 
-        <div class="col col-9">
+        <div class="col col-12">
 
-          <?php
-            if (!empty($meta['_igv_gallery'])) {
-              echo do_shortcode(__($meta['_igv_gallery'][0]));
-            } else if (!empty($meta['_igv_video_id'])) {
-          ?>
-          <div class="u-video-embed-container">
-            <iframe src="https://player.vimeo.com/video/<?php echo $meta['_igv_video_id'][0]; ?>?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <div id="single-work-content" class="copy larger-copy">
+            <?php
+              the_content();
+            ?>
           </div>
-          <?php
-            } else {
-              the_post_thumbnail('col-9');
-            }
-          ?>
-
+            <?php
+              if (!empty($meta['_igv_download'])) {
+            ?>
+            <a href="<?php echo $meta['_igv_download'][0]; ?>" download class="font-underline"><?php echo __('[:es]Descargar ficha[:en]Download file'); ?></a>
+            <?php
+              }
+            ?>
         </div>
 
       </article>
