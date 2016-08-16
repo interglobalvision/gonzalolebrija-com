@@ -1937,6 +1937,9 @@ img {
 #single-work-title {
   line-height: 1.2em;
 }
+#single-work-content {
+  padding-top: 10px;
+}
 #single-work-meta {
   margin-top: 12px;
   margin-bottom: 1rem;
@@ -2318,6 +2321,9 @@ img {
   #single-work-title {
     line-height: 1.2em;
   }
+  #single-work-content {
+    padding-top: 10px;
+  }
   #single-work-meta {
     margin-top: 9px;
   }
@@ -2678,6 +2684,9 @@ img {
   }
   #single-work-title {
     line-height: 1.2em;
+  }
+  #single-work-content {
+    padding-top: 0;
   }
   #single-work-meta {
     margin-top: 7px;
