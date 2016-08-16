@@ -55,7 +55,7 @@ foreach($all_works as $work) {
 
       <article <?php post_class('u-cf'); ?> id="single-work">
 
-        <div class="col col-18">
+        <div id="single-work-visual" class="col col-18">
           <?php
             if (!empty($meta['_igv_gallery'])) {
               echo do_shortcode(__($meta['_igv_gallery'][0]));
@@ -71,7 +71,7 @@ foreach($all_works as $work) {
           </div>
           <?php
             } else {
-              the_post_thumbnail('col-18');
+              the_post_thumbnail('gallery', array('class' => 'u-block'));
             }
           ?>
         </div>
@@ -124,7 +124,7 @@ foreach($all_works as $work) {
             <?php
               if (!empty($meta['_igv_download'])) {
             ?>
-            <a href="<?php echo $meta['_igv_download'][0]; ?>" download class="font-underline"><?php echo __('[:es]Descargar ficha[:en]Download file'); ?></a>
+            <a href="<?php echo $meta['_igv_download'][0]; ?>" target="_blank" ref="noopener" download class="font-underline"><?php echo __('[:es]Descargar ficha[:en]Download file'); ?></a>
             <?php
               }
             ?>

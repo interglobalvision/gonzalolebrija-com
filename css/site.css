@@ -85,6 +85,9 @@
 html {
   overflow-y: scroll;
 }
+.u-block {
+  display: block;
+}
 .u-inline-block {
   display: inline-block;
 }
@@ -1780,7 +1783,7 @@ img {
   margin-top: 1rem;
 }
 #header {
-  padding-top: 48px;
+  padding-top: 24px;
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -1918,7 +1921,7 @@ img {
 #single-work .swiper-container {
   margin-bottom: 12px;
 }
-#single-work-gallery-nav {
+#single-work-visual {
   margin-bottom: 24px;
 }
 #swiper-caption-holder {
@@ -2200,7 +2203,7 @@ img {
     text-align: right;
   }
   #header {
-    padding-top: 36px;
+    padding-top: 18px;
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -2305,6 +2308,9 @@ img {
   }
   #single-post-date {
     margin-bottom: 9px;
+  }
+  #single-work-visual {
+    margin-bottom: 18px;
   }
   #single-work-header {
     margin-bottom: 36px;
@@ -2662,6 +2668,9 @@ img {
   }
   #single-post-date {
     margin-bottom: 7px;
+  }
+  #single-work-visual {
+    margin-bottom: 14px;
   }
   #single-work-header {
     margin-top: 14px;
