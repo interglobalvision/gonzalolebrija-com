@@ -50,11 +50,6 @@ Site.ObraSidebar = {
     if ($('body').hasClass('single-obra') || $('body').hasClass('post-type-archive-obra')) {
       _this.obraSidebar = true;
       _this.$obraSidebar = $('#obra-archive-submenu');
-
-      _this.$obraSidebar.perfectScrollbar({
-        suppressScrollX: true,
-      });
-
       if (!Site.isMobile()) {
         _this.fixObraSidebar();
       }
@@ -76,7 +71,14 @@ Site.ObraSidebar = {
 
     var heightToMatch = $('#main-content').height();
 
-    _this.$obraSidebar.height(heightToMatch).show();
+    _this.$obraSidebar.height(heightToMatch);
+
+    if (!_this.perfectScrollbarInitiated) {
+      _this.$obraSidebar.perfectScrollbar({
+        suppressScrollX: true,
+      });
+      _this.perfectScrollbarInitiated = true;
+    }
   },
 };
 
