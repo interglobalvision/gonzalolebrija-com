@@ -33,22 +33,7 @@ if( have_posts() ) {
       <a href="<?php echo home_url('obra/'); ?>" class="large-arrow only-mobile">&larr;</a>
 
       <ul id="works-submenu" class="filter-menu only-desktop">
-<?php
-$args = array(
-  'post_type' => 'obra',
-  'posts_per_page' => -1,
-  'orderby' => 'title',
-  'order' => 'ASC',
-);
-
-$all_works = get_posts($args);
-foreach($all_works as $work) {
-  $active_class = $work->ID == $post->ID ? 'active' : '';
-?>
-        <li><a href="<?php echo get_permalink($work->ID); ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $work->post_title; ?></a></li>
-<?php
-}
-?>
+        <?php render_work_submenu($post->ID); ?>
       </ul>
 
     </div>
