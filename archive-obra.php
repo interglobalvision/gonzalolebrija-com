@@ -52,7 +52,7 @@ if ($year_param) {
 <!-- desktop -->
 
   <div class="row">
-    <div id="archive-submenu" class="col col-6">
+    <div id="obra-archive-submenu" class="col col-6 only-desktop">
       <ul class="filter-menu">
         <?php render_work_submenu(); ?>
       </ul>
