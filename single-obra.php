@@ -32,7 +32,7 @@ if( have_posts() ) {
 
       <a href="<?php echo home_url('obra/'); ?>" class="large-arrow only-mobile">&larr;</a>
 
-      <ul id="works-submenu" class="filter-menu only-desktop">
+      <ul id="obra-archive-submenu" class="filter-menu only-desktop">
         <?php render_work_submenu($post->ID); ?>
       </ul>
 

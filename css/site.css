@@ -2058,6 +2058,7 @@ img {
 }
 #obra-archive-submenu {
   position: relative;
+  display: none;
 }
 #obra-archive-submenu .ps-scrollbar-y-rail {
   left: -6px;

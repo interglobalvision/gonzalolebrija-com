@@ -72,9 +72,11 @@ Site.ObraSidebar = {
   fixObraSidebar: function() {
     var _this = this;
 
-    _this.$obraSidebar.height('auto');
+    _this.$obraSidebar.height(0);
+
     var heightToMatch = $('#main-content').height();
-    _this.$obraSidebar.height(heightToMatch);
+
+    _this.$obraSidebar.height(heightToMatch).show();
   },
 };
 
