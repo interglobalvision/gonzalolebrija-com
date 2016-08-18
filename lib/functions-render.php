@@ -5,9 +5,9 @@
 
 // Render year filters for work
 
-  // filter function
-function usort_posts_by_title($a, $b) {
-  return strcmp($a->post_title, $b->post_title);
+// filter function
+function usort_posts_by_title($postA, $postB) {
+  return strcmp(strtolower($postA->post_title), strtolower($postB->post_title));
 }
 
 function render_work_submenu($postId = false) {
