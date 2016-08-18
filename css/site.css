@@ -2151,7 +2151,7 @@ img {
 .filter-term.active:after {
   content: '\2190';
   position: absolute;
-  left: 165%;
+  left: 115%;
   font-size: 3em;
   top: 0;
   bottom: 0;
@@ -2527,18 +2527,6 @@ img {
   }
   .filter-list {
     line-height: 1.45em;
-  }
-  .filter-term {
-    position: relative;
-  }
-  .filter-term.active:after {
-    content: '\2190';
-    position: absolute;
-    left: 165%;
-    font-size: 3em;
-    top: 0;
-    bottom: 0;
-    line-height: 0.15;
   }
   .archivo-post {
     margin-bottom: 18px;
@@ -2958,12 +2946,8 @@ img {
     position: relative;
   }
   .filter-term.active:after {
-    content: '\2190';
-    position: absolute;
     left: 110%;
     font-size: 2em;
-    top: 0;
-    bottom: 0;
     line-height: 0.3;
   }
   .archive-noticia-post {
