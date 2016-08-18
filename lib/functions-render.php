@@ -5,6 +5,11 @@
 
 // Render year filters for work
 
+  // filter function
+function usort_posts_by_title($a, $b) {
+  return strcmp($a->post_title, $b->post_title);
+}
+
 function render_work_submenu($postId = false) {
   $args = array(
     'post_type' => 'obra',
@@ -14,6 +19,10 @@ function render_work_submenu($postId = false) {
   );
 
   $all_works = get_posts($args);
+
+  // this sorts the array but the title value inside the post object
+  usort($all_works, 'usort_posts_by_title');
+
   foreach($all_works as $work) {
     $active_class = $work->ID == $postId ? 'active' : '';
   ?>
