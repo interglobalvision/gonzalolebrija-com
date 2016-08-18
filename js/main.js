@@ -51,7 +51,9 @@ Site.ObraSidebar = {
       _this.obraSidebar = true;
       _this.$obraSidebar = $('#obra-archive-submenu');
       if (!Site.isMobile()) {
-        _this.fixObraSidebar();
+        $('#main-content').imagesLoaded(function() {
+          _this.fixObraSidebar();
+        });
       }
     }
   },
