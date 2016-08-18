@@ -2067,6 +2067,9 @@ img {
 #obra-archive-submenu .ps-scrollbar-y-rail {
   left: -6px;
 }
+article {
+  padding-bottom: 48px;
+}
 #single-post-header {
   margin-bottom: 24px;
 }
@@ -2164,7 +2167,6 @@ img {
   margin-bottom: 24px;
 }
 #footer {
-  padding-top: 24px;
   margin-bottom: 48px;
 }
 #footer-content {
@@ -2461,6 +2463,9 @@ img {
     line-height: 1.35em;
     z-index: 99999;
   }
+  article {
+    padding-bottom: 36px;
+  }
   #single-post-header {
     margin-bottom: 18px;
   }
@@ -2535,7 +2540,6 @@ img {
     margin-bottom: 18px;
   }
   #footer {
-    padding-top: 18px;
     margin-bottom: 36px;
   }
   #footer-content {
@@ -2811,6 +2815,9 @@ img {
     font-size: 1.1rem;
     margin-top: 7px;
     line-height: 1.35em;
+  }
+  article {
+    padding-bottom: 0;
   }
   #single-post-header {
     margin-bottom: 14px;
