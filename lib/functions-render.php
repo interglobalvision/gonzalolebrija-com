@@ -5,21 +5,30 @@
 
 // Render year filters for work
 
-function render_work_submenu($year_param = false) {
-  $year_archive = get_all_years(array('obra'), 'DESC');
+// filter function
+function usort_posts_by_title($postA, $postB) {
+  return strcmp(strtolower($postA->post_title), strtolower($postB->post_title));
+}
 
-  if ($year_archive) {
-    foreach ($year_archive as $year) {
-      $active_class = $year == $year_param ? 'active' : '';
-?>
-  <li><a href="?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
-<?php
-    }
-  }
-?>
-  <li>&nbsp;</li>
-  <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
+function render_work_submenu($postId = false) {
+  $args = array(
+    'post_type' => 'obra',
+    'posts_per_page' => -1,
+    'orderby' => 'title',
+    'order' => 'ASC',
+  );
+
+  $all_works = get_posts($args);
+
+  // this sorts the array but the title value inside the post object
+  usort($all_works, 'usort_posts_by_title');
+
+  foreach($all_works as $work) {
+    $active_class = $work->ID == $postId ? 'active' : '';
+  ?>
+          <li><a href="<?php echo get_permalink($work->ID); ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $work->post_title; ?></a></li>
   <?php
+  }
 }
 
 // Render taxonomy filters for expos

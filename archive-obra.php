@@ -9,6 +9,8 @@ if (qtranxf_getLanguage() == 'es') {
 
 \Moment\Moment::setLocale($locale);
 
+//>>> this might have to go for the new random logic but leaving here incase possible next time
+
 $year_param = empty($_GET['a']) ? 'all' : $_GET['a'];
 
 if ($year_param) {
@@ -41,7 +43,7 @@ if ($year_param) {
     <div id="mobile-submenu-main">
       <div class="container">
         <ul class="filter-list mobile-menu">
-          <?php render_work_submenu($year_param); ?>
+          <?php render_work_submenu(); ?>
         </ul>
       </div>
     </div>
@@ -50,25 +52,9 @@ if ($year_param) {
 <!-- desktop -->
 
   <div class="row">
-    <div id="archive-submenu" class="col col-6">
+    <div id="obra-archive-submenu" class="col col-6 only-desktop">
       <ul class="filter-menu">
-        <?php render_work_submenu($year_param); ?>
-<!--
-      <?php
-        $year_archive = get_all_years(array('obra'), 'DESC');
-
-        if ($year_archive) {
-          foreach ($year_archive as $year) {
-            $active_class = $year == $year_param ? 'active' : '';
-      ?>
-        <li><a href="?a=<?php echo $year; ?>" class="filter-term <?php echo $active_class; ?>"><?php echo $year; ?></a></li>
-      <?php
-          }
-        }
-      ?>
-        <li>&nbsp;</li>
-        <li><a href="<?php echo home_url('obra/'); ?>" class="filter-term filter-term-all <?php echo $year_param === 'all' ? 'active' : ''; ?>"><?php echo __('[:es]Todas[:en]All'); ?></a></li>
--->
+        <?php render_work_submenu(); ?>
       </ul>
     </div>
 

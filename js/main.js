@@ -7,6 +7,7 @@ Site = {
   init: function() {
     var _this = this;
 
+    _this.ObraSidebar.init();
     _this.Filters.bind();
     _this.ExhibitionFilters.init();
     _this.Header.init();
@@ -23,6 +24,7 @@ Site = {
   onResize: function() {
     var _this = this;
 
+    _this.ObraSidebar.onResize();
     _this.Mobile.onResize();
 
     if ($('body').hasClass('single-obra')) {
@@ -37,6 +39,45 @@ Site = {
       return true;
     } else {
       return false;
+    }
+  },
+};
+
+Site.ObraSidebar = {
+  init: function() {
+    var _this = this;
+
+    if ($('body').hasClass('single-obra') || $('body').hasClass('post-type-archive-obra')) {
+      _this.obraSidebar = true;
+      _this.$obraSidebar = $('#obra-archive-submenu');
+      if (!Site.isMobile()) {
+        _this.fixObraSidebar();
+      }
+    }
+  },
+
+  onResize: function() {
+    var _this = this;
+
+    if (_this.obraSidebar && !Site.isMobile()) {
+      _this.fixObraSidebar();
+    }
+  },
+
+  fixObraSidebar: function() {
+    var _this = this;
+
+    _this.$obraSidebar.height(0);
+
+    var heightToMatch = $('#main-content').height();
+
+    _this.$obraSidebar.height(heightToMatch);
+
+    if (!_this.perfectScrollbarInitiated) {
+      _this.$obraSidebar.perfectScrollbar({
+        suppressScrollX: true,
+      });
+      _this.perfectScrollbarInitiated = true;
     }
   },
 };
