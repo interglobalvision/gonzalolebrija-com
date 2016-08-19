@@ -51,7 +51,9 @@ Site.ObraSidebar = {
       _this.obraSidebar = true;
       _this.$obraSidebar = $('#obra-archive-submenu');
       if (!Site.isMobile()) {
-        _this.fixObraSidebar();
+        $('#main-content').imagesLoaded(function() {
+          _this.fixObraSidebar();
+        });
       }
     }
   },
@@ -279,11 +281,11 @@ Site.Mobile = {
 
 Site.Gallery = {
   Swiper: undefined,
-  captionHolder: undefined,
+  $captionHolder: undefined,
   init: function() {
     var _this = this;
 
-    _this.captionHolder = $('#swiper-caption-holder');
+    _this.$captionHolder = $('#swiper-caption-holder');
 
     _this.Swiper = new Swiper ('.swiper-container', {
       effect: 'slide',
@@ -308,7 +310,7 @@ Site.Gallery = {
       onSlideChangeEnd: function(swiper) {
         var caption = $('.swiper-slide-active .swiper-caption').html();
 
-        _this.captionHolder.html(caption);
+        _this.$captionHolder.html(caption);
       },
     });
 

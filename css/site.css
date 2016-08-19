@@ -2067,6 +2067,9 @@ img {
 #obra-archive-submenu .ps-scrollbar-y-rail {
   left: -6px;
 }
+article {
+  padding-bottom: 48px;
+}
 #single-post-header {
   margin-bottom: 24px;
 }
@@ -2151,7 +2154,7 @@ img {
 .filter-term.active:after {
   content: '\2190';
   position: absolute;
-  left: 165%;
+  left: 115%;
   font-size: 3em;
   top: 0;
   bottom: 0;
@@ -2164,7 +2167,6 @@ img {
   margin-bottom: 24px;
 }
 #footer {
-  padding-top: 24px;
   margin-bottom: 48px;
 }
 #footer-content {
@@ -2461,6 +2463,9 @@ img {
     line-height: 1.35em;
     z-index: 99999;
   }
+  article {
+    padding-bottom: 36px;
+  }
   #single-post-header {
     margin-bottom: 18px;
   }
@@ -2528,18 +2533,6 @@ img {
   .filter-list {
     line-height: 1.45em;
   }
-  .filter-term {
-    position: relative;
-  }
-  .filter-term.active:after {
-    content: '\2190';
-    position: absolute;
-    left: 165%;
-    font-size: 3em;
-    top: 0;
-    bottom: 0;
-    line-height: 0.15;
-  }
   .archivo-post {
     margin-bottom: 18px;
   }
@@ -2547,7 +2540,6 @@ img {
     margin-bottom: 18px;
   }
   #footer {
-    padding-top: 18px;
     margin-bottom: 36px;
   }
   #footer-content {
@@ -2824,6 +2816,9 @@ img {
     margin-top: 7px;
     line-height: 1.35em;
   }
+  article {
+    padding-bottom: 0;
+  }
   #single-post-header {
     margin-bottom: 14px;
   }
@@ -2958,12 +2953,8 @@ img {
     position: relative;
   }
   .filter-term.active:after {
-    content: '\2190';
-    position: absolute;
     left: 110%;
     font-size: 2em;
-    top: 0;
-    bottom: 0;
     line-height: 0.3;
   }
   .archive-noticia-post {
