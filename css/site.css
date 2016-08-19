@@ -2068,7 +2068,7 @@ img {
   left: -6px;
 }
 article {
-  padding-bottom: 48px;
+  padding-bottom: 24px;
 }
 #single-post-header {
   margin-bottom: 24px;
@@ -2464,7 +2464,7 @@ article {
     z-index: 99999;
   }
   article {
-    padding-bottom: 36px;
+    padding-bottom: 18px;
   }
   #single-post-header {
     margin-bottom: 18px;
