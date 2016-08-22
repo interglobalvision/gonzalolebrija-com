@@ -2975,6 +2975,9 @@ article {
   .archivo-post {
     margin-bottom: 14px;
   }
+  .archivo-post .post-title {
+    font-size: 1.45rem;
+  }
   .search-result {
     margin-bottom: 14px;
   }
