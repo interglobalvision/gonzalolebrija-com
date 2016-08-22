@@ -2157,8 +2157,7 @@ article {
   position: absolute;
   left: 115%;
   font-size: 3em;
-  top: 0;
-  bottom: 0;
+  bottom: 0.5rem;
   line-height: 0.15;
 }
 .archivo-post {
