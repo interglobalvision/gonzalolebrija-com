@@ -2040,13 +2040,14 @@ img {
 .home-news-post-date {
   margin-bottom: 24px;
 }
-.hover-grid-item {
+article.hover-grid-item {
   height: 420px;
   margin-bottom: 24px;
+  padding-bottom: 0;
   position: relative;
   text-align: center;
 }
-.hover-grid-item a {
+article.hover-grid-item a {
   max-width: 100%;
 }
 .hover-grid-item-small {
@@ -2447,7 +2448,7 @@ article {
   .home-news-post-date {
     margin-bottom: 18px;
   }
-  .hover-grid-item {
+  article.hover-grid-item {
     height: 420px;
     margin-bottom: 18px;
     position: relative;
@@ -2796,13 +2797,13 @@ article {
   .mobile-home-post-copy {
     margin-top: 14px;
   }
-  .hover-grid-item {
+  article.hover-grid-item {
     width: 80%;
     height: initial;
     margin: 0 auto 28px auto;
     text-align: center;
   }
-  .hover-grid-item a {
+  article.hover-grid-item a {
     display: block;
   }
   .hover-grid-item-small {
