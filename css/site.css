@@ -2782,6 +2782,9 @@ article {
     margin-bottom: 28px;
     margin-top: 7px;
   }
+  .mobile-home-section.border-bottom:last-of-type {
+    border: 0 !important;
+  }
   .mobile-home-news-post-title {
     font-size: 1.1rem;
     margin-bottom: 14px;
