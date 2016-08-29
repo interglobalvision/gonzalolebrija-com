@@ -2,6 +2,30 @@
 
   // CUSTOM FUNCTIONS
 
+// Custom img attributes to be compatible with lazysize
+function add_lazysize_on_srcset($attr) {
+
+  // Add lazysize class
+  $attr['class'] .= ' lazyload';
+
+  if (isset($attr['srcset'])) {
+    // Add lazysize data-srcset
+    $attr['data-srcset'] = $attr['srcset'];
+    // Remove default srcset
+    unset($attr['srcset']);
+  } else {
+    // Add lazysize data-src
+    $attr['data-src'] = $attr['src'];
+  }
+
+  // Set default to white blank
+  $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
+  return $attr;
+
+}
+add_filter('wp_get_attachment_image_attributes', 'add_lazysize_on_srcset');
+
 // Obra archive query
 
 add_action('pre_get_posts', 'alter_query');
