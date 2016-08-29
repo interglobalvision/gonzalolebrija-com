@@ -90,11 +90,10 @@ if( have_posts() ) {
     <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
 <?php
 } ?>
-
+      <nav id="works-lazy-loader" class="u-align-center u-pointer">Load More</nav>
     <!-- end posts -->
     </section>
 
-    <nav id="works-lazy-loader" class="u-align-center u-pointer">Load More</nav>
 
   </div>
 

@@ -8,6 +8,7 @@ Site = {
     var _this = this;
 
     _this.ObraSidebar.init();
+    _this.ObraInfinite.init();
     _this.Filters.bind();
     _this.ExhibitionFilters.init();
     _this.Header.init();
@@ -82,6 +83,37 @@ Site.ObraSidebar = {
       _this.perfectScrollbarInitiated = true;
     }
   },
+};
+
+Site.ObraInfinite = {
+  postsPerPage: 9,
+
+  init: function() {
+    var _this = this;
+
+    if ($('body').hasClass('post-type-archive-obra')) {
+      _this.$trigger = $('#works-lazy-loader');
+      _this.bind();
+    }
+  },
+
+  bind: function() {
+    var _this = this;
+
+    _this.$trigger.click(function() {
+      _this.loadMore();
+    });
+  },
+
+  loadMore: function() {
+    var _this = this;
+
+    $('.pseudo-lazy-work').slice(0, _this.postsPerPage).removeClass('pseudo-lazy-work');
+
+    if ($('.pseudo-lazy-work').length === 0) {
+      _this.$trigger.remove();
+    }
+  }
 };
 
 Site.Filters = {
