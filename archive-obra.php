@@ -9,14 +9,14 @@ if (qtranxf_getLanguage() == 'es') {
 
 \Moment\Moment::setLocale($locale);
 
-//>>> this might have to go for the new random logic but leaving here incase possible next time
-
-$year_param = empty($_GET['a']) ? 'all' : $_GET['a'];
+// get possible year (a) param
+$year_param = empty($_GET['a']) ? null : $_GET['a'];
 
 if ($year_param) {
-  global $query_string;
-  query_posts($query_string . '&year=' . $year_param);
+  query_posts($query_string . '&year=' . $year_param . '&posts_per_page=-1&orderby=rand');
 }
+
+$posts_per_pseudo_page = 9;
 
 ?>
 
@@ -63,29 +63,37 @@ if ($year_param) {
 
 <?php
 if( have_posts() ) {
+
+  $i = 0;
+
   while( have_posts() ) {
     the_post();
 ?>
 
-      <article <?php post_class('col col-6 hover-grid-item u-flex-center'); ?> id="post-<?php the_ID(); ?>">
+      <article <?php
+        if ($i < $posts_per_pseudo_page) {
+          post_class('col col-6 hover-grid-item u-flex-center');
+        } else {
+          post_class('col col-6 hover-grid-item pseudo-lazy-work u-flex-center');
+        }
+      ?> id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail('hover-grid-thumb'); ?>
           <div class="hover-grid-title font-serif font-italic"><?php the_title(); ?></div>
         </a>
       </article>
-
 <?php
+    $i++;
   }
 } else {
 ?>
     <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
 <?php
 } ?>
-
-    <?php get_template_part('partials/pagination'); ?>
-
+      <nav id="works-lazy-loader" class="u-align-center u-pointer"><?php echo __('[:es]Más Obras[:en]Load More'); ?></nav>
     <!-- end posts -->
     </section>
+
 
   </div>
 
