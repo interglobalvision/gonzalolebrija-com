@@ -113,6 +113,8 @@ Site.ObraInfinite = {
     if ($('.pseudo-lazy-work').length === 0) {
       _this.$trigger.remove();
     }
+
+    Site.ObraSidebar.onResize();
   }
 };
 
