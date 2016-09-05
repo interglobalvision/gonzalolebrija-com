@@ -115,7 +115,7 @@ Site.ObraInfinite = {
     }
 
     Site.ObraSidebar.onResize();
-  }
+  },
 };
 
 Site.Filters = {
