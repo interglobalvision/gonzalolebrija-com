@@ -6,6 +6,10 @@ get_header();
 
 <main id="main-content" class="container">
 
+  <div id="mobile-page-submenu" class="only-mobile">
+    <?php render_page_submenu($post); ?>
+  </div>
+
   <div class="row">
 
     <div class="col col-6 only-desktop">
@@ -40,10 +44,6 @@ if( have_posts() ) {
 
     <!-- end page -->
     </section>
-
-    <div id="mobile-page-submenu" class="only-mobile">
-      <?php render_page_submenu($post); ?>
-    </div>
 
 <?php
   }

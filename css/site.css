@@ -2830,7 +2830,9 @@ article {
     margin-top: 7px;
     line-height: 1.35em;
   }
-  #page {
+  .page #mobile-page-submenu {
+    display: block;
+    margin-top: 0;
     margin-bottom: 28px;
   }
   article {
