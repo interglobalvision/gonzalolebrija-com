@@ -187,6 +187,30 @@ function igv_cmb_metaboxes() {
     'type'       => 'wysiwyg',
   ) );
 
+  // contact page
+
+  $contact_id = get_id_by_slug('info/contacto');
+
+  $contact_meta = new_cmb2_box( array(
+    'id'            => $prefix . '$contact_metabox',
+    'title'         => __( 'Contact', 'cmb2' ),
+    'object_types'  => array( 'page', ), // Post type
+    'show_on'      => array( 'key' => 'id', 'value' => $contact_id ),
+  ) );
+
+  $contact_meta->add_field( array(
+    'name'       => __( '2nd column', 'cmb2' ),
+    'desc'       => __( '...', 'cmb2' ),
+    'id'         => $prefix . 'second_column',
+    'type'       => 'wysiwyg',
+  ) );
+
+  $contact_meta->add_field( array(
+    'name'       => __( '3rd column', 'cmb2' ),
+    'desc'       => __( '...', 'cmb2' ),
+    'id'         => $prefix . 'third_column',
+    'type'       => 'wysiwyg',
+  ) );
 
 }
 ?>
