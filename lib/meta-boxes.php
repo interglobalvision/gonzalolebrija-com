@@ -199,14 +199,14 @@ function igv_cmb_metaboxes() {
   ) );
 
   $contact_meta->add_field( array(
-    'name'       => __( '2da', 'cmb2' ),
+    'name'       => __( '2nd column', 'cmb2' ),
     'desc'       => __( '...', 'cmb2' ),
     'id'         => $prefix . 'second_column',
     'type'       => 'wysiwyg',
   ) );
 
   $contact_meta->add_field( array(
-    'name'       => __( '3da', 'cmb2' ),
+    'name'       => __( '3rd column', 'cmb2' ),
     'desc'       => __( '...', 'cmb2' ),
     'id'         => $prefix . 'third_column',
     'type'       => 'wysiwyg',
