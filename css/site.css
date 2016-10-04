@@ -2614,7 +2614,7 @@ article {
     margin-bottom: 1rem;
   }
   .copy {
-    max-width: 538px;
+    max-width: 100%;
     margin: 0 auto;
   }
   .larger-copy {
@@ -2829,6 +2829,9 @@ article {
     font-size: 1.1rem;
     margin-top: 7px;
     line-height: 1.35em;
+  }
+  #page {
+    margin-bottom: 28px;
   }
   article {
     padding-bottom: 0;
