@@ -6,13 +6,19 @@
   <title><?php wp_title('|',true,'right'); bloginfo('name'); ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon/manifest.json">
+  <link rel="mask-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon.ico">
+  <meta name="msapplication-config" content="<?php bloginfo('stylesheet_directory'); ?>/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
   <?php get_template_part('partials/seo'); ?>
 
   <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
-  <link rel="icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon.png">
-  <link rel="shortcut" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon.ico">
-  <link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon-touch.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/img/dist/favicon.png">
+
 
 
   <script src="<?php bloginfo('stylesheet_directory'); ?>/js/vendor/modernizr.js"></script>
