@@ -18,28 +18,37 @@
 
   <?php get_template_part('partials/scripts'); ?>
 
+  <?php
+    $facebook = IGV_get_option('_igv_socialmedia_facebook_url');
+    $twitter = IGV_get_option('_igv_socialmedia_twitter');
+    $instagram = IGV_get_option('_igv_socialmedia_instagram');
+
+    $logo = IGV_get_option('_igv_metadata_logo');
+  ?>
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "url": "http://www.example.com",
-      "logo": "http://www.example.com/images/logo.png",
-      "contactPoint" : [
-        { "@type" : "ContactPoint",
-          "telephone" : "+1-877-746-0909",
-          "contactType" : "customer service",
-          "contactOption" : "TollFree",
-          "areaServed" : "US"
-        } , {
-          "@type" : "ContactPoint",
-          "telephone" : "+1-505-998-3793",
-          "contactType" : "customer service"
-        } ],
+      "url": "<?php echo site_url(); ?>",
+      <?php
+        if ($logo) {
+          echo '"logo": "' . $logo . '",';
+        }
+      ?>
       "sameAs" : [
-        "http://www.facebook.com/your-profile",
-        "http://instagram.com/yourProfile",
-        "http://www.linkedin.com/in/yourprofile",
-        "http://plus.google.com/your_profile"
+        <?php
+          if (!empty($facebook)) {
+            echo '"' . $facebook . '",';
+          }
+
+          if (!empty($twitter)) {
+            echo '"https://twitter.com/' . $twitter . '",';
+          }
+
+          if (!empty($instagram)) {
+            echo '"https://instagram.com/' . $instagram . '",';
+          }
+        ?>
         ]
     }
   </script>

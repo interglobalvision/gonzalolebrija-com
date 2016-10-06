@@ -101,7 +101,89 @@ class IGV_Admin {
 			),
 		) );
 
+
+    $cmb->add_field(array(
+      'name' => __( 'Social Media', 'cmb2' ),
+      'desc' => __( 'urls and accounts for different social media platforms. For use in menus and metadata', 'cmb2' ),
+      'id'   => $this->prefix . 'socialmedia_title',
+      'type' => 'title',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Facebook Page URL', 'IGV' ),
+      'desc' => __( '', 'IGV' ),
+      'id'   => $this->prefix . 'socialmedia_facebook_url',
+      'type' => 'text',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Twitter Account Handle', 'IGV' ),
+      'desc' => __( '', 'IGV' ),
+      'id'   => $this->prefix . 'socialmedia_twitter',
+      'type' => 'text',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Instagram Account Handle', 'IGV' ),
+      'desc' => __( '', 'IGV' ),
+      'id'   => $this->prefix . 'socialmedia_instagram',
+      'type' => 'text',
+    ) );
+
+    // METADATA OPTIONS
+
+    $cmb->add_field(array(
+      'name' => __( 'Metadata options', 'cmb2' ),
+      'desc' => __( 'Settings relating to open graph, facebook and twitter sharing, and other social media metadata', 'cmb2' ),
+      'id'   => $this->prefix . 'og_title',
+      'type' => 'title',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Open Graph default image', 'IGV' ),
+      'desc' => __( 'primarily displayed on Facebook, but other locations as well', 'IGV' ),
+      'id'   => $this->prefix . 'og_image',
+      'type' => 'file',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Logo for SEO results', 'IGV' ),
+      'desc' => __( '(options) ', 'IGV' ),
+      'id'   => $this->prefix . 'metadata_logo',
+      'type' => 'file',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Facebook App ID', 'IGV' ),
+      'desc' => __( '(optional)', 'IGV' ),
+      'id'   => $this->prefix . 'og_fb_app_id',
+      'type' => 'text',
+    ) );
+
+    // ANALYTICS
+
+    $cmb->add_field(array(
+      'name' => __( 'Analytics', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $this->prefix . 'analytics_title',
+      'type' => 'title',
+    ) );
+
+    $cmb->add_field(array(
+      'name' => __( 'Google Analytics Tracking ID', 'IGV' ),
+      'desc' => __( '(optional)', 'IGV' ),
+      'id'   => $this->prefix . 'google_analytics_id',
+      'type' => 'text',
+    ) );
+
 		// Set our CMB2 fields
+
+    $cmb->add_field(array(
+      'name' => __( 'Info Page', 'cmb2' ),
+      'desc' => __( '', 'cmb2' ),
+      'id'   => $this->prefix . 'info_title',
+      'type' => 'title',
+    ) );
 
 		$cmb->add_field( array(
 			'name' => __( 'CV PDF', 'IGV' ),
