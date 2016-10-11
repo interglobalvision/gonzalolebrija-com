@@ -2013,11 +2013,11 @@ img {
   line-height: 1;
   margin: 0;
 }
-.no-touch .home img {
+.home img {
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
 }
-.no-touch .home img:hover {
+.home img:hover {
   -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
 }
@@ -2783,6 +2783,10 @@ article {
     font-size: 7rem;
     line-height: 1;
     margin: 0;
+  }
+  .home img {
+    -webkit-filter: none;
+            filter: none;
   }
   #mobile-home {
     display: block;
