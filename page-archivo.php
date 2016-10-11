@@ -99,7 +99,31 @@ foreach($years as $year) {
 <?php
 foreach($filter_terms as $filter_term) {
 ?>
-        <li><a href="#" class="filter-term" data-filter="<?php echo $filter_term['slug']; ?>"><?php echo $filter_term['name']; ?></a></li>
+        <li><a href="#" class="filter-term" data-filter="<?php echo $filter_term['slug']; ?>"><?php
+          if (qtranxf_getLanguage() == 'es') {
+            switch ($filter_term['name']) {
+              case 'Entradas':
+                echo 'Noticias';
+                break;
+              default:
+                echo $filter_term['name'];
+            }
+          } else {
+            switch ($filter_term['name']) {
+              case 'Posts':
+                echo 'News';
+                break;
+              case 'Obras':
+                echo 'Works';
+                break;
+              case 'Publicaciones':
+                echo 'Publications';
+                break;
+              default:
+                echo $filter_term['name'];
+            }
+          }
+        ?></a></li>
 <?php
 }
 ?>
