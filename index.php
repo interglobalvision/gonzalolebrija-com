@@ -51,24 +51,6 @@ $monthNumber = get_query_var('monthnum');
       <ul id="month-filter" class="filter-list">
         <?php
           render_months_submenu($date_format, $monthNumber);
-
-/*
-          $months = get_all_months(array('post'), 'DESC');
-
-          foreach($months as $month) {
-
-            $monthMoment = new \Moment\Moment($month->month . '/1/' . $month->year);
-            $link = get_month_link($monthMoment->format('Y'), $monthMoment->format('n'));
-
-            echo '<li>';
-            if ($monthNumber == $monthMoment->format('n')) {
-              echo '<a class="filter-term font-capitalize active" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
-            } else {
-              echo '<a class="filter-term font-capitalize" href="' . $link . '">' . $monthMoment->format($date_format) . '</a>';
-            }
-            echo '</li>';
-          }
-*/
         ?>
 
         <li>&nbsp;</li>
