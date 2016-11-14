@@ -35,7 +35,6 @@ add_filter('wp_get_attachment_image_attributes', 'add_lazysize_on_srcset');
 add_action('pre_get_posts', 'alter_query');
 function alter_query($query) {
   if ($query->is_main_query() && $query->is_post_type_archive('obra')) {
-    $query->set('orderby', 'rand');
     $query->set('posts_per_page', -1);
   }
 }
