@@ -61,7 +61,7 @@ if ( function_exists( 'add_image_size' ) ) {
 
 // INCLUDE MOMENT-PHP
 
-add_action( 'init', 'init_moment_php', 9999 );
+add_action( 'init', 'init_moment_php', 11 );
 function init_moment_php() {
   if ( ! class_exists( 'Moment' ) )
     require_once 'lib/moment-php/src/Moment.php';
@@ -75,7 +75,7 @@ function init_moment_php() {
 
 // INCLUDE CMB2
 
-add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
+add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 11 );
 function cmb_initialize_cmb_meta_boxes() {
   if ( ! class_exists( 'cmb2_bootstrap_202' ) )
     require_once 'lib/CMB2/init.php';
